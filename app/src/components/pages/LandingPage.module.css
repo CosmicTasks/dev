@@ -1,0 +1,458 @@
+.cardsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 90px 5%;
+  background-color: var(--r7);
+  .card {
+    min-width: calc(50px + 20vw);
+    flex-grow: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    gap: 1rem;
+    border-radius: 8px;
+    background-color: var(--r1);
+    color: var(--r12);
+  }
+  
+  .card .icon {
+    color: var(--r3);
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--r3);
+    border-radius: 50%;
+  }
+  
+  .card h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  
+  .card p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    min-width: 100%;
+    width: min-content;
+  }
+  
+}
+
+.chamada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 5% 180px;
+  gap: 48px;
+  h1 {
+    color: var(--r12);
+    text-align: center;
+    text-wrap: wrap;
+    font-family: Raleway;
+    font-size: calc(40px + 1.2vw);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 80px; /* 125% */
+    letter-spacing: 1.92px;
+  }
+
+  button {
+    background-color: var(--r7);
+    color: var(--r1);
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--a4);
+      color: var(--a12);
+    }
+  }
+}
+
+.hero {
+  margin-top: calc(10px + 5vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+
+  .mainTitle {
+    font-size: calc(40px + 1.2vw);
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.2;
+    max-width: 825px;
+    text-align: center;
+    color: var(--r12);
+  }
+  
+  .subTitle {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.5;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--r12);
+  }
+  
+  .button {
+    margin-top: 3rem;
+    margin-bottom: 90px;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.42px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--r7);
+    color: var(--r1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: var(--a4);
+      color: var(--a12);
+    }
+  }
+  
+  img {
+    border-radius: 8px;
+  }
+}
+
+.planosSection {
+  display: flex;
+  flex-direction: column;
+  padding: 90px 5%;
+  gap: 64px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+  }
+  
+  .headerTitle {
+    h2{
+      color: var(--r12);
+    }
+    p {
+      color: var(--r12);
+      font-family: Lato;
+      font-size: 16px;
+      font-weight: 400;
+      width: fit-content;
+    }
+  }
+  
+  .headerTabs {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.5rem;
+  }
+  
+  .radioLabel {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--r12);
+    border-radius: 8px;
+    color: var(--r12);
+  }
+  
+  .radioLabel:hover {
+    background-color: var(--r12);
+    color: var(--r1);
+  }
+  
+  .radioInput {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .radioInput:checked + .radioLabel {
+    background-color: var(--r12);
+    border-color: var(--c1);
+    color: var(--c1);
+  }
+  
+  .radioInput:focus + .radioLabel {
+    outline: 2px solid var(--r12);
+  }
+  
+  .radioInnerCircle {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--r12);
+    border-radius: 50%;
+    margin-right: 0.5em;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  
+  .radioLabel:hover .radioInnerCircle {
+    border-color: rgb(233, 233, 233);
+  }
+  
+  .radioInput:checked + .radioLabel .radioInnerCircle {
+    border-color: var(--r1);
+  }
+  
+  .radioInput:checked + .radioLabel .radioInnerCircle::after {
+    content: "";
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    background-color: var(--r1);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .planosCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 32px;
+  }
+  
+  .planoCard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 48px;
+    gap: 32px;
+  
+    &:first-child {
+      border: 1px solid var(--r12);
+      border-radius: 8px;
+      color: var(--r12);
+  
+      .badge {
+        background-color: transparent;
+        color: var(--r12);
+        border: 1px solid var(--r12);
+      }
+  
+      .btn {
+        background-color: transparent;
+        border: 1px solid var(--r12);
+        color: var(--r12);
+      }
+      .btn:hover {
+        background-color: var(--r12);
+        color: var(--r1);
+      }
+    }
+  
+    &:last-child {
+      border-radius: 8px;
+      background-color: var(--r10);
+      color: var(--r1);
+  
+      .badge {
+        background-color: transparent;
+        color: var(--r1);
+        border: 1px solid var(--r1);
+      }
+  
+      .btn {
+        background-color: transparent;
+        color: var(--r1);
+        border: 1px solid var(--r1);
+      }
+      .btn:hover {
+        background-color: var(--r1);
+        color: var(--r10);
+      }
+    }
+  }
+  
+  .badge {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 16px 32px;
+    font-family: Raleway;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .preco {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  
+    h1 {
+      font-family: Raleway;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 80px;
+      letter-spacing: 1.92px;
+      font-variant-numeric: lining-nums proportional-nums;
+    }
+  }
+  
+  .features {
+    list-style: circle;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+
+.beneficios {
+  padding: 0 5%;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    color: var(--r12);
+    font-family: 'Raleway', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+  }
+  
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px;
+  }
+  
+  .tab {
+    display: flex;
+    border: 1px solid var(--r7);
+    border-radius: 9px;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    border-bottom: transparent;
+  
+    button {
+      padding: 0.5em 1em;
+      background: none;
+      font-family: 'Lato', sans-serif;
+      border-radius: 8px;
+      color: var(--r7);
+      border-radius: 0;
+  
+      &:hover {
+        background-color: var(--r1);
+      }
+    }
+  
+    button:first-child {
+      border-right: 1px solid var(--r7);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-end-start-radius: 0;
+    }
+    button:last-child {
+      border-left: 1px solid var(--r7);
+      border-top-right-radius: 8px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-end-end-radius: 0;
+    }
+  
+    button.active {
+      background-color: var(--r7);
+      color: var(--r1);
+    }
+  }
+  
+  .tabContent {
+    display: flex;
+    padding: 80px 0px 80px 80px;
+    border: 1px solid var(--r7);
+    border-radius: 8px;
+    background: transparent;
+    width: calc(100% - 80px); /* Subtraindo o valor do padding direito */
+    max-width: 1180px; /* Largura máxima para telas maiores */
+    margin: 0 auto; /* Centralizando o elemento na tela */
+    margin-top: -1px;
+  }
+  
+  .tabTitle {
+    font-family: 'Raleway', sans-serif;
+  font-size: calc(10px + 4vw);
+  font-weight: 100;
+  line-height: 1.2;
+  letter-spacing: 1.2px;
+  color: var(--r7);
+  max-width: 350px;
+  margin-bottom: calc(25px - 3vw);
+  
+    b {
+      font-weight: 500;
+    }
+  }
+  
+  .textWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .tabText {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    color: var(--r7);
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-device-width: 600px) {
+  .planosCards {flex-wrap: wrap;}
+}
+
+  @media only screen and (max-device-width: 830px) {
+      .tabContent {
+          flex-direction: column;
+          align-items: center;
+          padding: 40px 0px 40px 40px !important;
+      }
+  }
