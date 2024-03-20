@@ -52,13 +52,3 @@ li {
     display: inline;
     margin-left: 6px;
 }
-
-.bordaclicavel {
-  
-    
-    transition: border 0.3s ease;
-}
-
-.bordaativa {
-    border: 5px solid green;
-}
