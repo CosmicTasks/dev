@@ -1,0 +1,107 @@
+.caixatitulotema {
+   
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+   
+}
+
+.caixa {
+    width: 550px;
+    background-color:#F3EDFA ;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    border-left: 1px solid #C6C2CC;
+    border-right: 1px solid #C6C2CC;
+    margin-left: 20px;
+    display: block;
+}
+
+.titulo {
+    font-family: "Raleway", sans-serif;
+    font-size:14px ;
+    font-weight: 500;
+    color: #141314;
+}
+
+.containercaixas {
+    justify-content: center;
+    margin-top: 20px;
+    width: 550px;
+    height: 80px;
+    
+    
+    
+}
+
+.containernumeros{
+   display: flex;
+   justify-content: center;
+}
+
+.numero1 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.numero2 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.numero3 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.numero4 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.numero5 {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+
+
+
+
+.containericones {
+    justify-content: center;
+    display: flex;
+
+}
+.icone {
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.containercont {
+    
+    margin-left: 30px;
+    
+  
+}
+
+.containernum {
+    
+ color: white;
+ text-align: center;
+}
+
+.containerbox {
+   
+}
+
+.containerprin {
+   
+    display: flex;
+    justify-content: center;
+    
+}

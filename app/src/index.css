@@ -39,7 +39,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--c1);
+  background-color: white;
 }
 
 h1 {
