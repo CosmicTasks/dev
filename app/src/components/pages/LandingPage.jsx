@@ -3,6 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import style from "./LandingPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 
 const LandingPage = () => {
   return (
@@ -29,6 +31,7 @@ const LandingPage = () => {
         <h2 className={style.title}>Conheça os beneficios</h2>
         <div className={style.tabs}>
           <div className={style.tab}>
+            
             <button className={style.active}>Foco</button>
             <button>Organização</button>
             <button>Produtividade</button>
