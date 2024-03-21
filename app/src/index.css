@@ -42,7 +42,6 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--c1);
 }
 
 h1 {
@@ -63,7 +62,6 @@ button {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: var(--c1);
   }
   a:hover {
     color: #747bff;

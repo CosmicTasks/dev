@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import astronauta from "../assets/astronauta.svg";
 
 const LoginPage = () => {
-
   return (
     <>
       {/* Main container */}
@@ -23,7 +22,7 @@ const LoginPage = () => {
               className={`img-fluid w-75 d-block`}
             />
           </div>
-          <div className={`col-md-6 p-5 rounded-0 ${style.loginSection}`}>
+          <div className={`col-md-6 p-5 rounded-0 ${style.section}`}>
             <div className={style.header}>
               <h2 className={style.title}>Entrar</h2>
               <h1 className={style.frase}>Bem-vindo de volta!</h1>

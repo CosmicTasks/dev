@@ -12,7 +12,7 @@
   border-radius: 24px;
 }
 
-section {
+.section {
   display: flex;
   width: 50%;
   flex-direction: column;
