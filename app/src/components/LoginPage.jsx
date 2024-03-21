@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./LoginPage.module.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import astronauta from "../assets/astronauta.svg";
 
 const LoginPage = () => {
