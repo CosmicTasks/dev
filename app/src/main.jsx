@@ -20,6 +20,7 @@ library.add(
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
+import LoginPage from "./components/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/app",
     element: <App />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
 
