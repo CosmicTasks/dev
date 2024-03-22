@@ -36,8 +36,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <LoginPage acao={'login'} />,
   },
+  {
+    path: "/cadastro",
+    element: <LoginPage acao={'cadastro'} />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
