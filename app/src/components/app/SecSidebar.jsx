@@ -7,43 +7,78 @@ import {
   UilCalendarAlt,
   UilPuzzlePiece,
   UilAngleDown,
+  UilTagAlt,
+  UilCheckCircle,
+  UilExclamationCircle,
+  UilTrashAlt,
 } from "@iconscout/react-unicons";
+import { Emoji, EmojiStyle } from "emoji-picker-react";
 
 const SecSidebar = () => {
   return (
     <div className={style.secSidebar}>
       <div className={style.mainItems}>
-        <button className={style.item}>
+        <button type="button" className={style.item}>
           <UilPlus size="18" color="var(--r9)" />
           <span>Adicionar tarefa</span>
         </button>
-        <button className={style.item}>
+        <button type="button" className={style.item}>
           <UilSun size="18" color="var(--c10)" />
           <span>Hoje</span>
         </button>
-        <button className={style.item}>
+        <button type="button" className={style.item}>
           <UilInbox size="18" color="var(--c10)" />
           <span>Entrada</span>
         </button>
-        <button className={style.item}>
+        <button type="button" className={style.item}>
           <UilCalendarAlt size="18" color="var(--c10)" />
           <span>Calendário</span>
         </button>
-        <button className={style.item}>
+        <button type="button" className={style.item}>
           <UilPuzzlePiece size="18" color="var(--c10)" />
           <span>Hábitos</span>
         </button>
       </div>
       <hr className={style.divider} />
-      <div className={style.userItems}>
-        <ul className={style.listas}>
-          <span>
-            <div>
-              <UilAngleDown size="12" /> Listas
-            </div>
-            <UilPlus size="12" />
-          </span>
-        </ul>
+      <div className={style.listas}>
+        <div className={style.headerItems}>
+          <div className={style.accordion}>
+            <UilAngleDown size="12" /> Listas
+          </div>
+          <UilPlus size="12" className={style.add} />
+        </div>
+        <button type="button" className={style.item}>
+          <Emoji unified="1f1eb-1f1f7" size="18" />
+          <span>Francês</span>
+        </button>
+      </div>
+
+      <div className={style.categorias}>
+        <div className={style.headerItems}>
+          <div className={style.accordion}>
+            <UilAngleDown size="12" /> Categorias
+          </div>
+          <UilPlus size="12" className={style.add} />
+        </div>
+        <button type="button" className={style.item}>
+          <UilTagAlt size="18" color="var(--vermelho)" />
+          <span>Provas</span>
+        </button>
+      </div>
+      <hr className={style.divider} />
+      <div className={style.secItems}>
+      <button type="button" className={style.item}>
+          <UilCheckCircle size="18" color="var(--c10)" />
+          <span>Concluídas</span>
+        </button>
+        <button type="button" className={style.item}>
+          <UilExclamationCircle size="18" color="var(--c10)" />
+          <span>Atrasadas</span>
+        </button>
+        <button type="button" className={style.item}>
+          <UilTrashAlt size="18" color="var(--c10)" />
+          <span>Excluídas</span>
+        </button>
       </div>
     </div>
   );
