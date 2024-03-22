@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./components/App.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCalendarCheck,
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage acao={'login'} />,
+    element: <LoginPage acao={"login"} />,
   },
   {
     path: "/cadastro",
-    element: <LoginPage acao={'cadastro'} />,
-  }
+    element: <LoginPage acao={"cadastro"} />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
