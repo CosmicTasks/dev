@@ -9,7 +9,8 @@
   gap: 12px;
 }
 
-.mainItems, .secItems {
+.mainItems,
+.secItems {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -23,14 +24,28 @@
   border-radius: 8px;
   background-color: transparent;
   width: 100%;
+  position: relative;
 
-  span {
+  .listName {
     color: var(--c11);
     font-family: Raleway;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+  }
+
+  .badge {
+    color: var(--c7);
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    right: 8px;
+    top: auto;
+    bottom: auto;
   }
 }
 
@@ -47,7 +62,8 @@
   opacity: 0.8;
 }
 
-.listas, .categorias {
+.listas,
+.categorias {
   display: flex;
   flex-direction: column;
   gap: 8px;
