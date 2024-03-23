@@ -5,7 +5,7 @@ import './App.css'
 import GerenciaCaixa from './components/GerenciaCaixa'
 
 
-function App() {
+function Caixas() {
 
   return (
     <>
@@ -15,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default Caixas

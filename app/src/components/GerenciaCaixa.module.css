@@ -64,7 +64,7 @@ color: #000000;
     
 }
 
-.containerdetcaixas {
+.containerdetcards {
    
  
     margin-left: auto;
@@ -74,7 +74,7 @@ color: #000000;
 
 }
 
-.detcartoes {
+.detcards {
   
     width: 180px;
     height: 50px;
@@ -86,7 +86,7 @@ color: #000000;
   
 }
 
-.textcartoes {
+.textcards {
     text-align: center;
     color: #000000;
    margin-top: 10px;
@@ -117,7 +117,7 @@ color: #000000;
 
   }
 
-  .numcartoes {
+  .numcards {
     display: inline-block;
     margin-left: 5px;
     font-size: 20px;
@@ -169,5 +169,105 @@ color: #000000;
             color: #F2E5FF;
             font-family: 'Raleway',sans-serif;
             font-weight: 500px;
+        }
+
+        .containercalendcards {
+            width: 518px;
+           height: auto;
+            background-color: #F2E5FF;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+           
+        }
+
+        .calendcards {
+            background-color: #07001B;
+            width: 180px;
+            height: 35px;
+            border-radius: 8px;
+            align-items: center;
+            display: flex;
+           
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .conthoje {
+            width: 40px;
+            height: 25px;
+            background-color: #F2E5FF;
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+         
+        }
+
+        
+
+        .contatuais {
+            width: 40px;
+            height: 25px;
+            
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+        }
+
+        .contconcluidas {
+            width: 60px;
+            height: 25px;
+        
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+        }
+
+        .letracalend {
+            font-family: 'Lato',sans-serif;
+            font-weight: 500;
+            color: #07001B;
+            font-size: 12px;
+          margin-left: auto;
+          margin-right: auto;
+           
+        }
+
+        .letracalendalt {
+            font-family: 'Lato',sans-serif;
+            font-weight: 500;
+            color: #F2E5FF;
+            font-size: 12px;
+          margin-left: auto;
+          margin-right: auto;
+           
+        }
+
+        .conttemacard {
+            width: 502px;
+            height: 46px;
+            border: 1px solid #07001B;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+          
+            align-items: center;
+            display: flex;
+        
+        }
+
+        .letratemacard {
+          font-weight: 400;
+          font-family: 'Raleway',sans-serif;
+          margin-left: 10px;
+          margin-top: auto;
+          margin-bottom: auto;
+          color: #07001B;
+          font-size: 14px;
         }
 

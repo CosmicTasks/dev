@@ -63,7 +63,26 @@ function GerenciaCaixa(){
 
             <button id={Style.btnestudar}>Estudar cartões</button>
            </div>
-        
+
+           <div className={Style.containercalendcards}>
+
+            <div className={Style.calendcards}>
+                      <div className={Style.conthoje }> <p className={Style.letracalend}>Hoje</p> </div>
+                      <div className={Style.contatuais }> <p className={Style.letracalendalt}>Atuais</p> </div>
+                      <div className={Style.contconcluidas }> <p className={Style.letracalendalt}>Concluídas</p> </div>
+            </div>
+
+            <div className={Style.conttemacard}>
+                <div className={Style.letratemacard}>Vouloir</div>
+                
+            </div>
+
+            <div className={Style.conttemacard}>
+                <div className={Style.letratemacard}>Pouvoir</div>
+                
+            </div>
+           </div>
+    
 
           
 
