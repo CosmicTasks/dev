@@ -12,7 +12,10 @@ import {
   UilExclamationCircle,
   UilTrashAlt,
 } from "@iconscout/react-unicons";
-import { Emoji, EmojiStyle } from "emoji-picker-react";
+import data from '@emoji-mart/data'
+import { init } from 'emoji-mart'
+
+init({ data })
 
 const SecSidebar = () => {
   return (
@@ -48,7 +51,7 @@ const SecSidebar = () => {
           <UilPlus size="12" className={style.add} />
         </div>
         <button type="button" className={style.item}>
-          <Emoji unified="1f1eb-1f1f7" size="18" />
+          <em-emoji id="croissant" size="14" />
           <span>Francês</span>
         </button>
       </div>
