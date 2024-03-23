@@ -54,6 +54,7 @@
   display: flex;
   padding: 4px 8px;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   width: 100%;
   color: var(--c12);
@@ -83,4 +84,8 @@
   svg {
     cursor: pointer;
   }
+}
+
+.container {
+  width: 280px;
 }

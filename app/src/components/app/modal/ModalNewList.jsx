@@ -1,10 +1,13 @@
 import React from "react";
 import style from "./ModalNewList.module.css";
-import { UilSquareShape, UilSmile } from "@iconscout/react-unicons";
-import EmojiPicker from "emoji-picker-react";
+import { UilSquareShape } from "@iconscout/react-unicons";
+import data from "@emoji-mart/data";
+import Picker from "@emoji-mart/react";
 
 const ModalNewList = () => {
   const [tabEmoji, setTabEmoji] = React.useState(false);
+  const [emoji, setEmoji] = React.useState("smiley");
+  const [cor, setCor] = React.useState("var(--c9)");
 
   const colors = [
     [
@@ -34,16 +37,33 @@ const ModalNewList = () => {
     e.target.reset();
   };
 
-  const handleButton = (e, valor) => {
+  const handleEmojiClick = (e) => {
+    setEmoji(e.id);
+  }
+
+  const handleCorClick = (e) => {
+    setCor(e.currentTarget.getAttribute("fill"));
+  }
+
+  const handleClick = (e, value) => {
     e.preventDefault();
-    valor ? setTabEmoji(true) : setTabEmoji(false);
+    setTabEmoji(value);
+    const btns = e.currentTarget.parentElement.children;
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].classList.remove(style.active);
+    }
+    e.currentTarget.classList.add(style.active);
   };
 
   return (
     <div className={style.modal}>
       <div className={style.wrapper}>
         <form className={style.newList} onSubmit={handleSubmit}>
-          <UilSquareShape size="16" color="var(--c9)" />
+          {tabEmoji === true ? (
+            <em-emoji id={emoji} size="16" />
+          ) : (
+            <UilSquareShape size="16" color={cor} />
+          )}
           <input
             type="text"
             placeholder="escreva o nome da lista"
@@ -52,26 +72,35 @@ const ModalNewList = () => {
           />
         </form>
         <div className={style.btns}>
-          <button className={style.btn} onClick={() => setTabEmoji(true)}>
-            <UilSmile size="14" color="var(--c12)" /> Emoji
+          <button
+            className={style.btn}
+            onClick={(e) => {
+              handleClick(e, true);
+            }}
+          >
+            Emoji
           </button>
           <button
             className={`${style.btn} ${style.active}`}
-            onClick={() => setTabEmoji(false)}
+            onClick={(e) => {
+              handleClick(e, false);
+            }}
           >
-            <UilSquareShape size="14" color="var(--r1)" /> Cor
+            Cor
           </button>
         </div>
         <div className={style.container}>
-          <EmojiPicker categories={[]} width={250} open={tabEmoji} searchPlaceHolder={`Pesquisar`} skinTonesDisabled={true} previewConfig={{showPreview: false}} />
-          {tabEmoji === false &&
+          {tabEmoji === true ? (
+            <Picker data={data} onEmojiSelect={handleEmojiClick} emojiSize={18} emojiButtonSize={28} icons="outline"  maxFrequentRows={0} theme="light" skinTonePosition="search" previewPosition="none"  />
+          ) : (
             colors.map((item, index) => (
               <div key={index} className={style.items}>
                 {item.map((color, index) => (
-                  <UilSquareShape key={index} size="18" color={color} />
+                  <UilSquareShape onClick={handleCorClick} key={index} size="18" color={color} />
                 ))}
               </div>
-            ))}
+            ))
+          )}
         </div>
       </div>
     </div>
