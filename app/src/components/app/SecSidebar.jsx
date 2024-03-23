@@ -20,23 +20,23 @@ const SecSidebar = () => {
       <div className={style.mainItems}>
         <button type="button" className={style.item}>
           <UilPlus size="18" color="var(--r9)" />
-          <span>Adicionar tarefa</span>
+          <span className={style.listName}>Adicionar tarefa</span>
         </button>
         <button type="button" className={style.item}>
           <UilSun size="18" color="var(--c10)" />
-          <span>Hoje</span>
+          <span className={style.listName}>Hoje</span>
         </button>
         <button type="button" className={style.item}>
           <UilInbox size="18" color="var(--c10)" />
-          <span>Entrada</span>
+          <span className={style.listName}>Entrada</span>
         </button>
         <button type="button" className={style.item}>
           <UilCalendarAlt size="18" color="var(--c10)" />
-          <span>Calendário</span>
+          <span className={style.listName}>Calendário</span>
         </button>
         <button type="button" className={style.item}>
           <UilPuzzlePiece size="18" color="var(--c10)" />
-          <span>Hábitos</span>
+          <span className={style.listName}>Hábitos</span>
         </button>
       </div>
       <hr className={style.divider} />
@@ -48,10 +48,6 @@ const SecSidebar = () => {
           <UilPlus size="12" className={style.add} />
         </div>
         <Listas style={style} />
-        {/* <button type="button" className={style.item}>
-          <em-emoji id="croissant" size="14" />
-          <span>Francês</span>
-        </button> */}
       </div>
 
       <div className={style.categorias}>
@@ -63,22 +59,22 @@ const SecSidebar = () => {
         </div>
         <button type="button" className={style.item}>
           <UilTagAlt size="18" color="var(--vermelho)" />
-          <span>Provas</span>
+          <span className={style.listName}>Provas</span>
         </button>
       </div>
       <hr className={style.divider} />
       <div className={style.secItems}>
         <button type="button" className={style.item}>
           <UilCheckCircle size="18" color="var(--c10)" />
-          <span>Concluídas</span>
+          <span className={style.listName}>Concluídas</span>
         </button>
         <button type="button" className={style.item}>
           <UilExclamationCircle size="18" color="var(--c10)" />
-          <span>Atrasadas</span>
+          <span className={style.listName}>Atrasadas</span>
         </button>
         <button type="button" className={style.item}>
           <UilTrashAlt size="18" color="var(--c10)" />
-          <span>Excluídas</span>
+          <span className={style.listName}>Excluídas</span>
         </button>
       </div>
     </div>
