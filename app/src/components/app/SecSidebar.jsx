@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import style from "./SecSidebar.module.css";
 import {
   UilPlus,
@@ -15,14 +15,23 @@ import {
 import { Emoji, EmojiStyle } from "emoji-picker-react";
 
 const SecSidebar = () => {
+
+    const [corBotao, setCorBotao] = useState(''); // Estado para armazenar a cor atual do botão
+  
+    function trocarCor ()  {
+      const novaCor = "var(--r1)";
+      setCorBotao(novaCor); // Atualiza a cor do botão
+    }
+  
+
   return (
     <div className={style.secSidebar}>
       <div className={style.mainItems}>
-        <button type="button" className={style.item}>
+        <button type="button" className={style.item} >
           <UilPlus size="18" color="var(--r9)" />
           <span>Adicionar tarefa</span>
         </button>
-        <button type="button" className={style.item}>
+        <button onClick={trocarCor} type="button" className={style.item}  style={{ backgroundColor: corBotao }}>
           <UilSun size="18" color="var(--c10)" />
           <span>Hoje</span>
         </button>
