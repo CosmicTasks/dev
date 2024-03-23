@@ -91,7 +91,7 @@ const ModalNewList = () => {
         </div>
         <div className={style.container}>
           {tabEmoji === true ? (
-            <Picker data={data} onEmojiSelect={handleEmojiClick} emojiSize={18} emojiButtonSize={28} icons="outline"  maxFrequentRows={0} theme="light" skinTonePosition="search" previewPosition="none"  />
+            <Picker data={data} onEmojiSelect={handleEmojiClick} emojiSize={18} emojiButtonSize={28} icons="outline"  maxFrequentRows={0} theme="light" skinTonePosition="search" previewPosition="none" noCountryFlags={true}  />
           ) : (
             colors.map((item, index) => (
               <div key={index} className={style.items}>

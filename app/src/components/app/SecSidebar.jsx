@@ -12,10 +12,7 @@ import {
   UilExclamationCircle,
   UilTrashAlt,
 } from "@iconscout/react-unicons";
-import data from '@emoji-mart/data'
-import { init } from 'emoji-mart'
-
-init({ data })
+import Listas from "./Listas";
 
 const SecSidebar = () => {
   return (
@@ -50,10 +47,11 @@ const SecSidebar = () => {
           </div>
           <UilPlus size="12" className={style.add} />
         </div>
-        <button type="button" className={style.item}>
+        <Listas style={style} />
+        {/* <button type="button" className={style.item}>
           <em-emoji id="croissant" size="14" />
           <span>Francês</span>
-        </button>
+        </button> */}
       </div>
 
       <div className={style.categorias}>
@@ -70,7 +68,7 @@ const SecSidebar = () => {
       </div>
       <hr className={style.divider} />
       <div className={style.secItems}>
-      <button type="button" className={style.item}>
+        <button type="button" className={style.item}>
           <UilCheckCircle size="18" color="var(--c10)" />
           <span>Concluídas</span>
         </button>
