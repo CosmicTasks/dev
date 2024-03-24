@@ -1,0 +1,49 @@
+.tasksBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  width: 100%;
+}
+
+.tasksHeader {
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.switchSidebarContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  & > svg {
+    cursor: pointer;
+  }
+}
+
+.listTitle {
+  color: var(--c11);
+  font-family: Raleway;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gridSettings {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  & > * {
+    cursor: pointer;
+  }
+}
