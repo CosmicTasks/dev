@@ -7,6 +7,10 @@
   box-shadow: 1px 0px 0px 0px var(--c3);
   user-select: none;
   gap: 12px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  overflow-x: hidden;
+  scrollbar-color: var(--r2) var(--r1);
 }
 
 .mainItems,
