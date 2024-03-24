@@ -18,10 +18,12 @@
   --c3: #c6c2cc;
   --c7: #77747a;
   --c8: #636166;
+  --c9: #4f4e52;
   --c10: #3c3a3d;
   --c11: #282729;
   --c12: #141314;
   --r1: #f2e5ff;
+  --r2: #e0c1ff;
   --r3: #b469ff;
   --r7: #511abe;
   --r9: #2b027e;
@@ -33,21 +35,21 @@
   --a4: #e7f042;
   --a12: #151300;
 
-  --azul-royal: #1C72FF;
-  --azul-lavanda: #86B4FF;
-  --azul-piscina: #2CECFF;
-  --azul-cerceta: #00B5C7;
-  --verde-floresta: #1B9D00;
-  --verde-neon: #2CFF00;
-  --mostarda: #FFE100;
-  --abobora: #FF9F2C;
-  --coral: #FF8282;
-  --vermelho: #DF1515;
-  --rosa-neon: #EC1EEC;
-  --rosa: #FF8CFF;
-  --roxo-lavanda: #9B8BFF;
-  --roxo-royal: #794DFF;
-  --cinza: #ACAAAE;
+  --azul-royal: #1c72ff;
+  --azul-lavanda: #86b4ff;
+  --azul-piscina: #2cecff;
+  --azul-cerceta: #00b5c7;
+  --verde-floresta: #1b9d00;
+  --verde-neon: #2cff00;
+  --mostarda: #ffe100;
+  --abobora: #ff9f2c;
+  --coral: #ff8282;
+  --vermelho: #df1515;
+  --rosa-neon: #ec1eec;
+  --rosa: #ff8cff;
+  --roxo-lavanda: #9b8bff;
+  --roxo-royal: #794dff;
+  --cinza: #acaaae;
   --preto: #141414;
 }
 
