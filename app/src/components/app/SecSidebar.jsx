@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import style from "./SecSidebar.module.css";
 import {
   UilPlus,
@@ -11,10 +11,88 @@ import {
   UilCheckCircle,
   UilExclamationCircle,
   UilTrashAlt,
+  UilSquareShape,
 } from "@iconscout/react-unicons";
-import Listas from "./Listas";
+import ModalNewList from "./modal/ModalNewList";
+import data from '@emoji-mart/data'
+import { init } from 'emoji-mart'
+init({ data })
 
 const SecSidebar = () => {
+  const [listas, setListas] = useState([
+    {
+      id: 1,
+      nome: "Francês",
+      emoji: "croissant",
+      cor: null,
+      tarefas: [
+        {
+          id: 1,
+          nome: "Estudar francês",
+          concluido: false,
+        },
+        {
+          id: 2,
+          nome: "Praticar francês",
+          concluido: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      nome: "Inglês",
+      emoji: null,
+      cor: "var(--azul-royal)",
+      tarefas: [
+        {
+          id: 1,
+          nome: "Estudar inglês",
+          concluido: false,
+        },
+        {
+          id: 2,
+          nome: "Praticar inglês",
+          concluido: false,
+        },
+      ],
+    },
+  ]);
+
+  const addLista = (nome, decoracao, modo) => {
+    let novaLista = [];
+    if (modo === "emoji") {
+      novaLista = [
+        ...listas,
+        {
+          id: listas.length + 1,
+          nome: nome,
+          emoji: decoracao,
+          cor: null,
+          tarefas: [],
+        },
+      ];
+    } else {
+      novaLista = [
+        ...listas,
+        {
+          id: listas.length + 1,
+          nome: nome,
+          emoji: null,
+          cor: decoracao,
+          tarefas: [],
+        },
+      ];
+    }
+
+    setListas(novaLista);
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddLista = () => {
+    setShowModal(!showModal);
+  }
+
   return (
     <div className={style.secSidebar}>
       <div className={style.mainItems}>
@@ -45,9 +123,19 @@ const SecSidebar = () => {
           <div className={style.accordion}>
             <UilAngleDown size="12" /> Listas
           </div>
-          <UilPlus size="12" className={style.add} />
+          <UilPlus size="12" className={style.add} onClick={handleAddLista} />
         </div>
-        <Listas style={style} />
+        {listas.map((lista, id) => (
+          <button key={id} type="button" className={style.item}>
+            {lista.emoji ? (
+              <em-emoji id={lista.emoji} size="12" style={{ width: "16px" }} />
+            ) : (
+              <UilSquareShape size="16" color={lista.cor} />
+            )}
+            <span className={style.listName}>{lista.nome}</span>
+            <span className={style.badge}>{lista.tarefas.length}</span>
+          </button>
+        ))}
       </div>
 
       <div className={style.categorias}>
@@ -77,6 +165,11 @@ const SecSidebar = () => {
           <span className={style.listName}>Excluídas</span>
         </button>
       </div>
+      {showModal && (
+        <ModalNewList
+          addLista={addLista}
+        />
+      )}
     </div>
   );
 };
