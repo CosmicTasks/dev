@@ -18,74 +18,7 @@ import data from '@emoji-mart/data'
 import { init } from 'emoji-mart'
 init({ data })
 
-const SecSidebar = () => {
-  const [listas, setListas] = useState([
-    {
-      id: 1,
-      nome: "Francês",
-      emoji: "croissant",
-      cor: null,
-      tarefas: [
-        {
-          id: 1,
-          nome: "Estudar francês",
-          concluido: false,
-        },
-        {
-          id: 2,
-          nome: "Praticar francês",
-          concluido: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      nome: "Inglês",
-      emoji: null,
-      cor: "var(--azul-royal)",
-      tarefas: [
-        {
-          id: 1,
-          nome: "Estudar inglês",
-          concluido: false,
-        },
-        {
-          id: 2,
-          nome: "Praticar inglês",
-          concluido: false,
-        },
-      ],
-    },
-  ]);
-
-  const addLista = (nome, decoracao, modo) => {
-    let novaLista = [];
-    if (modo === "emoji") {
-      novaLista = [
-        ...listas,
-        {
-          id: listas.length + 1,
-          nome: nome,
-          emoji: decoracao,
-          cor: null,
-          tarefas: [],
-        },
-      ];
-    } else {
-      novaLista = [
-        ...listas,
-        {
-          id: listas.length + 1,
-          nome: nome,
-          emoji: null,
-          cor: decoracao,
-          tarefas: [],
-        },
-      ];
-    }
-
-    setListas(novaLista);
-  };
+const SecSidebar = ({isOpen, listas, addLista}) => {
 
   const [showModal, setShowModal] = useState(false);
 
@@ -94,7 +27,7 @@ const SecSidebar = () => {
   }
 
   return (
-    <div className={style.secSidebar}>
+    <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
       <div className={style.mainItems}>
         <button type="button" className={style.item}>
           <UilPlus size="18" color="var(--r9)" />
@@ -133,7 +66,9 @@ const SecSidebar = () => {
               <UilSquareShape size="16" color={lista.cor} />
             )}
             <span className={style.listName}>{lista.nome}</span>
-            <span className={style.badge}>{lista.tarefas.length}</span>
+            <span className={style.badge}>
+              {lista.tarefas.length > 0 ? lista.tarefas.length : ""}
+            </span>
           </button>
         ))}
       </div>
@@ -167,7 +102,7 @@ const SecSidebar = () => {
       </div>
       {showModal && (
         <ModalNewList
-          addLista={addLista}
+        addLista={addLista}
         />
       )}
     </div>
