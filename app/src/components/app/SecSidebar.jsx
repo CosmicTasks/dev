@@ -14,17 +14,17 @@ import {
   UilSquareShape,
 } from "@iconscout/react-unicons";
 import ModalNewList from "./modal/ModalNewList";
-import data from '@emoji-mart/data'
-import { init } from 'emoji-mart'
-init({ data })
+import data from "@emoji-mart/data";
+import { init } from "emoji-mart";
+init({ data });
 
 const SecSidebar = ({isOpen, listas, addLista}) => {
-
+  
   const [showModal, setShowModal] = useState(false);
 
   const handleAddLista = () => {
     setShowModal(!showModal);
-  }
+  };
 
   return (
     <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
