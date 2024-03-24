@@ -14,9 +14,9 @@ import {
   UilSquareShape,
 } from "@iconscout/react-unicons";
 import ModalNewList from "./modal/ModalNewList";
-import data from '@emoji-mart/data'
-import { init } from 'emoji-mart'
-init({ data })
+import data from "@emoji-mart/data";
+import { init } from "emoji-mart";
+init({ data });
 
 const SecSidebar = () => {
   const [listas, setListas] = useState([
@@ -85,13 +85,14 @@ const SecSidebar = () => {
     }
 
     setListas(novaLista);
+    setShowModal(false);
   };
 
   const [showModal, setShowModal] = useState(false);
 
   const handleAddLista = () => {
     setShowModal(!showModal);
-  }
+  };
 
   return (
     <div className={style.secSidebar}>
@@ -133,7 +134,9 @@ const SecSidebar = () => {
               <UilSquareShape size="16" color={lista.cor} />
             )}
             <span className={style.listName}>{lista.nome}</span>
-            <span className={style.badge}>{lista.tarefas.length}</span>
+            <span className={style.badge}>
+              {lista.tarefas.length > 0 ? lista.tarefas.length : ""}
+            </span>
           </button>
         ))}
       </div>
@@ -165,11 +168,7 @@ const SecSidebar = () => {
           <span className={style.listName}>Excluídas</span>
         </button>
       </div>
-      {showModal && (
-        <ModalNewList
-          addLista={addLista}
-        />
-      )}
+      {showModal && <ModalNewList addLista={addLista} />}
     </div>
   );
 };
