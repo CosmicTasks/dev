@@ -1,3 +1,23 @@
+@keyframes open {
+  0% {
+    width: 0;
+    display: flex;
+  }
+  100% {
+    width: 240px;
+  }
+}
+
+@keyframes close {
+  0% {
+    width: 240px;
+  }
+  100% {
+    width: 0;
+    display: none;
+  }
+}
+
 .secSidebar {
   display: flex;
   flex-direction: column;
@@ -10,6 +30,13 @@
   overflow: scroll;
   scrollbar-width: none;
   overflow-x: hidden;
+
+  &.open {
+    animation: open 0.5s forwards;
+  }
+  &.close {
+    animation: close 0.5s forwards;
+  }
 }
 
 .mainItems,
