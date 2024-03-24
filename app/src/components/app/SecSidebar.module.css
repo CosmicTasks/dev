@@ -8,9 +8,8 @@
   user-select: none;
   gap: 12px;
   overflow: scroll;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   overflow-x: hidden;
-  scrollbar-color: var(--r2) var(--r1);
 }
 
 .mainItems,
