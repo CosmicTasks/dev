@@ -1,12 +1,14 @@
 import Sidebar from "./app/Sidebar";
 import style from "./App.module.css";
-import SecSidebar from "./app/SecSidebar";
+import { Outlet } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+
   return (
     <div className={style.app}>
       <Sidebar />
-      <SecSidebar />
+      <Outlet />
     </div>
   );
 }

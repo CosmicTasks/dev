@@ -18,76 +18,8 @@ import data from "@emoji-mart/data";
 import { init } from "emoji-mart";
 init({ data });
 
-const SecSidebar = () => {
-  const [listas, setListas] = useState([
-    {
-      id: 1,
-      nome: "Francês",
-      emoji: "croissant",
-      cor: null,
-      tarefas: [
-        {
-          id: 1,
-          nome: "Estudar francês",
-          concluido: false,
-        },
-        {
-          id: 2,
-          nome: "Praticar francês",
-          concluido: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      nome: "Inglês",
-      emoji: null,
-      cor: "var(--azul-royal)",
-      tarefas: [
-        {
-          id: 1,
-          nome: "Estudar inglês",
-          concluido: false,
-        },
-        {
-          id: 2,
-          nome: "Praticar inglês",
-          concluido: false,
-        },
-      ],
-    },
-  ]);
-
-  const addLista = (nome, decoracao, modo) => {
-    let novaLista = [];
-    if (modo === "emoji") {
-      novaLista = [
-        ...listas,
-        {
-          id: listas.length + 1,
-          nome: nome,
-          emoji: decoracao,
-          cor: null,
-          tarefas: [],
-        },
-      ];
-    } else {
-      novaLista = [
-        ...listas,
-        {
-          id: listas.length + 1,
-          nome: nome,
-          emoji: null,
-          cor: decoracao,
-          tarefas: [],
-        },
-      ];
-    }
-
-    setListas(novaLista);
-    setShowModal(false);
-  };
-
+const SecSidebar = ({isOpen, listas, addLista}) => {
+  
   const [showModal, setShowModal] = useState(false);
 
   const handleAddLista = () => {
@@ -95,7 +27,7 @@ const SecSidebar = () => {
   };
 
   return (
-    <div className={style.secSidebar}>
+    <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
       <div className={style.mainItems}>
         <button type="button" className={style.item}>
           <UilPlus size="18" color="var(--r9)" />
@@ -168,7 +100,11 @@ const SecSidebar = () => {
           <span className={style.listName}>Excluídas</span>
         </button>
       </div>
-      {showModal && <ModalNewList addLista={addLista} />}
+      {showModal && (
+        <ModalNewList
+        addLista={addLista}
+        />
+      )}
     </div>
   );
 };

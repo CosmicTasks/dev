@@ -23,6 +23,7 @@ import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
+import PageTasks from "./components/app/PageTasks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,15 +32,25 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/app",
+    path: "app",
     element: <App />,
+    children: [
+      {
+        index: true,
+        element: <PageTasks />,
+      },
+      {
+        path: "tasks",
+        element: <PageTasks />,
+      }
+    ]
   },
   {
-    path: "/login",
+    path: "login",
     element: <LoginPage acao={"login"} />,
   },
   {
-    path: "/cadastro",
+    path: "cadastro",
     element: <LoginPage acao={"cadastro"} />,
   },
 ]);
