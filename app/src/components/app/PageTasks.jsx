@@ -6,6 +6,8 @@ import {
   UilLeftArrowToLeft,
   UilSlidersV,
   UilGrid,
+  UilAngleDown,
+  UilCircle,
 } from "@iconscout/react-unicons";
 import useListas from "./Listas";
 
@@ -39,13 +41,26 @@ const PageTasks = () => {
             <UilGrid size="18" color="var(--c11)" />
           </div>
         </div>
-        {
-          listas.map((lista) => (
-            <div key={lista.id} className={style.lista}>
-              <h1 className={style.listaTitle}>{lista.nome}</h1>
+        {listas.map((lista) => (
+          <div key={lista.id} className={style.lista}>
+            <div className={style.listaHeader}>
+              <UilAngleDown size="12" color="var(--c11)" />
+              <span className={style.listaNome}>{lista.nome}</span>
             </div>
-          ))
-        }
+            {lista.tarefas.map((tarefa) => (
+              <div key={tarefa.id} className={style.tarefa}>
+                <div className={style.tarefaCheck}>
+                  <UilCircle size="18" color="var(--c11)" />
+                  <span className={style.tarefaNome}>{tarefa.nome}</span>
+                </div>
+                <div className={style.tarefaOptions}>
+                  <span className={style.tarefaOptionsLista}>{lista.nome}</span>
+                  <span className={style.tarefaOptionsData}>Hoje</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </>
   );
