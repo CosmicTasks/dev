@@ -11,11 +11,13 @@ export default function useListas() {
         {
           id: 1,
           nome: "Estudar francês",
+          data: "26/03",
           concluido: false,
         },
         {
           id: 2,
           nome: "Praticar francês",
+          data: "26/03",
           concluido: false,
         },
       ],
@@ -29,11 +31,13 @@ export default function useListas() {
         {
           id: 1,
           nome: "Estudar inglês",
+          data: "26/03",
           concluido: false,
         },
         {
           id: 2,
           nome: "Praticar inglês",
+          data: "26/03",
           concluido: false,
         },
       ],
