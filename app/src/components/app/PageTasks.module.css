@@ -79,7 +79,11 @@
   padding: 8px;
   gap: 16px;
   border-radius: 8px;
-  background-color: var(--r1);
+  border: 1px solid var(--c7);
+
+  &:hover {
+    background-color: var(--r1);
+  }
 }
 
 .tarefaCheck {

@@ -49,13 +49,13 @@ const PageTasks = () => {
             </div>
             {lista.tarefas.map((tarefa) => (
               <div key={tarefa.id} className={style.tarefa}>
-                <div className={style.tarefaCheck}>
+                <div className={style.tarefaCheck} >
                   <UilCircle size="18" color="var(--c11)" />
                   <span className={style.tarefaNome}>{tarefa.nome}</span>
                 </div>
                 <div className={style.tarefaOptions}>
                   <span className={style.tarefaOptionsLista}>{lista.nome}</span>
-                  <span className={style.tarefaOptionsData}>Hoje</span>
+                  <span className={style.tarefaOptionsData}>{tarefa.data}</span>
                 </div>
               </div>
             ))}
