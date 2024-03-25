@@ -8,7 +8,7 @@
 
 .tasksHeader {
   display: flex;
-  padding: 16px;
+  padding: 16px 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -46,4 +46,79 @@
   & > * {
     cursor: pointer;
   }
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.listaHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.listaNome {
+  color: var(--c11);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  gap: 16px;
+  border-radius: 8px;
+  background-color: var(--r1);
+}
+
+.tarefaCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tarefaNome {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.tarefaOptions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tarefaOptionsLista {
+  color: var(--c10);
+  font-family: Raleway;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tarefaOptionsData {
+  color: var(--azul-royal);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
