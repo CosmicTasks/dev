@@ -2,7 +2,7 @@ import Sidebar from "./app/Sidebar";
 import style from "./App.module.css";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import admCaixa from "./app/admCaixa";
+
 
 function App() {
 

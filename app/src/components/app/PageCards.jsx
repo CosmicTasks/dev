@@ -1,7 +1,8 @@
 import React from "react";
 
-import Style from "./admCaixa.module.css";
+import Style from "./PageCard.module.css";
 import { Icon } from '@iconify/react';
+import Sidebar from "./Sidebar";
 
 
 
@@ -12,6 +13,8 @@ function PageCard(){
         <>
 
         <div className={Style.contprincipal}>
+
+            <Sidebar/>
 
         <div className={Style.containertelacaixas}>
 
