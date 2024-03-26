@@ -16,7 +16,7 @@ const LandingPage = () => {
           Inicie sua jornada no Cosmictasks e personalize sua experiência com
           ferramentas úteis.
         </p>
-        <a  className={style.button}>
+        <a   className={style.button}>
           Iniciar jornada
         </a>
         <img

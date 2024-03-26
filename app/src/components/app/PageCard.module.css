@@ -118,6 +118,11 @@ color: #000000;
 
   }
 
+  #btnnewcard:hover {
+    background-color: var(--a4);
+    color: var(--a12);
+  }
+
   .numcards {
     display: inline-block;
     margin-left: 5px;
@@ -170,6 +175,11 @@ color: #000000;
             color: #F2E5FF;
             font-family: 'Raleway',sans-serif;
             font-weight: 500px;
+            border: none;
+        }
+        #btnestudar:hover {
+            background-color:var(--a4);
+            color: var(--a12);
         }
 
         .containercalendcards {
