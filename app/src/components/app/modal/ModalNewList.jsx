@@ -4,7 +4,7 @@ import { UilSquareShape } from "@iconscout/react-unicons";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
-const ModalNewList = ({addLista}) => {
+const ModalNewList = ({addLista, setShowModal}) => {
   const [tabEmoji, setTabEmoji] = useState(false);
   const [emoji, setEmoji] = useState("smiley");
   const [cor, setCor] = useState("var(--azul-royal)");
@@ -48,6 +48,7 @@ const ModalNewList = ({addLista}) => {
     setEmoji("smiley");
     setModo(currentModo);
     setDecoracao(currentDecoracao);
+    setShowModal(false);
   };
 
   const handleEmojiClick = (e) => {

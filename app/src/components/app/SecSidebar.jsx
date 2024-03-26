@@ -103,6 +103,7 @@ const SecSidebar = ({isOpen, listas, addLista}) => {
       {showModal && (
         <ModalNewList
         addLista={addLista}
+        setShowModal={setShowModal}
         />
       )}
     </div>
