@@ -5,6 +5,12 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const LoginPage = ({ acao }) => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = "/app";
+  };
+
   const login = (
     <div className={`row ${style.loginContainer}`}>
       {/* Image */}
@@ -50,7 +56,7 @@ const LoginPage = ({ acao }) => {
           <a href="/forgot-password" className={style.forgotPassword}>
             Esqueceu a senha?
           </a>
-          <button type="submit" className={`${style.submit} ${style.disabled}`}>
+          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
             Entrar
           </button>
           <p className={style.textSignup}>
@@ -93,7 +99,7 @@ const LoginPage = ({ acao }) => {
               placeholder="Crie uma senha forte"
             />
           </div>
-          <button type="submit" className={`${style.submit} ${style.disabled}`}>
+          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
             Cadastrar
           </button>
           <p className={style.textSignup}>
