@@ -1,0 +1,347 @@
+.caixatitulotema {
+   
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+   
+}
+
+.caixa {
+    width: 550px;
+    background-color:#F3EDFA ;
+    height: 100vh;
+   
+    display: flex;
+    border-left: 1px solid #C6C2CC;
+    border-right: 1px solid #C6C2CC;
+    margin-left: 0px;
+display: block;
+}
+
+.titulo {
+    font-family: "Raleway", sans-serif;
+    font-size:14px ;
+    font-weight: 500;
+    color: #141314;
+    margin-top: 20px;
+}
+
+.containericones {
+    justify-content: center;
+    display: flex;
+
+}
+.icone {
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.containercont {
+    
+    margin-left: 30px;
+    
+  
+}
+
+.containernum {
+    
+color: #000000;
+ text-align: center;
+}
+
+.containerbox {
+   
+}
+
+.containerprin {
+   
+    display: flex;
+    justify-content: center;
+   margin-top: 20px;
+    
+}
+
+.containerdetcards {
+   
+ 
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 30px;
+
+}
+
+.detcards {
+  
+    width: 180px;
+    height: 50px;
+    float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+
+  
+}
+
+.textcards {
+    text-align: center;
+    color: #000000;
+   margin-top: 10px;
+    font-family: "Raleway",sans-serif;
+    font-weight: 400;
+}
+
+.containernewcard {
+  
+ 
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+   
+}
+  #btnnewcard{
+    background-color: #07001B;
+    width: 110px;
+    height: 30px;
+    color:#F2E5FF;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 8px;
+    font-family: 'Raleway',sans-serif;
+    font-size: 12px;
+   
+
+  }
+
+  .numcards {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 20px;
+    font-family: 'Raleway',sans-serif;
+
+    
+  }
+
+  .containercontcards {
+       
+        
+      
+         display:flex;
+         text-align: center;
+         justify-content: center;
+         align-items: center;
+         margin-top: 20px;
+        
+
+        }
+
+        .numcont {
+            font-family:'Lato',sans-serif;
+            font-weight: 500px;
+            font-size:32px;
+        }
+
+        .estudarcard {
+            margin-top: 20px;
+           display: flex;
+           margin-left: auto;
+           margin-right: auto;
+            justify-content: center;
+            align-items: center;
+  
+            
+          
+        }
+
+        #btnestudar {
+            border-radius: 8px;
+            background-color: #511ABE;
+            width: 125px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 12px;
+            color: #F2E5FF;
+            font-family: 'Raleway',sans-serif;
+            font-weight: 500px;
+        }
+
+        .containercalendcards {
+            width: 518px;
+           height: auto;
+            background-color: #F2E5FF;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+           
+        }
+
+        .calendcards {
+            background-color: #07001B;
+            width: 180px;
+            height: 35px;
+            border-radius: 8px;
+            align-items: center;
+            display: flex;
+           
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .conthoje {
+            width: 40px;
+            height: 25px;
+            background-color: #F2E5FF;
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+         
+        }
+
+        
+
+        .contatuais {
+            width: 40px;
+            height: 25px;
+            
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+        }
+
+        .contconcluidas {
+            width: 60px;
+            height: 25px;
+        
+            border-radius: 4px;
+            margin-left: 10px;
+            align-items: center;
+            display: flex;
+        }
+
+        .letracalend {
+            font-family: 'Lato',sans-serif;
+            font-weight: 500;
+            color: #07001B;
+            font-size: 12px;
+          margin-left: auto;
+          margin-right: auto;
+           
+        }
+
+        .letracalendalt {
+            font-family: 'Lato',sans-serif;
+            font-weight: 500;
+            color: #F2E5FF;
+            font-size: 12px;
+          margin-left: auto;
+          margin-right: auto;
+           
+        }
+
+        .conttemacard {
+            width: 502px;
+            height: 46px;
+            border: 1px solid #07001B;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+          
+            align-items: center;
+            display: flex;
+        
+        }
+
+        .letratemacard {
+          font-weight: 400;
+          font-family: 'Raleway',sans-serif;
+          margin-left: 10px;
+          margin-top: auto;
+          margin-bottom: auto;
+          color: #07001B;
+          font-size: 14px;
+        }
+
+
+
+
+
+        .containercaixas{
+            display: flex;
+            width: auto;
+         
+         
+         }
+         .caixas {
+         
+             width: 224px;
+             border:solid 2px #77747A ;
+             border-radius: 8px;
+             height: 130px;
+             margin-left: 30px;
+             justify-content: center;
+            
+          
+          
+         }
+         
+         .conteudocaixa{
+             margin-left: 15px;
+         }
+         
+         .titulocaixa {
+             font-family:"Raleway", sans-serif ;
+             color: #07001B;
+             font-weight: 600;
+             margin-top: 8px;
+         }
+         
+         
+         .desctitulo {
+         
+             font-family: "Lato", sans-serif;
+             font-weight: 400;
+             font-size: 13px;
+             color: #3C3A3D;
+             line-height: 14px;
+             margin-top: 8px;
+         }
+         ul{
+             list-style: none;
+         
+         }
+         
+         li {
+             display: inline;
+             margin-left: 2px;
+         }
+
+         .containertelacaixas {
+            height: 100vh;
+            background-color: #F3EDFA;
+            width: 800px;
+            border: 1px solid #C6C2CC;
+         }
+
+         .contprincipal {
+            background-color: black;
+            width: 1200px;
+            height: 100vh;
+            display: flex;
+         }
+
+     
+
+        
