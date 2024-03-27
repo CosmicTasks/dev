@@ -24,6 +24,7 @@ import LandingPage from "./components/pages/LandingPage.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/PageTasks.jsx";
+import PageCards from "./components/app/PageCards.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,13 @@ const router = createBrowserRouter([
     path: "cadastro",
     element: <LoginPage acao={"cadastro"} />,
   },
+
+  {
+    path: "cards",
+    element: <PageCards  />,
+  },
+
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
