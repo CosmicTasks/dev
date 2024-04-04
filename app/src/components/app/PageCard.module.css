@@ -1,8 +1,10 @@
 .caixasBody {
-    padding: 16px;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-shadow: 1px 0px 0px 0px var(--c3);
 }
 
 .caixa {
@@ -52,4 +54,159 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.noCardSelected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  width: 36%;
+  min-width: 320px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.infoText {
+  color: var(--c7);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 36%;
+  min-width: 320px;
+  padding: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.cardTitle {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.wrapperNiveis {
+  display: flex;
+  justify-content: center;
+}
+
+.nivel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.nivel span {
+  color: var(--c12);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.secHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+.cardSecTitle {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.qtdCards {
+  font-family: Lato;
+  font-weight: 700;
+}
+
+.addCard {
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--r1);
+  background-color: var(--r12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.wrapperEstudar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.qtdEstudar {
+  color: var(--r12);
+  font-family: Lato;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.btnEstudar {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: var(--r7);
+  color: var(--r1);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.wrapperTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px;
+  background-color: var(--r1);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  
 }
