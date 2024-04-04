@@ -18,25 +18,16 @@ const ModelUser = connectionDataBase.define('tb_user', {
 
     nm_nome: {
         type: DataTypes.STRING,
-        allowNull: false
-    },
-
-    nu_cpf: {
-        type: DataTypes.CHAR(11),
-        allowNull: false
-    },
-
-    nmr_telefone: {
-        type: DataTypes.CHAR(13)
+        allowNull:true,
     },
 
     nm_email: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
 
     nm_senha: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(150),
         allowNull: false
     },
 

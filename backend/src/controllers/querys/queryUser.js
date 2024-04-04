@@ -7,7 +7,7 @@ const { raw } = require("mysql2")
 // oq define a query  e que vem dps do modelUser ex=.findALL, findOne
 module.exports = {
     findEmailCliente: async (req, res) => {
-        const { nm_email, } = req.params;
+        const { nm_email } = req.params;
         return ModelUser.findAll({
             attributes: ['nm_email', 'nm_senha'],
             where: {
@@ -16,24 +16,12 @@ module.exports = {
             raw: true
         });
     },
-    findcpfCliente: async (req, res) => {
-        const { cd_cpfCliente } = req.params;
-        return ModelCliente.findAll({
-            attributes: ['cd_cpfCliente'],
-            where: {
-                cd_cpfCliente: cd_cpfCliente
-            },
-            raw: true
-        });
-    },
         //inseri as informacoes dentro sql 
     insertClient: async (req, res) => {
-        const { nm_cliente, cd_cpfCliente, nm_email, cd_senha } = req.params; // Assumindo que o nome da marca está no corpo da requisição
-        return ModelCliente.create({
-            nm_cliente: nm_cliente,
+        const { nm_email, nm_senha } = req.params; // Assumindo que o nome da marca está no corpo da requisição
+        return ModelUser.create({
             nm_email: nm_email,
-            cd_cpfCliente: cd_cpfCliente,
-            cd_senha: cd_senha
+            nm_senha: nm_senha
         });
     },
 
@@ -63,6 +51,8 @@ module.exports = {
             { cd_token: cd_token },
             { where: { nm_email: nm_email } }
         );
+
+        
 
     }
 }
