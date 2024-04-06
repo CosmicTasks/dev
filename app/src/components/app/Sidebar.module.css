@@ -33,3 +33,11 @@
   gap: 16px;
   align-items: center;
 }
+
+.link svg {
+  fill: var(--r1);
+}
+
+.link svg.active {
+  fill: var(--a3);
+}
