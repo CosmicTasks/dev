@@ -208,5 +208,52 @@
 
 .nav {
   display: flex;
-  
+  background-color: var(--r12);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.tab {
+  color: var(--r1);
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.tab.active {
+  background-color: var(--r1);
+  color: var(--r12);
+}
+
+.tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  width: 100%;
+  border: 1px solid var(--r12);
+}
+
+.tarefaTitle {
+  color: var(--r12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

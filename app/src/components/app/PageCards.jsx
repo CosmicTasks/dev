@@ -95,6 +95,12 @@ function PageCard() {
               <button className={style.tab}>Atuais</button>
               <button className={style.tab}>Concluídas</button>
             </div>
+            <div className={style.tarefas}>
+              <div className={style.tarefa}>
+                <span className={style.tarefaTitle}>Vouloir</span>
+                <UilEdit size="14" color="var(--r12)" />
+              </div>
+            </div>
           </div>
         </div>
       ) : (
