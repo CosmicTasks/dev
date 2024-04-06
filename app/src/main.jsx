@@ -43,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "tasks",
         element: <PageTasks />,
+      },
+      {
+        path: "cards",
+        element: <PageCards />
       }
     ]
   },
@@ -53,11 +57,6 @@ const router = createBrowserRouter([
   {
     path: "cadastro",
     element: <LoginPage acao={"cadastro"} />,
-  },
-
-  {
-    path: "cards",
-    element: <PageCards  />,
   },
 
   
