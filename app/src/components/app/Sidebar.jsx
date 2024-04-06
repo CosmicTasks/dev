@@ -9,8 +9,9 @@ import {
   UilChartPie,
   UilSearch,
   UilEnvelope,
-  UilSetting
+  UilSetting,
 } from "@iconscout/react-unicons";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -20,13 +21,24 @@ const Sidebar = () => {
           <img className={style.img} src={ViteLogo} alt="Perfil do usuário" />
         </div>
         <div className={style.item}>
-          <UilCheckCircle size="24" color="var(--a3)" />
+          <NavLink to="tasks" className={style.link}>
+            {({ isActive }) => (
+              <UilCheckCircle
+                size="24"
+                className={isActive ? style.active : ""}
+              />
+            )}
+          </NavLink>
         </div>
         <div className={style.item}>
           <UilStopwatch size="24" color="var(--r1)" />
         </div>
         <div className={style.item}>
-          <UilBox size="24" color="var(--r1)" />
+          <NavLink to="cards" className={style.link}>
+            {({ isActive }) => (
+              <UilBox size="24" className={isActive ? style.active : ""} />
+            )}
+          </NavLink>
         </div>
         <div className={style.item}>
           <UilFileAlt size="24" color="var(--r1)" />
