@@ -25,6 +25,7 @@ import LoginPage from "./components/LoginPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
+import Markdown from "./components/app/markdown/Markdown.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "cards",
         element: <PageCards />
+      },
+      {
+        path: "notes",
+        element: <Markdown />,
       }
     ]
   },

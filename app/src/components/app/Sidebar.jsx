@@ -31,7 +31,11 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div className={style.item}>
-          <UilStopwatch size="24" color="var(--r1)" />
+          <NavLink to="pomo" className={style.link}>
+            {({ isActive }) => (
+              <UilStopwatch size="24" className={isActive ? style.active : ""} />
+            )}
+          </NavLink>
         </div>
         <div className={style.item}>
           <NavLink to="cards" className={style.link}>
@@ -41,7 +45,11 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div className={style.item}>
-          <UilFileAlt size="24" color="var(--r1)" />
+          <NavLink to="notes" className={style.link}>
+            {({ isActive }) => (
+              <UilFileAlt size="24" className={isActive ? style.active : ""} />
+            )}
+          </NavLink>
         </div>
         <div className={style.item}>
           <UilChartPie size="24" color="var(--r1)" />
