@@ -1,0 +1,20 @@
+.pagePomo {
+  display: flex;
+}
+
+.pomoBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.button {
+  background-color: transparent;
+  color: var(--c5);
+  border: 0;
+  display: inline-block;
+  width: 60px;
+  cursor: pointer;
+}
