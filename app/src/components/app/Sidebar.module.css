@@ -1,0 +1,43 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 16px 8px;
+  width: fit-content;
+  background-color: var(--r7);
+  box-shadow: 1px 0px 0px 0px var(--c3);
+}
+
+.mainItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.secondaryItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.link svg {
+  fill: var(--r1);
+}
+
+.link svg.active {
+  fill: var(--a3);
+}
