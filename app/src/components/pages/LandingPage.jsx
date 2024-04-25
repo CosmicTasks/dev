@@ -3,7 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import style from "./LandingPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -17,9 +16,9 @@ const LandingPage = () => {
           Inicie sua jornada no Cosmictasks e personalize sua experiência com
           ferramentas úteis.
         </p>
-        <Link to="cadastro" className={style.button}>
+        <a href="#" className={style.button}>
           Iniciar jornada
-          </Link>
+        </a>
         <img
           src="https://placehold.co/1400x800"
           alt="hero"
@@ -159,9 +158,7 @@ const LandingPage = () => {
     </section>
     <div className={style.chamada}>
       <h1>Foco, organização e produtividade.</h1>
-      <Link to="cadastro" className={style.button}>
-        Iniciar jornada
-      </Link>
+      <button>Iniciar jornada</button>
     </div>
     <Footer />
     </>
