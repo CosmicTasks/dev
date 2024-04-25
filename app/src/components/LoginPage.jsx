@@ -1,32 +1,14 @@
-import { useState } from "react";
+import React from "react";
 import style from "./LoginPage.module.css";
 import astronauta from "../assets/astronauta.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const LoginPage = ({ acao }) => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-
-  const handleLogin = async () => {
-    try {
-      const user = { email, senha };
-      const response = await fetch("http://localhost:4000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-      response.ok ? window.location.replace("/app") : alert("Erro ao logar");
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin();
+    window.location.href = "/app";
   };
 
   const login = (
@@ -46,11 +28,7 @@ const LoginPage = ({ acao }) => {
           <h2 className={style.title}>Entrar</h2>
           <h1 className={style.frase}>Bem-vindo de volta!</h1>
         </div>
-        <form
-          action=""
-          className={style.form}
-          onSubmit={(e) => handleSubmit(e)}
-        >
+        <form action="" className={style.form}>
           <div className={style.inputGroup}>
             <label htmlFor="email" className={style.label}>
               Email
@@ -61,8 +39,6 @@ const LoginPage = ({ acao }) => {
               name="email"
               className={style.input}
               placeholder="exemplo@gmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className={style.inputGroup}>
@@ -75,19 +51,16 @@ const LoginPage = ({ acao }) => {
               name="password"
               className={style.input}
               placeholder="Insira sua senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
             />
           </div>
           <a href="/forgot-password" className={style.forgotPassword}>
             Esqueceu a senha?
           </a>
-          <button type="submit" className={`${style.submit} ${style.disabled}`}>
+          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
             Entrar
           </button>
           <p className={style.textSignup}>
-            Ainda não possui uma conta?{" "}
-            <Link to={`/cadastro`}>Cadastre-se</Link>
+            Ainda não possui uma conta? <Link to={`/cadastro`}>Cadastre-se</Link>
           </p>
         </form>
       </div>
@@ -126,11 +99,7 @@ const LoginPage = ({ acao }) => {
               placeholder="Crie uma senha forte"
             />
           </div>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className={`${style.submit} ${style.disabled}`}
-          >
+          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
             Cadastrar
           </button>
           <p className={style.textSignup}>
