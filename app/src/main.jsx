@@ -30,6 +30,7 @@ import Markdown from "./components/app/markdown/Markdown.jsx";
 // Contextos
 import { UserContextProvider } from "./context/UserContext.jsx";
 import { ListaContextProvider } from "./context/ListaContext.jsx";
+import { TaskContextProvider } from "./context/TaskContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
     path: "app",
     element: (
       <ListaContextProvider>
-        <App />
+        <TaskContextProvider>
+          <App />
+        </TaskContextProvider>
       </ListaContextProvider>
     ),
     children: [
