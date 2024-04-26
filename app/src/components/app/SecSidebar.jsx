@@ -7,6 +7,7 @@ import {
   UilInbox,
   UilCalendarAlt,
   UilPuzzlePiece,
+  UilAngleUp,
   UilAngleDown,
   UilTagAlt,
   UilCheckCircle,
@@ -25,10 +26,10 @@ const SecSidebar = ({isOpen, addLista}) => {
 
   const { listas } = useListaContext();
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModalNewList, setShowModalNewList] = useState(false);
 
   const handleAddLista = () => {
-    setShowModal(!showModal);
+    setShowModalNewList(!showModalNewList);
   };
 
   return (
@@ -59,7 +60,7 @@ const SecSidebar = ({isOpen, addLista}) => {
       <div className={style.listas}>
         <div className={style.headerItems}>
           <div className={style.accordion}>
-            <UilAngleDown size="12" /> Listas
+             Listas
           </div>
           <UilPlus size="12" className={style.add} onClick={handleAddLista} />
         </div>
@@ -95,10 +96,10 @@ const SecSidebar = ({isOpen, addLista}) => {
           <span className={style.listName}>Excluídas</span>
         </button>
       </div>
-      {showModal && (
+      {showModalNewList && (
         <ModalNewList
         addLista={addLista}
-        setShowModal={setShowModal}
+        setShowModalNewList={setShowModalNewList}
         />
       )}
     </div>
