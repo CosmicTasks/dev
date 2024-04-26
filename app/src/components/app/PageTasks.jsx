@@ -9,25 +9,21 @@ import {
   UilAngleDown,
   UilCircle,
 } from "@iconscout/react-unicons";
-import useListas from "./listas/Listas";
+import { useListaContext } from "../../hooks/useListaContext";
+import { useTaskContext } from "../../hooks/useTaskContext";
 
 const PageTasks = () => {
   const [sidebar, setSidebar] = useState(true);
-  const { listas, setListas, addLista } = useListas();
-  const [users, setUsers] = useState(null);
+  const { listas, dispatch: dispatchListas } = useListaContext();
+  const { tasks, dispatch: dispatchTasks } = useTaskContext();
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch("http://localhost:4000/api/users");
-      const data = await response.json();
-      setUsers(data)
-    }
-    fetchUsers();
-  }, []);
+  const hoje = new Date().toISOString().split("T")[0];
+  console.log(hoje);
+  const tasksHoje = tasks.filter((task) => task.data === hoje);
 
   return (
     <>
-      <SecSidebar isOpen={sidebar} listas={listas} addLista={addLista} />
+      <SecSidebar isOpen={sidebar} listas={listas} />
       <div className={style.tasksBody}>
         <div className={style.tasksHeader}>
           <div className={style.switchSidebarContainer}>
@@ -51,12 +47,26 @@ const PageTasks = () => {
             <UilGrid size="18" color="var(--c11)" />
           </div>
         </div>
-        {users && users.map((user) => (
-          <div key={user._id} className={style.user}>
-            <UilCircle size="12" color="var(--c11)" />
-            <span>{user.nome}</span>
+        {/* {listas.map((lista) => (
+          <div key={lista.id} className={style.lista}>
+            <div className={style.listaHeader}>
+              <UilAngleDown size="12" color="var(--c11)" />
+              <span className={style.listaNome}>{lista.nome}</span>
+            </div>
+            {lista.tarefas.map((tarefa) => (
+              <div key={tarefa.id} className={style.tarefa}>
+                <div className={style.tarefaCheck} >
+                  <UilCircle size="18" color="var(--c11)" />
+                  <span className={style.tarefaNome}>{tarefa.nome}</span>
+                </div>
+                <div className={style.tarefaOptions}>
+                  <span className={style.tarefaOptionsLista}>{lista.nome}</span>
+                  <span className={style.tarefaOptionsData}>{tarefa.data}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );
