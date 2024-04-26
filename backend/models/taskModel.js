@@ -1,5 +1,16 @@
 const mongoose = require('mongoose');
 
+const tagSchema = new mongoose.Schema({
+  nome: {
+    type: String,
+    required: true,
+  },
+  cor: {
+    type: String,
+    required: true,
+  },
+})
+
 const taskSchema = new mongoose.Schema({
   nome: {
     type: String,
@@ -13,7 +24,7 @@ const taskSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["A fazer", "Concluída", "Excluída"],
+    enum: ["A fazer", "Em andamento", "Concluída", "Atrasada", "Excluída"],
     default: "A fazer",
   },
   prioridade: {
@@ -21,9 +32,7 @@ const taskSchema = new mongoose.Schema({
     default: 1,
     enum: [1, 2, 3]
   },
-  tags: {
-    type: Array,
-  },
+  tags: [tagSchema],
   usuario: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
