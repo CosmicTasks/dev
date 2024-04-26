@@ -65,6 +65,12 @@
     line-height: normal;
   }
 
+  &:hover {
+    .badge {
+      display: flex;
+    }
+  }
+
   .badge {
     color: var(--c7);
     font-family: Raleway;
@@ -73,6 +79,9 @@
     font-weight: 400;
     line-height: normal;
     position: absolute;
+    display: none;
+    align-items: center;
+    gap: 4px;
     right: 8px;
     top: auto;
     bottom: auto;
