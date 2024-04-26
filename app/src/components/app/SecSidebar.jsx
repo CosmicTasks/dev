@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import PropTypes from "prop-types";
 import style from "./SecSidebar.module.css";
 import {
   UilPlus,
@@ -14,12 +15,16 @@ import {
   UilSquareShape,
 } from "@iconscout/react-unicons";
 import ModalNewList from "./modal/ModalNewList";
+import BtnListas from "./listas/BtnListas";
 import data from "@emoji-mart/data";
 import { init } from "emoji-mart";
 init({ data });
+import { useListaContext } from "../../hooks/useListaContext";
 
-const SecSidebar = ({isOpen, listas, addLista}) => {
-  
+const SecSidebar = ({isOpen, addLista}) => {
+
+  const { listas } = useListaContext();
+
   const [showModal, setShowModal] = useState(false);
 
   const handleAddLista = () => {
@@ -58,18 +63,8 @@ const SecSidebar = ({isOpen, listas, addLista}) => {
           </div>
           <UilPlus size="12" className={style.add} onClick={handleAddLista} />
         </div>
-        {listas.map((lista, id) => (
-          <button key={id} type="button" className={style.item}>
-            {lista.emoji ? (
-              <em-emoji id={lista.emoji} size="12" style={{ width: "16px" }} />
-            ) : (
-              <UilSquareShape size="16" color={lista.cor} />
-            )}
-            <span className={style.listName}>{lista.nome}</span>
-            <span className={style.badge}>
-              {lista.tarefas.length > 0 ? lista.tarefas.length : ""}
-            </span>
-          </button>
+        {listas && listas.map((lista) => (
+          <BtnListas key={lista._id} lista={lista} style={style} />
         ))}
       </div>
 
@@ -108,6 +103,12 @@ const SecSidebar = ({isOpen, listas, addLista}) => {
       )}
     </div>
   );
+};
+
+SecSidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  listas: PropTypes.array.isRequired,
+  addLista: PropTypes.func.isRequired,
 };
 
 export default SecSidebar;
