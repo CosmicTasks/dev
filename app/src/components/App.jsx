@@ -11,31 +11,53 @@ function App() {
 
   useEffect(() => {
     const userJSON = JSON.parse(localStorage.getItem("user"));
-    console.log(userJSON);
     const fetchUser = async () => {
       if (userJSON) {
         userDispatch({ type: "SET_USER", payload: userJSON });
       }
-    }
+    };
 
     const fetchListas = async () => {
-      const response = await fetch(`http://localhost:4000/api/listas/${userJSON._id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `http://localhost:4000/api/listas/${userJSON._id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
-      console.log(data);
       if (response.ok) {
         listaDispatch({ type: "SET_LISTAS", payload: data });
+      } else {
+        console.log("Erro ao buscar listas");
       }
-    }
+    };
+
+    const fetchTasks = async () => {
+      const response = await fetch(
+        `http://localhost:4000/api/tasks/user/${userJSON._id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        listaDispatch({ type: "SET_TASKS", payload: data });
+      } else {
+        console.log("Erro ao buscar tarefas");
+      }
+    };
 
     fetchUser();
     fetchListas();
-  }, [])
-  
+    fetchTasks();
+  }, []);
+
   return (
     <div className={style.app}>
       <Sidebar />
