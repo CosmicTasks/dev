@@ -27,6 +27,10 @@ import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
 
+// Contextos
+import { UserContextProvider } from "./context/UserContext.jsx";
+import { ListaContextProvider } from "./context/ListaContext.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,7 +39,11 @@ const router = createBrowserRouter([
   },
   {
     path: "app",
-    element: <App />,
+    element: (
+      <ListaContextProvider>
+        <App />
+      </ListaContextProvider>
+    ),
     children: [
       {
         index: true,
@@ -47,13 +55,13 @@ const router = createBrowserRouter([
       },
       {
         path: "cards",
-        element: <PageCards />
+        element: <PageCards />,
       },
       {
         path: "notes",
         element: <Markdown />,
-      }
-    ]
+      },
+    ],
   },
   {
     path: "login",
@@ -63,12 +71,12 @@ const router = createBrowserRouter([
     path: "cadastro",
     element: <LoginPage acao={"cadastro"} />,
   },
-
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </React.StrictMode>
 );
