@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./ModalNewList.module.css";
 import { UilSquareShape } from "@iconscout/react-unicons";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
+import { useListaContext } from "../../../hooks/useListaContext";
 
-const ModalNewList = ({addLista, setShowModal}) => {
+const ModalNewList = ({setShowModal}) => {
+  const { listas, dispatch } = useListaContext();
   const [tabEmoji, setTabEmoji] = useState(false);
   const [emoji, setEmoji] = useState("smiley");
   const [cor, setCor] = useState("var(--azul-royal)");
@@ -35,13 +37,49 @@ const ModalNewList = ({addLista, setShowModal}) => {
     ],
   ];
 
+  const addLista = async (nome, decoracao, modo) => {
+    if (modo === "emoji") {
+      const response = await fetch("http://localhost:4000/api/listas", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: nome,
+          cor: null,
+          emoji: decoracao,
+          usuario: "662ab383d58317b3c6c7f81b"
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        dispatch({ type: "CREATE_LISTA", payload: data });
+      }
+    } else {
+      const response = await fetch("http://localhost:4000/api/listas", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: nome,
+          cor: decoracao,
+          emoji: null,
+          usuario: "662ab383d58317b3c6c7f81b"
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        dispatch({ type: "CREATE_LISTA", payload: data });
+      }
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (nomeLista === "") return;
-
     const currentModo = tabEmoji ? "emoji" : "cor";
     const currentDecoracao = currentModo === 'cor' ? cor : emoji;
-
     addLista(nomeLista, currentDecoracao, currentModo);
     setNomeLista("");
     setCor("var(--azul-royal)");
