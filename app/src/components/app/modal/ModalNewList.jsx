@@ -5,7 +5,7 @@ import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { useListaContext } from "../../../hooks/useListaContext";
 
-const ModalNewList = ({setShowModal}) => {
+const ModalNewList = ({setShowModalNewList}) => {
   const { listas, dispatch } = useListaContext();
   const [tabEmoji, setTabEmoji] = useState(false);
   const [emoji, setEmoji] = useState("smiley");
@@ -86,7 +86,7 @@ const ModalNewList = ({setShowModal}) => {
     setEmoji("smiley");
     setModo(currentModo);
     setDecoracao(currentDecoracao);
-    setShowModal(false);
+    setShowModalNewList(false);
   };
 
   const handleEmojiClick = (e) => {
