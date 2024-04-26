@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { UilSquareShape } from "@iconscout/react-unicons";
+import { UilSquareShape, UilPen, UilTrash } from "@iconscout/react-unicons";
 
 const BtnListas = ({lista, style}) => {
   return (
@@ -10,6 +10,10 @@ const BtnListas = ({lista, style}) => {
         <UilSquareShape size="16" color={lista.cor} />
       )}
       <span className={style.listName}>{lista.nome}</span>
+      <span className={style.badge}>
+        <UilPen size="12" color="var(--c10)" />
+        <UilTrash size="12" color="var(--c10)" />
+      </span>
     </button>
   );
 };
