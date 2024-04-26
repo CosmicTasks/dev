@@ -25,11 +25,13 @@ const usersRoutes = require("./routes/users");
 const loginRoutes = require("./routes/login");
 const cadastroRoutes = require("./routes/cadastro");
 const listasRoutes = require("./routes/listas");
+const tasksRoutes = require("./routes/tasks");
 
 app.use("/api/users", usersRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/cadastro", cadastroRoutes);
 app.use("/api/listas", listasRoutes);
+app.use("/api/tasks", tasksRoutes);
 
 // connect to db
 mongoose
