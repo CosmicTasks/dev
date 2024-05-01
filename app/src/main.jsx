@@ -31,6 +31,9 @@ import Markdown from "./components/app/markdown/Markdown.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 import { ListaContextProvider } from "./context/ListaContext.jsx";
 import { TaskContextProvider } from "./context/TaskContext.jsx";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import 'dayjs/locale/pt-br';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +46,12 @@ const router = createBrowserRouter([
     element: (
       <ListaContextProvider>
         <TaskContextProvider>
-          <App />
+          <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale="pt-br"
+          >
+            <App />
+          </LocalizationProvider>
         </TaskContextProvider>
       </ListaContextProvider>
     ),
