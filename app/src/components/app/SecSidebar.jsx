@@ -16,26 +16,33 @@ import {
   UilSquareShape,
 } from "@iconscout/react-unicons";
 import ModalNewList from "./modal/ModalNewList";
+import ModalNewTask from "./modal/ModalNewTask";
 import BtnListas from "./listas/BtnListas";
 import data from "@emoji-mart/data";
 import { init } from "emoji-mart";
 init({ data });
 import { useListaContext } from "../../hooks/useListaContext";
 
-const SecSidebar = ({isOpen, addLista}) => {
-
+const SecSidebar = ({ isOpen }) => {
   const { listas } = useListaContext();
 
   const [showModalNewList, setShowModalNewList] = useState(false);
+  const [showModalNewTask, setShowModalNewTask] = useState(false);
 
   const handleAddLista = () => {
+    setShowModalNewTask(false);
     setShowModalNewList(!showModalNewList);
+  };
+
+  const handleAddTask = () => {
+    setShowModalNewList(false);
+    setShowModalNewTask(!showModalNewTask);
   };
 
   return (
     <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
       <div className={style.mainItems}>
-        <button type="button" className={style.item}>
+        <button type="button" className={style.item} onClick={handleAddTask}>
           <UilPlus size="18" color="var(--r9)" />
           <span className={style.listName}>Adicionar tarefa</span>
         </button>
@@ -59,14 +66,13 @@ const SecSidebar = ({isOpen, addLista}) => {
       <hr className={style.divider} />
       <div className={style.listas}>
         <div className={style.headerItems}>
-          <div className={style.accordion}>
-             Listas
-          </div>
+          <div className={style.accordion}>Listas</div>
           <UilPlus size="12" className={style.add} onClick={handleAddLista} />
         </div>
-        {listas && listas.map((lista) => (
-          <BtnListas key={lista._id} lista={lista} style={style} />
-        ))}
+        {listas &&
+          listas.map((lista) => (
+            <BtnListas key={lista._id} lista={lista} style={style} />
+          ))}
       </div>
 
       <div className={style.categorias}>
@@ -97,10 +103,10 @@ const SecSidebar = ({isOpen, addLista}) => {
         </button>
       </div>
       {showModalNewList && (
-        <ModalNewList
-        addLista={addLista}
-        setShowModalNewList={setShowModalNewList}
-        />
+        <ModalNewList setShowModalNewList={setShowModalNewList} />
+      )}
+      {showModalNewTask && (
+        <ModalNewTask setShowModalNewTask={setShowModalNewTask} />
       )}
     </div>
   );
@@ -108,8 +114,6 @@ const SecSidebar = ({isOpen, addLista}) => {
 
 SecSidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  listas: PropTypes.array.isRequired,
-  addLista: PropTypes.func.isRequired,
 };
 
 export default SecSidebar;
