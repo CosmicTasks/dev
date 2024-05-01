@@ -4,9 +4,11 @@ import { UilSquareShape } from "@iconscout/react-unicons";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { useListaContext } from "../../../hooks/useListaContext";
+import { useUserContext } from "../../../hooks/useUserContext";
 
 const ModalNewList = ({setShowModalNewList}) => {
   const { listas, dispatch } = useListaContext();
+  const { user } = useUserContext();
   const [tabEmoji, setTabEmoji] = useState(false);
   const [emoji, setEmoji] = useState("smiley");
   const [cor, setCor] = useState("var(--azul-royal)");
@@ -48,7 +50,7 @@ const ModalNewList = ({setShowModalNewList}) => {
           nome: nome,
           cor: null,
           emoji: decoracao,
-          usuario: "662ab383d58317b3c6c7f81b"
+          usuario: user._id
         }),
       });
       const data = await response.json();
@@ -65,7 +67,7 @@ const ModalNewList = ({setShowModalNewList}) => {
           nome: nome,
           cor: decoracao,
           emoji: null,
-          usuario: "662ab383d58317b3c6c7f81b"
+          usuario: user._id
         }),
       });
       const data = await response.json();
