@@ -18,8 +18,7 @@ const PageTasks = () => {
   const { tasks, dispatch: dispatchTasks } = useTaskContext();
 
   const hoje = new Date().toISOString().split("T")[0];
-  console.log(hoje);
-  const tasksHoje = tasks.filter((task) => task.data === hoje);
+  //const tasksHoje = tasks.filter((task) => task.data === hoje);
 
   return (
     <>
@@ -47,6 +46,11 @@ const PageTasks = () => {
             <UilGrid size="18" color="var(--c11)" />
           </div>
         </div>
+        {tasks && tasks.map((task) => (
+          <div key={task.id} >
+            <h1>{task.nome}</h1>
+          </div>
+        ))}
         {/* {listas.map((lista) => (
           <div key={lista.id} className={style.lista}>
             <div className={style.listaHeader}>
