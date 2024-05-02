@@ -163,7 +163,6 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
           <div className={style.container}>
             <DateTimeField
               label="Data e hora de vencimento"
-              defaultValue={dayjs("2022-04-17T15:30")}
               format="L HH:mm"
               onChange={(date) => {
                 setVencimento(date);
