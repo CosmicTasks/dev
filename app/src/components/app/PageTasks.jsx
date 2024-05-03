@@ -8,18 +8,21 @@ import {
   UilGrid,
   UilAngleDown,
   UilCircle,
+  UilInbox,
 } from "@iconscout/react-unicons";
 import { useListaContext } from "../../hooks/useListaContext";
 import { useTaskContext } from "../../hooks/useTaskContext";
 import Tarefa from "./tarefas/Tarefa";
+import ContainerTask from "./tarefas/ContainerTask";
 
 const PageTasks = () => {
   const [sidebar, setSidebar] = useState(true);
+  const [tarefaSelecionada, setTarefaSelecionada] = useState(null);
   const { listas, dispatch: dispatchListas } = useListaContext();
   const { tasks, dispatch: dispatchTasks } = useTaskContext();
+  const [tipo, setTipo] = useState("hoje");
 
   const hoje = new Date().toISOString().split("T")[0];
-  //const tasksHoje = tasks.filter((task) => task.data === hoje);
 
   return (
     <>
@@ -49,30 +52,13 @@ const PageTasks = () => {
         </div>
         <div className={style.taskWrapper}>
         {tasks && tasks.map((task) => (
-          <Tarefa key={task.id} style={style} task={task} tipo="hoje" />
+          <Tarefa key={task._id} style={style} task={task} tipo="hoje" setTask={setTarefaSelecionada} />
         ))}
         </div>
-        {/* {listas.map((lista) => (
-          <div key={lista.id} className={style.lista}>
-            <div className={style.listaHeader}>
-              <UilAngleDown size="12" color="var(--c11)" />
-              <span className={style.listaNome}>{lista.nome}</span>
-            </div>
-            {lista.tarefas.map((tarefa) => (
-              <div key={tarefa.id} className={style.tarefa}>
-                <div className={style.tarefaCheck} >
-                  <UilCircle size="18" color="var(--c11)" />
-                  <span className={style.tarefaNome}>{tarefa.nome}</span>
-                </div>
-                <div className={style.tarefaOptions}>
-                  <span className={style.tarefaOptionsLista}>{lista.nome}</span>
-                  <span className={style.tarefaOptionsData}>{tarefa.data}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))} */}
       </div>
+      {tarefaSelecionada && (
+        <ContainerTask task={tarefaSelecionada} setTask={setTarefaSelecionada} />
+      )}
     </>
   );
 };
