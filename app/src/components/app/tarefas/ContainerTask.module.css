@@ -1,5 +1,14 @@
 .container {
   width: 40%;
+
+  input {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    outline: none;
+    font-family: inherit;
+  }
 }
 
 .header {
@@ -18,12 +27,26 @@
   align-items: center;
   gap: 4px;
   color: var(--c11);
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-wrap: nowrap;
+}
+
+.nomeLista {
+  color: var(--c11);
   font-family: Raleway;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-wrap: nowrap;
+}
+
+.nomeLista:focus {
+  outline: none;
 }
 
 .wrapper {
