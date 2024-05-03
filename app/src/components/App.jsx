@@ -40,7 +40,7 @@ function App() {
 
     fetchUser();
     fetchListas();
-  }, []);
+  }, [listaDispatch, userDispatch]);
 
   const fetchTasks = async (listas) => {
     const userJSON = JSON.parse(localStorage.getItem("user"));
