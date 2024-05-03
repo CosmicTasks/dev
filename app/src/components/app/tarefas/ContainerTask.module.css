@@ -1,0 +1,78 @@
+.container {
+  width: 40%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+  list-style: none;
+  border-bottom: 1px solid var(--c3);
+  margin: 0;
+}
+
+.headerItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--c11);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-wrap: nowrap;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.taskCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desc {
+  color: var(--c7);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  padding: 8px 26px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 8px;
+  padding: 0;
+}
+
+.optionsItem {
+  color: var(--c10);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.fechar {
+  margin-right: auto;
+}
