@@ -22,4 +22,24 @@ const postLista = async (req, res) => {
   }
 }
 
-module.exports = { getListas, postLista };
+const updateLista = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "Lista não encontrada" });
+  }
+
+  const lista = await Lista.findByIdAndUpdate(id, {
+    ...req.body,
+  });
+
+  if (!lista) {
+    return res.status(404).json({ error: "Lista não encontrada" });
+  }
+
+  res.status(200).json(lista);
+};
+
+
+
+module.exports = { getListas, postLista, updateLista };
