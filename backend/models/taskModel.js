@@ -29,8 +29,8 @@ const taskSchema = new mongoose.Schema({
   },
   prioridade: {
     type: Number,
-    default: 1,
-    enum: [1, 2, 3]
+    default: 5,
+    enum: [1, 2, 3, 4, 5]
   },
   tags: [tagSchema],
   usuario: {
