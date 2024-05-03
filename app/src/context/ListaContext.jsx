@@ -17,6 +17,13 @@ export const listaReducer = (state, action) => {
         ...state,
         listas: state.listas.filter((lista) => lista._id !== action.payload)
       };
+    case "UPDATE_LISTA":
+      return {
+        ...state,
+        listas: state.listas.map((lista) =>
+          lista._id === action.payload._id ? action.payload : lista
+        )
+      };
     default:
       return state;
   }
