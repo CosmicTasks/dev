@@ -31,6 +31,7 @@ const buscarTasks = async (req, res) => {
       const tarefas = await Task.find({
         usuario: id,
         vencimento: { $gte: today, $lt: tomorrow }, // Busca tarefas cujo vencimento seja maior ou igual à data de hoje e menor que a data de amanhã
+        status: { $ne: "Excluída" }, // Não exibe tarefas excluídas
       }).sort({ vencimento: 1 }); // Ordena as tarefas por data de vencimento
 
       res.status(200).json(tarefas);
