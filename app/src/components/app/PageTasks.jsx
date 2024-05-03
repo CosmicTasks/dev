@@ -51,13 +51,23 @@ const PageTasks = () => {
           </div>
         </div>
         <div className={style.taskWrapper}>
-        {tasks && tasks.map((task) => (
-          <Tarefa key={task._id} style={style} task={task} tipo="hoje" setTask={setTarefaSelecionada} />
-        ))}
+          {tasks &&
+            tasks.map((task) => (
+              <Tarefa
+                key={task._id}
+                style={style}
+                task={task}
+                tipo="hoje"
+                setTask={setTarefaSelecionada}
+              />
+            ))}
         </div>
       </div>
       {tarefaSelecionada && (
-        <ContainerTask task={tarefaSelecionada} setTask={setTarefaSelecionada} />
+        <ContainerTask
+          task={tarefaSelecionada}
+          setTask={setTarefaSelecionada}
+        />
       )}
     </>
   );
