@@ -21,7 +21,7 @@
 .secSidebar {
   display: flex;
   flex-direction: column;
-  width: 240px;
+  min-width: 240px;
   height: 100vh;
   padding: 16px 8px;
   box-shadow: 1px 0px 0px 0px var(--c3);
