@@ -60,7 +60,7 @@ function App() {
         const lista = listas.find(
           (lista) => lista._id === task.lista
         );
-        return { ...task, nomeLista: lista.nome };
+        return { ...task, nomeLista: lista.nome, corLista: lista.cor, emojiLista: lista.emoji};
       });
       taskDispatch({ type: "SET_TASKS", payload: tasksNomeLista });
     } else {
