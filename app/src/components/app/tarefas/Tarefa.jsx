@@ -2,7 +2,7 @@ import { UilCircle } from '@iconscout/react-unicons'
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 
-const Tarefa = ({style, task, tipo}) => {
+const Tarefa = ({style, task, tipo, setTask}) => {
 
   const dataHoje = () => {
     const hoje = new Date().toISOString().split("T")[0];
@@ -10,8 +10,12 @@ const Tarefa = ({style, task, tipo}) => {
     return `${partes[2]}/${partes[1]}/${partes[0]}`
   }
 
+  const clickTask = (e) => {
+    setTask(task);
+  }
+
   return (
-    <div className={style.task} >
+    <div className={style.task} onClick={clickTask}>
       <div className={style.taskCheck} >
         <UilCircle size="18" color="var(--c11)" />
         <span className={style.taskName}>{task.nome}</span>
@@ -31,7 +35,8 @@ const Tarefa = ({style, task, tipo}) => {
 Tarefa.propTypes = {
   style: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
-  tipo: PropTypes.string.isRequired
+  tipo: PropTypes.string.isRequired,
+  setTarefaSelecionada: PropTypes.func
 }
 
 export default Tarefa
