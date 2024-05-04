@@ -14,19 +14,22 @@ import { useListaContext } from "../../hooks/useListaContext";
 import { useTaskContext } from "../../hooks/useTaskContext";
 import Tarefa from "./tarefas/Tarefa";
 import ContainerTask from "./tarefas/ContainerTask";
+import fetchTasks from "./tarefas/FetchTasks";
 
-const PageTasks = () => {
+const PageTasks = ({tipo}) => {
   const [sidebar, setSidebar] = useState(true);
   const [tarefaSelecionada, setTarefaSelecionada] = useState(null);
   const { listas, dispatch: dispatchListas } = useListaContext();
   const { tasks, dispatch: dispatchTasks } = useTaskContext();
-  const [tipo, setTipo] = useState("hoje");
 
-  const hoje = new Date().toISOString().split("T")[0];
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    fetchTasks(user, listas, tipo, dispatchTasks);
+  }, [listas, tipo, dispatchTasks]);
 
   return (
     <>
-      <SecSidebar isOpen={sidebar} listas={listas} />
+      <SecSidebar isOpen={sidebar}/>
       <div className={style.tasksBody}>
         <div className={style.tasksHeader}>
           <div className={style.switchSidebarContainer}>
@@ -57,7 +60,6 @@ const PageTasks = () => {
                 key={task._id}
                 style={style}
                 task={task}
-                tipo="hoje"
                 setTask={setTarefaSelecionada}
               />
             ))}
