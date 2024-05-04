@@ -32,6 +32,19 @@ const buscarTasks = async (req, res) => {
         usuario: id,
         vencimento: { $gte: today, $lt: tomorrow }, // Busca tarefas cujo vencimento seja maior ou igual à data de hoje e menor que a data de amanhã
         status: { $ne: "Excluída" }, // Não exibe tarefas excluídas
+      }).sort({ vencimento: -1 }); // Ordena as tarefas por data de vencimento
+
+      res.status(200).json(tarefas);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  };
+
+  const buscarTasksEntrada = async (id, res) => {
+    try {
+      const tarefas = await Task.find({
+        usuario: id,
+        status: { $ne: "Excluída" }, // Não exibe tarefas excluídas
       }).sort({ vencimento: 1 }); // Ordena as tarefas por data de vencimento
 
       res.status(200).json(tarefas);
@@ -43,8 +56,10 @@ const buscarTasks = async (req, res) => {
   switch (list) {
     case "hoje":
       return buscarTasksHoje(id, res);
+    case "entrada":
+      return buscarTasksEntrada(id, res);
     default:
-      return buscarTasksUsuario(id, res);
+      return buscarTasksHoje(id, res);
   }
 };
 
