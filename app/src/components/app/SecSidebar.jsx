@@ -22,9 +22,15 @@ import data from "@emoji-mart/data";
 import { init } from "emoji-mart";
 init({ data });
 import { useListaContext } from "../../hooks/useListaContext";
+import { useUserContext } from "../../hooks/useUserContext";
+import { useTaskContext } from "../../hooks/useTaskContext";
+import fetchTasks from "./tarefas/FetchTasks";
+import { NavLink } from "react-router-dom";
 
-const SecSidebar = ({ isOpen }) => {
+const SecSidebar = ({ isOpen, tipo }) => {
   const { listas } = useListaContext();
+  const { user } = useUserContext();
+  const { dispatch } = useTaskContext();
 
   const [showModalNewList, setShowModalNewList] = useState(false);
   const [showModalNewTask, setShowModalNewTask] = useState(false);
@@ -46,13 +52,25 @@ const SecSidebar = ({ isOpen }) => {
           <UilPlus size="18" color="var(--r9)" />
           <span className={style.listName}>Adicionar tarefa</span>
         </button>
-        <button type="button" className={style.item}>
-          <UilSun size="18" color="var(--c10)" />
-          <span className={style.listName}>Hoje</span>
+        <button
+          type="button"
+          className={style.item}
+          name="hoje"
+        >
+          <NavLink to="hoje">
+            <UilSun size="18" color="var(--c10)" />
+            <span className={style.listName}>Hoje</span>
+          </NavLink>
         </button>
-        <button type="button" className={style.item}>
-          <UilInbox size="18" color="var(--c10)" />
-          <span className={style.listName}>Entrada</span>
+        <button
+          type="button"
+          className={style.item}
+          name="entrada"
+        >
+          <NavLink to="entrada">
+            <UilInbox size="18" color="var(--c10)" />
+            <span className={style.listName}>Entrada</span>
+          </NavLink>
         </button>
         <button type="button" className={style.item}>
           <UilCalendarAlt size="18" color="var(--c10)" />
