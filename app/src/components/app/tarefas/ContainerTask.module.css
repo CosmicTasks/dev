@@ -4,10 +4,14 @@
   input {
     background-color: transparent;
     border: none;
-    cursor: pointer;
+    cursor: text;
     color: inherit;
     outline: none;
     font-family: inherit;
+
+    &:read-only {
+      cursor: default;
+    }
   }
 }
 
