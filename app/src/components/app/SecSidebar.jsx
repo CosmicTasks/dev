@@ -24,7 +24,6 @@ init({ data });
 import { useListaContext } from "../../hooks/useListaContext";
 import { useUserContext } from "../../hooks/useUserContext";
 import { useTaskContext } from "../../hooks/useTaskContext";
-import fetchTasks from "./tarefas/FetchTasks";
 import { NavLink } from "react-router-dom";
 
 const SecSidebar = ({ isOpen, tipo }) => {
@@ -52,34 +51,51 @@ const SecSidebar = ({ isOpen, tipo }) => {
           <UilPlus size="18" color="var(--r9)" />
           <span className={style.listName}>Adicionar tarefa</span>
         </button>
-        <button
-          type="button"
-          className={style.item}
-          name="hoje"
+        <NavLink
+          to="/app/tasks/hoje"
+          className={({ isActive }) =>
+            isActive ? `${style.active} ${style.item}` : `${style.item}`
+          }
         >
-          <NavLink to="hoje">
-            <UilSun size="18" color="var(--c10)" />
-            <span className={style.listName}>Hoje</span>
-          </NavLink>
-        </button>
-        <button
-          type="button"
-          className={style.item}
-          name="entrada"
+          <UilSun size="18" color="var(--c10)" />
+          <span className={style.listName}>Hoje</span>
+        </NavLink>
+        <NavLink
+          to="/app/tasks/entrada"
+          className={({ isActive }) =>
+            isActive ? `${style.active} ${style.item}` : `${style.item}`
+          }
         >
-          <NavLink to="entrada">
-            <UilInbox size="18" color="var(--c10)" />
-            <span className={style.listName}>Entrada</span>
-          </NavLink>
-        </button>
-        <button type="button" className={style.item}>
-          <UilCalendarAlt size="18" color="var(--c10)" />
-          <span className={style.listName}>Calendário</span>
-        </button>
-        <button type="button" className={style.item}>
-          <UilPuzzlePiece size="18" color="var(--c10)" />
-          <span className={style.listName}>Hábitos</span>
-        </button>
+          <UilInbox size="18" color="var(--c10)" />
+          <span className={style.listName}>Entrada</span>
+        </NavLink>
+        <NavLink
+          to="/app/tasks/concluidas"
+          className={({ isActive }) =>
+            isActive ? `${style.active} ${style.item}` : `${style.item}`
+          }
+        >
+          <UilCheckCircle size="18" color="var(--c10)" />
+          <span className={style.listName}>Concluídas</span>
+        </NavLink>
+        <NavLink
+          to="/app/tasks/atrasadas"
+          className={({ isActive }) =>
+            isActive ? `${style.active} ${style.item}` : `${style.item}`
+          }
+        >
+          <UilExclamationCircle size="18" color="var(--c10)" />
+          <span className={style.listName}>Atrasadas</span>
+        </NavLink>
+        <NavLink
+          to="/app/tasks/excluidas"
+          className={({ isActive }) =>
+            isActive ? `${style.active} ${style.item}` : `${style.item}`
+          }
+        >
+          <UilTrashAlt size="18" color="var(--c10)" />
+          <span className={style.listName}>Excluídas</span>
+        </NavLink>
       </div>
       <hr className={style.divider} />
       <div className={style.listas}>
@@ -92,34 +108,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             <BtnListas key={lista._id} lista={lista} style={style} />
           ))}
       </div>
-
-      <div className={style.categorias}>
-        <div className={style.headerItems}>
-          <div className={style.accordion}>
-            <UilAngleDown size="12" /> Categorias
-          </div>
-          <UilPlus size="12" className={style.add} />
-        </div>
-        <button type="button" className={style.item}>
-          <UilTagAlt size="18" color="var(--vermelho)" />
-          <span className={style.listName}>Provas</span>
-        </button>
-      </div>
       <hr className={style.divider} />
-      <div className={style.secItems}>
-        <button type="button" className={style.item}>
-          <UilCheckCircle size="18" color="var(--c10)" />
-          <span className={style.listName}>Concluídas</span>
-        </button>
-        <button type="button" className={style.item}>
-          <UilExclamationCircle size="18" color="var(--c10)" />
-          <span className={style.listName}>Atrasadas</span>
-        </button>
-        <button type="button" className={style.item}>
-          <UilTrashAlt size="18" color="var(--c10)" />
-          <span className={style.listName}>Excluídas</span>
-        </button>
-      </div>
       {showModalNewList && (
         <ModalNewList setShowModalNewList={setShowModalNewList} />
       )}
