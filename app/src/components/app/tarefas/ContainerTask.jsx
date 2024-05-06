@@ -10,7 +10,7 @@ import {
 } from "@iconscout/react-unicons";
 import style from "./ContainerTask.module.css";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useListaContext } from "../../../hooks/useListaContext";
 import { useTaskContext } from "../../../hooks/useTaskContext";
 import ModalExcluir from "../modal/ModalExcluir";
@@ -19,14 +19,22 @@ const ContainerTask = ({ task, setTask }) => {
   const [lista, setLista] = useState(task.nomeLista);
   const { dispatch: dispatchLista } = useListaContext();
   const { dispatch: dispatchTask } = useTaskContext();
-  const newDate = dayjs(task.vencimento).format("YYYY-MM-DDTHH:mm:ss");
-  const formattedDate = dayjs(newDate).format("DD/MM/YYYY");
+  let newDate = dayjs(task.vencimento).format("YYYY-MM-DDTHH:mm:ss");
+  let formattedDate = dayjs(newDate).format("DD/MM/YYYY");
   const [nomeTask, setNomeTask] = useState(task.nome);
   const [descTask, setDescTask] = useState(
     task.desc ? task.desc : "Sem descrição"
   );
   const [editar, setEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
+
+  useEffect(() => {
+    setNomeTask(task.nome);
+    setDescTask(task.desc ? task.desc : "Sem descrição");
+    setLista(task.nomeLista);
+    newDate = dayjs(task.vencimento).format("YYYY-MM-DDTHH:mm:ss");
+    formattedDate = dayjs(newDate).format("DD/MM/YYYY");
+  }, [task, task.desc, task.nome, task.nomeLista, task.vencimento]);
 
   const fechar = () => {
     setTask(null);
@@ -119,10 +127,12 @@ const ContainerTask = ({ task, setTask }) => {
             onBlur={changeLista}
           />
         </li>
-        <li className={style.headerItem}>
-          <UilCalender size="18" color="var(--c11)" />
-          <span>{formattedDate}</span>
-        </li>
+        {task.vencimento && (
+          <li className={style.headerItem}>
+            <UilCalender size="18" color="var(--c11)" />
+            <span>{formattedDate}</span>
+          </li>
+        )}
         <li className={style.headerItem}>
           <UilHunting size="18" color="var(--c11)" />
           <span>{task.prioridade}</span>
@@ -168,7 +178,10 @@ const ContainerTask = ({ task, setTask }) => {
               <span>Editar</span>
             </li>
           )}
-          <li className={style.optionsItem} onClick={() => setModalExcluir(true)}>
+          <li
+            className={style.optionsItem}
+            onClick={() => setModalExcluir(true)}
+          >
             <UilTrash size="18" color="var(--c11)" />
             <span>Excluir</span>
           </li>
