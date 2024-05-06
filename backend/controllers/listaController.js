@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 const Lista = require("../models/listaModel");
 
+const getLista = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const lista = await Lista.findById(id);
+    res.status(200).json(lista);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 const getListas = async (req, res) => {
   const { id } = req.params;
   try {
@@ -42,4 +52,4 @@ const updateLista = async (req, res) => {
 
 
 
-module.exports = { getListas, postLista, updateLista };
+module.exports = { getLista, getListas, postLista, updateLista };
