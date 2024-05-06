@@ -1,9 +1,16 @@
 import PropTypes from "prop-types";
 import { UilSquareShape, UilPen, UilTrash } from "@iconscout/react-unicons";
+import { NavLink } from "react-router-dom";
 
-const BtnListas = ({lista, style}) => {
+const BtnListas = ({ lista, style }) => {
   return (
-    <button type="button" className={style.item}>
+    <NavLink
+      to={`/app/tasks/${encodeURIComponent(lista._id)}`}
+      key={lista._id}
+      className={({ isActive }) =>
+        isActive ? `${style.active} ${style.item}` : `${style.item}`
+      }
+    >
       {lista.emoji ? (
         <em-emoji id={lista.emoji} size="12" style={{ width: "16px" }} />
       ) : (
@@ -14,7 +21,7 @@ const BtnListas = ({lista, style}) => {
         <UilPen size="12" color="var(--c10)" />
         <UilTrash size="12" color="var(--c10)" />
       </span>
-    </button>
+    </NavLink>
   );
 };
 
