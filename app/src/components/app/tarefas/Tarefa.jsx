@@ -3,19 +3,15 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import dayjs from "dayjs";
 
-const Tarefa = ({ style, task, setTask }) => {
-  const dataHoje = () => {
-    const hoje = new Date().toISOString().split("T")[0];
-    const partes = hoje.split("-");
-    return `${partes[2]}/${partes[1]}/${partes[0]}`;
-  };
-
-  const clickTask = (e) => {
-    setTask(task);
-  };
-
+const Tarefa = ({ style, task, setTask, valor }) => {
   const newDate = dayjs(task.vencimento).format("YYYY-MM-DDTHH:mm:ss");
   const formattedDate = dayjs(newDate).format("DD/MM/YYYY");
+
+  const clickTask = () => {
+    if (valor !== task) {
+      setTask(task);
+    }
+  }
 
   return (
     <div className={style.task} onClick={clickTask}>
@@ -36,7 +32,7 @@ const Tarefa = ({ style, task, setTask }) => {
 Tarefa.propTypes = {
   style: PropTypes.object.isRequired,
   task: PropTypes.object.isRequired,
-  setTarefaSelecionada: PropTypes.func,
+  setTask: PropTypes.func,
 };
 
 export default Tarefa;
