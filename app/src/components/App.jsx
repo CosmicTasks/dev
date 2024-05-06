@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { useListaContext } from "../hooks/useListaContext";
 import { useUserContext } from "../hooks/useUserContext";
 import { useTaskContext } from "../hooks/useTaskContext";
-import fetchTasks from "./app/tarefas/FetchTasks";
 
 function App() {
   const { listas, dispatch: listaDispatch } = useListaContext();
@@ -43,12 +42,6 @@ function App() {
     fetchUser();
     fetchListas();
   }, [listaDispatch, userDispatch]);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    fetchTasks(user, listas, "hoje", taskDispatch);
-    navigate("tasks/hoje");
-  }, [listas, taskDispatch]);
 
   return (
     <div className={style.app}>
