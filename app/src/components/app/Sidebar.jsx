@@ -21,7 +21,7 @@ const Sidebar = () => {
           <img className={style.img} src={ViteLogo} alt="Perfil do usuário" />
         </div>
         <div className={style.item}>
-          <NavLink to="tasks" className={style.link}>
+          <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
               <UilCheckCircle
                 size="24"
