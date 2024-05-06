@@ -62,7 +62,6 @@ const router = createBrowserRouter([
       },
       {
         path: "tasks",
-        element: <PageTasks />,
         children: [
           {
             index: true,
@@ -73,6 +72,22 @@ const router = createBrowserRouter([
             path: "entrada",
             element: <PageTasks tipo={"entrada"} />,
           },
+          {
+            path: "excluidas",
+            element: <PageTasks tipo={"excluidas"} />,
+          },
+          {
+            path: "atrasadas",
+            element: <PageTasks tipo={"atrasadas"} />,
+          },
+          {
+            path: "concluidas",
+            element: <PageTasks tipo={"concluidas"} />,
+          },
+          {
+            path: ":idLista",
+            element: <PageTasks tipo={"lista"} />,
+          }
         ],
       },
       {
