@@ -71,6 +71,10 @@
     }
   }
 
+  &.active {
+    background-color: var(--r1);
+  }
+
   .badge {
     color: var(--c7);
     font-family: Raleway;
