@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import style from "./LoginPage.module.css";
 import astronauta from "../assets/astronauta.svg";
 import PropTypes from "prop-types";
@@ -168,8 +168,7 @@ const LoginPage = ({ acao }) => {
             Entrar
           </button>
           <p className={style.textSignup}>
-            Ainda não possui uma conta?{" "}
-            <Link to={`/cadastro`}>Cadastre-se</Link>
+            Ainda não possui uma conta? <Link to={`/cadastro`}>Cadastre-se</Link>
           </p>
         </form>
       </div>

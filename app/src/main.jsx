@@ -23,8 +23,8 @@ import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import PageTasks from "./components/app/PageTasks.jsx";
-import PageCards from "./components/app/PageCards.jsx";
+import PageTasks from "./components/app/tasks/PageTasks.jsx";
+import PageCards from "./components/app/cards/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
 
 // Contextos
@@ -34,6 +34,7 @@ import { TaskContextProvider } from "./context/TaskContext.jsx";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import 'dayjs/locale/pt-br';
+import PagePomo from "./components/app/pomo/PagePomo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "notes",
         element: <Markdown />,
+      },
+      {
+        path: "pomo",
+        element: <PagePomo />,
       },
     ],
   },
