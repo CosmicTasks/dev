@@ -98,17 +98,30 @@ const SecSidebar = ({ isOpen, tipo }) => {
         </NavLink>
       </div>
       <hr className={style.divider} />
-      <div className={style.listas}>
-        <div className={style.headerItems}>
-          <div className={style.accordion}>Listas</div>
-          <UilPlus size="12" className={style.add} onClick={handleAddLista} />
-        </div>
-        {listas &&
-          listas.map((lista) => (
-            <BtnListas key={lista._id} lista={lista} style={style} />
-          ))}
-      </div>
-      <hr className={style.divider} />
+      {listas && listas.length != 0 ? (
+        <>
+          <div className={style.listas}>
+            <div className={style.headerItems}>
+              <div className={style.accordion}>Listas</div>
+              <UilPlus
+                size="12"
+                className={style.add}
+                onClick={handleAddLista}
+              />
+            </div>
+            {listas.map((lista) => (
+              <BtnListas key={lista._id} lista={lista} style={style} />
+            ))}
+          </div>
+          <hr className={style.divider} />
+        </>
+      ) : (
+        <button type="button" className={style.item} onClick={handleAddLista}>
+          <UilPlus size="18" color="var(--r9)" />
+          <span className={style.listName}>Adicionar lista</span>
+        </button>
+      )}
+
       {showModalNewList && (
         <ModalNewList setShowModalNewList={setShowModalNewList} />
       )}
