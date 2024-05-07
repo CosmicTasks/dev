@@ -4,6 +4,7 @@
   gap: 8px;
   padding: 16px;
   width: 100%;
+  box-shadow: 1px 0px 0px 0px var(--c3);
 }
 
 .tasksHeader {
@@ -48,31 +49,14 @@
   }
 }
 
-.lista {
+.taskWrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-radius: 8px;
+  width: 100%;
 }
 
-.listaHeader {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 0;
-  cursor: pointer;
-}
-
-.listaNome {
-  color: var(--c11);
-  font-family: Raleway;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.tarefa {
+.task {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,13 +70,13 @@
   }
 }
 
-.tarefaCheck {
+.taskCheck {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.tarefaNome {
+.taskNome {
   color: var(--c12);
   font-family: Raleway;
   font-size: 12px;
@@ -101,23 +85,23 @@
   line-height: normal;
 }
 
-.tarefaOptions {
+.taskOptions {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.tarefaOptionsLista {
+.taskOptionsLista {
   color: var(--c10);
   font-family: Raleway;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-.tarefaOptionsData {
+.taskOptionsData {
   color: var(--azul-royal);
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Raleway;

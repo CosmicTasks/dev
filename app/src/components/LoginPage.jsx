@@ -5,10 +5,106 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const LoginPage = ({ acao }) => {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const images = [
+    '/foto1.svg',
+    '/foto2.svg',
+    '/foto3.svg',
+    '/foto4.svg',
+    '/foto5.svg',
+    '/foto6.svg',
+    '/foto7.svg',
+    '/foto8.svg'
+  ];
+  const [erro, setErro] = useState("");
+  const [disabled, setDisabled] = useState(style.disabled);
+
+  const handleChange = (e) => {
+    if (acao === "login") {
+      if (e.target.validity.valid && senha.length >= 8) {
+        setDisabled("");
+      } else {
+        setDisabled(style.disabled);
+      }
+    }
+    if (acao === "cadastro") {
+      if (e.target.validity.valid && senha.length >= 8 && nome.length > 0) {
+        setDisabled("");
+      } else {
+        setDisabled(style.disabled);
+      }
+    }
+  };
+
+  const handleLogin = async () => {
+    setErro("");
+    try {
+      const info = { email, senha };
+      const response = await fetch("http://localhost:4000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        const user = JSON.stringify(data);
+        localStorage.setItem("user", user);
+        window.location.replace("/app");
+      } else {
+        setErro(response.error);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao fazer login.");
+    }
+  };
+
+  const handleCadastro = async () => {
+    const index = Math.floor(Math.random() * images.length);
+    const img = images[index];
+    setErro(false);
+    try {
+      const info = {
+        nome,
+        email,
+        senha,
+        img,
+        configuracoes: { permiteEmail: true },
+      };
+      const response = await fetch("http://localhost:4000/api/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        const user = JSON.stringify(data);
+        console.log('Usuario criado: ', user);
+        localStorage.setItem("user", user);
+        window.location.replace("/app");
+      } else {
+        setErro(data.error || response.statusText || response.status.toString);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao cadastrar usuário.");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = "/app";
+    if (acao === "login") {
+      handleLogin();
+    }
+    if (acao === "cadastro") {
+      handleCadastro();
+    }
   };
 
   const login = (
@@ -28,7 +124,7 @@ const LoginPage = ({ acao }) => {
           <h2 className={style.title}>Entrar</h2>
           <h1 className={style.frase}>Bem-vindo de volta!</h1>
         </div>
-        <form action="" className={style.form}>
+        <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
           <div className={style.inputGroup}>
             <label htmlFor="email" className={style.label}>
               Email
@@ -39,6 +135,11 @@ const LoginPage = ({ acao }) => {
               name="email"
               className={style.input}
               placeholder="exemplo@gmail.com"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                handleChange(e);
+              }}
             />
           </div>
           <div className={style.inputGroup}>
@@ -51,12 +152,19 @@ const LoginPage = ({ acao }) => {
               name="password"
               className={style.input}
               placeholder="Insira sua senha"
+              value={senha}
+              onChange={(e) => {
+                setSenha(e.target.value);
+              }}
+              minLength="8"
             />
           </div>
-          <a href="/forgot-password" className={style.forgotPassword}>
-            Esqueceu a senha?
-          </a>
-          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
+          {erro && (
+            <p className={style.error}>
+              {erro}
+            </p>
+          )}
+          <button type="submit" className={`${style.submit} ${disabled}`}>
             Entrar
           </button>
           <p className={style.textSignup}>
@@ -74,7 +182,21 @@ const LoginPage = ({ acao }) => {
           <h2 className={style.title}>Cadastrar</h2>
           <h1 className={style.frase}>Comece sua jornada!</h1>
         </div>
-        <form action="" className={style.form}>
+        <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
+          <div className={style.inputGroup}>
+            <label htmlFor="name" className={style.label}>
+              Nome
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className={style.input}
+              placeholder="Insira seu nome"
+              onChange={(e) => setNome(e.target.value)}
+              minLength="1"
+            />
+          </div>
           <div className={style.inputGroup}>
             <label htmlFor="email" className={style.label}>
               Email
@@ -85,6 +207,7 @@ const LoginPage = ({ acao }) => {
               name="email"
               className={style.input}
               placeholder="exemplo@gmail.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className={style.inputGroup}>
@@ -97,9 +220,16 @@ const LoginPage = ({ acao }) => {
               name="password"
               className={style.input}
               placeholder="Crie uma senha forte"
+              onChange={(e) => setSenha(e.target.value)}
+              minLength="8"
             />
           </div>
-          <button type="submit" onClick={handleSubmit} className={`${style.submit} ${style.disabled}`}>
+          {erro && (
+            <p className={style.error}>
+              {erro}
+            </p>
+          )}
+          <button type="submit" className={`${style.submit} ${disabled}`}>
             Cadastrar
           </button>
           <p className={style.textSignup}>

@@ -12,16 +12,22 @@ import {
   UilSetting,
 } from "@iconscout/react-unicons";
 import { NavLink } from "react-router-dom";
+import { useUserContext } from "../../hooks/useUserContext";
 
 const Sidebar = () => {
+
+  const userJSON = JSON.parse(localStorage.getItem("user"));
+
+  const img = userJSON.img ? userJSON.img : ViteLogo;
+
   return (
     <div className={style.sidebar}>
       <div className={style.mainItems}>
         <div className={style.item}>
-          <img className={style.img} src={ViteLogo} alt="Perfil do usuário" />
+          <img className={style.img} src={img} alt="Perfil do usuário" />
         </div>
         <div className={style.item}>
-          <NavLink to="tasks" className={style.link}>
+          <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
               <UilCheckCircle
                 size="24"

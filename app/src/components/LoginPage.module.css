@@ -93,6 +93,16 @@
   }
 }
 
+.error {
+  color: var(--vermelho);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  width: fit-content;
+  margin: 0;
+}
+
 .forgotPassword {
   color: var(--r7);
   font-family: Raleway;
@@ -109,6 +119,8 @@
   font-style: normal;
   font-weight: 400;
   border-radius: 8px;
+  background: var(--r7);
+  color: var(--c1);
 
   &.disabled {
     background: var(--c7);

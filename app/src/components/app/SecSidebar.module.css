@@ -21,7 +21,7 @@
 .secSidebar {
   display: flex;
   flex-direction: column;
-  width: 240px;
+  min-width: 240px;
   height: 100vh;
   padding: 16px 8px;
   box-shadow: 1px 0px 0px 0px var(--c3);
@@ -65,6 +65,16 @@
     line-height: normal;
   }
 
+  &:hover {
+    .badge {
+      display: flex;
+    }
+  }
+
+  &.active {
+    background-color: var(--r1);
+  }
+
   .badge {
     color: var(--c7);
     font-family: Raleway;
@@ -73,6 +83,9 @@
     font-weight: 400;
     line-height: normal;
     position: absolute;
+    display: none;
+    align-items: center;
+    gap: 4px;
     right: 8px;
     top: auto;
     bottom: auto;

@@ -26,6 +26,14 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/tasks/PageTasks.jsx";
 import PageCards from "./components/app/cards/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
+
+// Contextos
+import { UserContextProvider } from "./context/UserContext.jsx";
+import { ListaContextProvider } from "./context/ListaContext.jsx";
+import { TaskContextProvider } from "./context/TaskContext.jsx";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import 'dayjs/locale/pt-br';
 import PagePomo from "./components/app/pomo/PagePomo.jsx";
 
 const router = createBrowserRouter([
@@ -36,15 +44,52 @@ const router = createBrowserRouter([
   },
   {
     path: "app",
-    element: <App />,
+    element: (
+      <ListaContextProvider>
+        <TaskContextProvider>
+          <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale="pt-br"
+          >
+            <App />
+          </LocalizationProvider>
+        </TaskContextProvider>
+      </ListaContextProvider>
+    ),
     children: [
       {
         index: true,
-        element: <PageTasks />,
+        element: <PageTasks tipo={"hoje"} />,
       },
       {
         path: "tasks",
-        element: <PageTasks />,
+        children: [
+          {
+            index: true,
+            path: "hoje",
+            element: <PageTasks tipo={"hoje"} />,
+          },
+          {
+            path: "entrada",
+            element: <PageTasks tipo={"entrada"} />,
+          },
+          {
+            path: "excluidas",
+            element: <PageTasks tipo={"excluidas"} />,
+          },
+          {
+            path: "atrasadas",
+            element: <PageTasks tipo={"atrasadas"} />,
+          },
+          {
+            path: "concluidas",
+            element: <PageTasks tipo={"concluidas"} />,
+          },
+          {
+            path: ":idLista",
+            element: <PageTasks tipo={"lista"} />,
+          }
+        ],
       },
       {
         path: "cards",
@@ -72,6 +117,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </React.StrictMode>
 );
