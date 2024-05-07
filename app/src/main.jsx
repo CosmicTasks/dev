@@ -23,9 +23,10 @@ import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
 import LoginPage from "./components/LoginPage.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import PageTasks from "./components/app/PageTasks.jsx";
-import PageCards from "./components/app/PageCards.jsx";
+import PageTasks from "./components/app/tasks/PageTasks.jsx";
+import PageCards from "./components/app/cards/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
+import PagePomo from "./components/app/pomo/PagePomo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,13 +48,17 @@ const router = createBrowserRouter([
       },
       {
         path: "cards",
-        element: <PageCards />
+        element: <PageCards />,
       },
       {
         path: "notes",
         element: <Markdown />,
-      }
-    ]
+      },
+      {
+        path: "pomo",
+        element: <PagePomo />,
+      },
+    ],
   },
   {
     path: "login",
@@ -63,8 +68,6 @@ const router = createBrowserRouter([
     path: "cadastro",
     element: <LoginPage acao={"cadastro"} />,
   },
-
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
