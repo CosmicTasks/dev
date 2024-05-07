@@ -3,13 +3,17 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import dayjs from "dayjs";
 
-const Tarefa = ({ style, task, setTask, valor }) => {
+const Tarefa = ({ style, task, setTask, valor, concluir }) => {
   const newDate = dayjs(task.vencimento).format("YYYY-MM-DDTHH:mm:ss");
   const formattedDate = dayjs(newDate).format("DD/MM/YYYY");
 
-  const clickTask = () => {
+  const clickTask = (e) => {
     if (valor !== task) {
       setTask(task);
+    }
+
+    if (e.target.tagName === "svg") {
+      concluir(task._id);
     }
   }
 

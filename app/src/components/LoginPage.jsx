@@ -8,6 +8,16 @@ const LoginPage = ({ acao }) => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const images = [
+    '/foto1.svg',
+    '/foto2.svg',
+    '/foto3.svg',
+    '/foto4.svg',
+    '/foto5.svg',
+    '/foto6.svg',
+    '/foto7.svg',
+    '/foto8.svg'
+  ];
   const [erro, setErro] = useState("");
   const [disabled, setDisabled] = useState(style.disabled);
 
@@ -54,12 +64,15 @@ const LoginPage = ({ acao }) => {
   };
 
   const handleCadastro = async () => {
+    const index = Math.floor(Math.random() * images.length);
+    const img = images[index];
     setErro(false);
     try {
       const info = {
         nome,
         email,
         senha,
+        img,
         configuracoes: { permiteEmail: true },
       };
       const response = await fetch("http://localhost:4000/api/cadastro", {
