@@ -15,7 +15,7 @@ import { useListaContext } from "../../../hooks/useListaContext";
 import { useTaskContext } from "../../../hooks/useTaskContext";
 import ModalExcluir from "../modal/ModalExcluir";
 
-const ContainerTask = ({ task, setTask }) => {
+const ContainerTask = ({ task, setTask, concluir }) => {
   const [lista, setLista] = useState(task.nomeLista);
   const { dispatch: dispatchLista } = useListaContext();
   const { dispatch: dispatchTask } = useTaskContext();
@@ -106,6 +106,11 @@ const ContainerTask = ({ task, setTask }) => {
     }
   };
 
+  const clickConcluir = () => {
+    concluir(task._id);
+    fechar()
+  }
+
   return (
     <div className={style.container}>
       <ul className={style.header}>
@@ -140,7 +145,7 @@ const ContainerTask = ({ task, setTask }) => {
       </ul>
       <div className={style.wrapper}>
         <div className={style.taskCheck}>
-          <UilCircle size="18" color="var(--c11)" />
+          <UilCircle size="18" color="var(--c11)" onClick={clickConcluir} />
           <input
             type="text"
             readOnly={!editar}
