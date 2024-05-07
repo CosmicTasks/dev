@@ -26,6 +26,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
+import PagePomo from "./components/app/pomo/PagePomo.jsx";
 
 // Contextos
 import { UserContextProvider } from "./context/UserContext.jsx";
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
         path: "notes",
         element: <Markdown />,
       },
+      {
+        path: 'pomo',
+        element: <PagePomo />
+      }
     ],
   },
   {
