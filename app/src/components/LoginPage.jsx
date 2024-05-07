@@ -72,7 +72,7 @@ const LoginPage = ({ acao }) => {
       const data = await response.json();
       if (response.ok) {
         const user = JSON.stringify(data);
-        alert(user);
+        console.log('Usuario criado: ', user);
         localStorage.setItem("user", user);
         window.location.replace("/app");
       } else {
