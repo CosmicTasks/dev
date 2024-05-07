@@ -16,8 +16,6 @@
   --c1: #f3edfa;
   --c2: #dfdae5;
   --c3: #c6c2cc;
-  --c4: #B3AEB8;
-  --c5: #9F9BA3;
   --c6: #8B888F;
   --c7: #77747a;
   --c8: #636166;
@@ -75,6 +73,16 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {
