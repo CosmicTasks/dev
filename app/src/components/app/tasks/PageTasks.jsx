@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SecSidebar from "./SecSidebar";
+import SecSidebar from "../SecSidebar";
 import style from "./PageTasks.module.css";
 import {
   UilArrowToRight,
@@ -9,7 +9,7 @@ import {
   UilAngleDown,
   UilCircle,
 } from "@iconscout/react-unicons";
-import useListas from "./Listas";
+import useListas from "../Listas";
 
 const PageTasks = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -49,7 +49,7 @@ const PageTasks = () => {
             </div>
             {lista.tarefas.map((tarefa) => (
               <div key={tarefa.id} className={style.tarefa}>
-                <div className={style.tarefaCheck} >
+                <div className={style.tarefaCheck}>
                   <UilCircle size="18" color="var(--c11)" />
                   <span className={style.tarefaNome}>{tarefa.nome}</span>
                 </div>

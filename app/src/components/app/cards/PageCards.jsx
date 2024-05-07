@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./PageCard.module.css";
 import { UilBox, UilEdit } from "@iconscout/react-unicons";
-import logo from "../../assets/logo-cinza.png";
+import logo from "../../../assets/logo-cinza.png";
 
 function PageCard() {
   const [selectedCard, setSelectedCard] = useState(1);
