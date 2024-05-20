@@ -16,6 +16,8 @@
   --c1: #f3edfa;
   --c2: #dfdae5;
   --c3: #c6c2cc;
+  --c4: #b3aeb8;
+  --c5: #9f9ba3;
   --c6: #8B888F;
   --c7: #77747a;
   --c8: #636166;
@@ -26,14 +28,20 @@
   --r1: #f2e5ff;
   --r2: #e0c1ff;
   --r3: #b469ff;
+  --r4: #a24ff6;
+  --r5: #bf3ae4;
+  --r6: #7125cd;
   --r7: #511abe;
+  --r8: #4310a9;
   --r9: #2b027e;
   --r10: #20005f;
   --r11: #0e0038;
   --r12: #07001b;
+  --a1: #fcffdb;
   --a2: #fcffc1;
   --a3: #f7ff5d;
   --a4: #e7f042;
+  --a5: #d7d725;
   --a12: #151300;
 
   --azul-royal: #1c72ff;
@@ -68,21 +76,12 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 16px;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {
