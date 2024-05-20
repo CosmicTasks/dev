@@ -1,35 +1,42 @@
 .footer {
-  padding: 90px 5%;
+  padding: 5.5em 5%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 64px;
+  gap: 4em;
   background-color: var(--r11);
   color: var(--r1);
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Lato;
-  font-size: 12px;
+  font-size: 1em;
   font-style: normal;
   font-weight: 300;
-  letter-spacing: 0.36px;
+  letter-spacing: 0.42px;
   text-transform: uppercase;
 }
 
 .copy {
-  max-width: 33%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  text-align: center;
+  width: 100%;
+  gap: 1em;
+  p {
+    text-wrap: wrap;
+  }
 }
 
 .social {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
   ul {
     list-style: none;
     display: flex;
-    gap: 16px;
+    gap: 1em;
     justify-content: end;
 
     a {
@@ -44,24 +51,13 @@
   color: var(--r1);
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Raleway;
-  font-size: calc(12px + 2vw);
+  font-size: calc(1em + 2vw);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 2.88px;
   text-align: center;
   text-transform: uppercase;
-
-  &:hover {
-    background: linear-gradient(
-      90deg,
-      rgba(242, 229, 255, 1) 0%,
-      rgba(180, 105, 255, 1) 50%,
-      rgba(242, 229, 255, 1) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
 }
 
 @media only screen and (max-device-width: 627px) {
