@@ -1,13 +1,20 @@
-import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import style from "./LandingPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const LandingPage = () => {
+
+  const [planoAtivo, setPlanoAtivo] = useState("mensal");
+
+  const handlePlanoChange = (e) => {
+    setPlanoAtivo(e.target.id);
+  };
+
   return (
-    <>
+    <div className={style.landing}>
       <Header />
       <div className={style.hero}>
         <h1 className={style.mainTitle}>
@@ -21,7 +28,7 @@ const LandingPage = () => {
           Iniciar jornada
           </Link>
         <img
-          src="https://placehold.co/1400x800"
+          src="./main.png"
           alt="hero"
           className={style.heroImage}
         />
@@ -108,21 +115,25 @@ const LandingPage = () => {
         <div className={style.headerTabs}>
           <input
             type="radio"
-            id="radio1"
+            id="mensal"
             name="planos"
             className={style.radioInput}
+            onChange={handlePlanoChange}
+            checked={planoAtivo === "mensal"}
           />
-          <label htmlFor="radio1" className={style.radioLabel}>
+          <label htmlFor="mensal" className={style.radioLabel}>
             <span className={style.radioInnerCircle}></span>
             Mensal
           </label>
           <input
             type="radio"
-            id="radio2"
+            id="anual"
             name="planos"
             className={style.radioInput}
+            onChange={handlePlanoChange}
+            checked={planoAtivo === "anual"}
           />
-          <label htmlFor="radio2" className={style.radioLabel}>
+          <label htmlFor="anual" className={style.radioLabel}>
             <span className={style.radioInnerCircle}></span>
             Anual
           </label>
@@ -164,7 +175,7 @@ const LandingPage = () => {
       </Link>
     </div>
     <Footer />
-    </>
+    </div>
   );
 };
 
