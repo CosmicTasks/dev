@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className={style.footer}>
       <div className={style.copy}>
-        <p>© 2021 - Todos os direitos reservados</p>
+        <p>© 2024 - Todos os direitos reservados</p>
         <p>
           *Este site faz parte do trabalho de conclusão do curso técnico de
           Desenvolvimento de Sistemas da Etec Dra. Ruth Cardoso.
