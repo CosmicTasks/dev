@@ -1,39 +1,136 @@
 .login {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-    background-color: var(--r7);
+  min-height: 100vh;
+  background-color: var(--c1);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+  align-items: center;
+  width: 700px;
+  max-width: 100%;
+  position: relative;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
 }
 
 .logo {
-    display: block;
-    width: 5em;
-    height: auto;
+  display: block;
+  width: 5em;
+  height: auto;
 }
 
 .chamada {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2em;
-    margin: 0;
-    width: fit-content;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5em;
+  margin: 0;
+  width: fit-content;
+  color: var(--c12);
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  border-radius: 1em;
+  max-width: 400px;
+  width: 100%;
+  /* From https://css.glass */
+  background: rgba(81, 26, 190, 0.03);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(81, 26, 190, 0.1);
 }
 
 .inputGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  color: var(--c10);
+}
+
+.input {
+  background-color: var(--c1) !important;
+  border: 1px solid var(--c3);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: var(--c10);
+  font-size: 1em;
+  font-weight: 400;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid var(--c9);
+}
+
+.input::placeholder {
+  color: var(--c5);
+  font-weight: normal;
+}
+
+.button {
+  background-color: var(--r7);
+  color: var(--r1);
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: var(--r8);
+  cursor: pointer;
+}
+
+.createAccount {
+  width: fit-content;
+}
+
+.createAccount > p {
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.createAccount > p > a {
+  color: var(--r7);
+  text-decoration: none;
+}
+
+.createAccount > p > a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  width: fit-content;
+  text-wrap: wrap;
+  text-align: center;
+  font-size: 1em;
+}
+
+@media (max-width: 400px) {
+  .form {
+    padding: 1em;
+  }
 }
