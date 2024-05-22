@@ -20,6 +20,9 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "naumovs.color-highlight"
+      "dsznajder.es7-react-js-snippets"
+      "esbenp.prettier-vscode"
     ];
 
     # Enable previews
