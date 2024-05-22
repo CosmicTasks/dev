@@ -1,0 +1,39 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    background-color: var(--r7);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    width: 5em;
+    height: auto;
+}
+
+.chamada {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    margin: 0;
+    width: fit-content;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
