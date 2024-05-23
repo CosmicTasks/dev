@@ -127,6 +127,7 @@
   text-wrap: wrap;
   text-align: center;
   font-size: 1em;
+  color: var(--c9);
 }
 
 @media (max-width: 400px) {
