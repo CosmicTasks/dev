@@ -88,11 +88,15 @@
   background-color: var(--r11) !important;
   border: 1px solid var(--c6);
   border-radius: 0.5em;
-  padding: 0.5em 2.5em 0.5em 0.5em;
+  padding: 0.5em;
   color: var(--c1);
   font-size: 1em;
   font-weight: 400;
   width: 100%;
+}
+
+#senha, #confirmar_senha {
+  padding-right: 2.5em;
 }
 
 .input:focus {
@@ -120,4 +124,32 @@
   padding: 0.5em;
   font-size: 1em;
   font-weight: 600;
+}
+
+.cadastrar {
+  background-color: var(--a4);
+  color: var(--a12);
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.cadastrar:hover {
+  background-color: var(--a3);
+}
+
+.footer {
+  width: fit-content;
+  text-wrap: wrap;
+  text-align: center;
+  font-size: 1em;
+  color: var(--c5);
+}
+
+@media (max-width: 400px) {
+  .form {
+    padding: 1em;
+  }
 }

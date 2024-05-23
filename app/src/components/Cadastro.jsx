@@ -1,7 +1,7 @@
 import style from "./Cadastro.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { UilEye, UilEyeSlash } from "@iconscout/react-unicons";
+import Alert from "./app/alert/Alert";
 
 const Cadastro = () => {
   const [nome, setNome] = useState();
@@ -9,8 +9,19 @@ const Cadastro = () => {
   const [senha, setSenha] = useState();
   const [confirmarSenha, setConfirmarSenha] = useState();
   const [iterador, setIterador] = useState(0);
-  const [ver1, setVer1] = useState(true);
-  const [ver2, setVer2] = useState(true);
+  const [erro, setErro] = useState(null);
+  const [sucesso, setSucesso] = useState(false);
+
+  const images = [
+    "/foto1.svg",
+    "/foto2.svg",
+    "/foto3.svg",
+    "/foto4.svg",
+    "/foto5.svg",
+    "/foto6.svg",
+    "/foto7.svg",
+    "/foto8.svg",
+  ];
 
   const validarEmail = (email) => {
     const regexEmail =
@@ -63,11 +74,48 @@ const Cadastro = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErro(null);
 
     validarSenha(confirmarSenha, "confirmar");
 
     if (senha != confirmarSenha) {
-      return console.log("Senha e Confirmar Senha devem ser iguais.");
+      return setErro("Senha e Confirmar Senha devem ser iguais.");
+    }
+
+    const index = Math.floor(Math.random() * images.length);
+    const img = images[index];
+
+    try {
+      const info = {
+        nome,
+        email,
+        senha,
+        img,
+        configuracoes: { permiteEmail: true },
+      };
+      const response = await fetch(
+        "https://4000-idx-dev-1716272782202.cluster-vpxjqdstfzgs6qeiaf7rdlsqrc.cloudworkstations.dev/api/cadastro",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(info),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        const user = JSON.stringify(data);
+        console.log("Usuário criado", user);
+        localStorage.setItem("user", user);
+        setSucesso(true);
+        window.location.replace("/app");
+      } else {
+        setErro(data.error || response.statusText || response.status.toString);
+      }
+    } catch (error) {
+      console.log(error);
+      setErro("Erro ao cadastrar usuário.");
     }
   };
 
@@ -110,6 +158,7 @@ const Cadastro = () => {
               placeholder="Insira seu nome"
               onChange={(e) => setNome(e.target.value)}
               required
+              autoFocus
             />
           </div>
           <div
@@ -133,67 +182,37 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 2 ? false : true}
           >
-            <label htmlFor="senha" className={style.label}>
+            <label htmlFor={style.senha} className={style.label}>
               Senha
             </label>
             <input
-              type={ver1 ? "password" : "true"}
+              type='password'
               name="senha"
-              id="senha"
+              id={style.senha}
               className={style.input}
               placeholder="Insira sua senha"
               onChange={(e) => setSenha(e.target.value)}
               required
               minLength={8}
             />
-            {ver1 ? (
-              <UilEye
-                size="1.5em"
-                color="var(--c1)"
-                onClick={() => setVer1(false)}
-                className={style.eye}
-              />
-            ) : (
-              <UilEyeSlash
-                size="1.5em"
-                color="var(--c1)"
-                onClick={() => setVer1(true)}
-                className={style.eye}
-              />
-            )}
           </div>
           <div
             className={style.inputGroup}
             hidden={iterador >= 3 ? false : true}
           >
-            <label htmlFor="confirmar-senha" className={style.label}>
+            <label htmlFor={style.confirmar_senha} className={style.label}>
               Confirmar senha
             </label>
             <input
-              type={ver2 ? "password" : "true"}
+              type='password'
               name="confirmar-senha"
-              id="confirmar-senha"
+              id={style.confirmar_senha}
               className={style.input}
               placeholder="Confirme a senha"
               onChange={(e) => setConfirmarSenha(e.target.value)}
               required
               minLength={8}
             />
-            {ver2 ? (
-              <UilEye
-                size="1.5em"
-                color="var(--c1)"
-                onClick={() => setVer2(false)}
-                className={style.eye}
-              />
-            ) : (
-              <UilEyeSlash
-                size="1.5em"
-                color="var(--c1)"
-                onClick={() => setVer2(true)}
-                className={style.eye}
-              />
-            )}
           </div>
           <button
             className={style.continuar}
@@ -211,6 +230,18 @@ const Cadastro = () => {
             Cadastrar
           </button>
         </form>
+        <footer className={style.footer}>
+          <span>
+            &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
+          </span>
+        </footer>
+        {erro && <Alert icon={"erro"} conteudo={erro} setErro={setErro} />}
+        {sucesso && (
+          <Alert
+            icon={"sucesso"}
+            conteudo={"Cadastro realizado com sucesso!"}
+          />
+        )}
       </div>
     </div>
   );
