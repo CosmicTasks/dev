@@ -6,7 +6,7 @@ const Alert = ({ icon, conteudo, setErro }) => {
   const [icone, setIcone] = useState(null);
 
   const click = () => {
-    setErro ? setTimeout(() => setErro(null), 2000) : ''
+    setErro ? setTimeout(() => setErro(null), 1000) : ''
   };
 
   useEffect(() => {
