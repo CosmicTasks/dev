@@ -21,8 +21,8 @@ library.add(
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
-import LoginPage from "./components/LoginPage.jsx";
-import Login from './components/Login.jsx'
+import Login from './components/Login.jsx';
+import Cadastro from './components/Cadastro.jsx';
 import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
@@ -108,12 +108,11 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    // element: <LoginPage acao={"login"} />,
     element: <Login />,
   },
   {
     path: "cadastro",
-    element: <LoginPage acao={"cadastro"} />,
+    element: <Cadastro />,
   },
 ]);
 
