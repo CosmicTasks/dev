@@ -11,6 +11,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setErro(null);
     try {
       const info = { email, senha };
       const response = await fetch("http://localhost:4000/api/login", {
@@ -25,13 +26,18 @@ const Login = () => {
         const user = JSON.stringify(data);
         localStorage.setItem("user", user);
         setSucesso(true);
-        window.location.replace("/app");
+        setTimeout(() => {
+          setSucesso(null);
+          window.location.replace("/app");
+        }, 2000);
       } else {
-        setErro(response.error);
+        setErro(data.error);
+        setTimeout(() => setErro(null), 5000);
       }
     } catch (error) {
       console.error(error);
-      setErro("Erro ao realizar login.");
+      setTimeout(() => setErro("Erro ao realizar login."), 5000);
+      setErro(null);
     }
   };
 
@@ -53,6 +59,7 @@ const Login = () => {
               id="email"
               className={style.input}
               placeholder="Insira seu e-mail"
+              onChange={(e) => setEmail(e.target.value)}
               autoFocus
               required
             />
@@ -67,6 +74,7 @@ const Login = () => {
               id="password"
               className={style.input}
               placeholder="Insira sua senha"
+              onChange={(e) => setSenha(e.target.value)}
               required
               minLength={8}
             />
@@ -78,7 +86,7 @@ const Login = () => {
         <div className={style.createAccount}>
           <p>
             Não tem uma conta?{" "}
-            <Link to="/register" className={style.link}>
+            <Link to="/cadastro" className={style.link}>
               Cadastre-se
             </Link>
           </p>
@@ -88,9 +96,15 @@ const Login = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && <Alert icon={"erro"} conteudo={erro} setErro={setErro} />}
+        {erro && (
+          <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
+        )}
         {sucesso && (
-          <Alert icon={"sucesso"} conteudo={"Login realizado com sucesso!"} />
+          <Alert
+            tipo={"sucesso"}
+            conteudo={"Login realizado com sucesso!"}
+            onClick={() => setSucesso(false)}
+          />
         )}
       </div>
     </div>

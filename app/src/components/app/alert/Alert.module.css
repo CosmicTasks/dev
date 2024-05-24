@@ -5,10 +5,18 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
-  background-color: var(--vermelho);
   border-radius: 0.5em;
   padding: 0.5em;
-  color: var(--c1);
   font-weight: 600;
   cursor: pointer;
+}
+
+.alert.erro {
+  background-color: var(--vermelho);
+  color: var(--c1);
+}
+
+.alert.sucesso {
+  background-color: var(--verde-floresta);
+  color: var(--c1);
 }

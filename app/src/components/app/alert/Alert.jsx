@@ -1,26 +1,29 @@
-import { UilExclamationTriangle } from "@iconscout/react-unicons";
+import { UilExclamationTriangle, UilCheck } from "@iconscout/react-unicons";
 import { useEffect, useState } from "react";
 import style from "./Alert.module.css";
 
-const Alert = ({ icon, conteudo, setErro }) => {
+const Alert = ({ tipo, conteudo }) => {
   const [icone, setIcone] = useState(null);
-
-  const click = () => {
-    setErro ? setTimeout(() => setErro(null), 1000) : ''
-  };
+  const [classList, setClassList] = useState([style.alert]);
 
   useEffect(() => {
-    switch (icon) {
+    switch (tipo) {
       case "erro":
         setIcone(<UilExclamationTriangle color="var(--c1)" />);
+        setClassList([...classList, style.erro]);
+        break;
+      case "sucesso":
+        setIcone(<UilCheck color="var(--c1)" />);
+        setClassList([...classList, style.sucesso]);
         break;
       default:
+        setClassList([...classList, style.erro]);
         setIcone(<UilExclamationTriangle color="var(--c1)" />);
     }
-  }, [icon]);
+  }, [tipo]);
 
   return (
-    <div className={style.alert} onClick={click}>
+    <div className={classList.join(" ")}>
       {icone}
       <span className={style.title}>{conteudo}</span>
     </div>

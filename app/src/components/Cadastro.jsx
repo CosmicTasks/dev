@@ -79,7 +79,7 @@ const Cadastro = () => {
     validarSenha(confirmarSenha, "confirmar");
 
     if (senha != confirmarSenha) {
-      return setErro("Senha e Confirmar Senha devem ser iguais.");
+      return setTimeout(() => setErro("Senha e Confirmar Senha devem ser iguais."), 5000);
     }
 
     const index = Math.floor(Math.random() * images.length);
@@ -94,7 +94,7 @@ const Cadastro = () => {
         configuracoes: { permiteEmail: true },
       };
       const response = await fetch(
-        "https://4000-idx-dev-1716272782202.cluster-vpxjqdstfzgs6qeiaf7rdlsqrc.cloudworkstations.dev/api/cadastro",
+        "http://localhost:4000/api/cadastro",
         {
           method: "POST",
           headers: {
@@ -108,14 +108,16 @@ const Cadastro = () => {
         const user = JSON.stringify(data);
         console.log("Usuário criado", user);
         localStorage.setItem("user", user);
-        setSucesso(true);
+        setTimeout(() => setSucesso(true), 2000);
         window.location.replace("/app");
       } else {
-        setErro(data.error || response.statusText || response.status.toString);
+        setTimeout(() => setErro(data.error || response.statusText || response.status.toString), 5000);
+        setErro(null);
       }
     } catch (error) {
       console.log(error);
-      setErro("Erro ao cadastrar usuário.");
+      setTimeout(() => setErro("Erro ao cadastrar usuário."), 5000);
+      setErro(null);
     }
   };
 
@@ -126,6 +128,7 @@ const Cadastro = () => {
         break;
       case 2:
         if (validarSenha(senha, "senha")) return setIterador(iterador + 1);
+        break;
       default:
         if (validarNome(nome)) return setIterador(iterador + 1);
     }
@@ -235,11 +238,12 @@ const Cadastro = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && <Alert icon={"erro"} conteudo={erro} setErro={setErro} />}
+        {erro && <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />}
         {sucesso && (
           <Alert
-            icon={"sucesso"}
+            tipo={"sucesso"}
             conteudo={"Cadastro realizado com sucesso!"}
+            onClick={() => setSucesso(false)}
           />
         )}
       </div>
