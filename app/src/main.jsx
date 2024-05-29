@@ -28,6 +28,7 @@ import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
 import PagePomo from "./components/app/pomo/PagePomo.jsx";
+import PageDash  from "./components/app/dashboard/PageDash.jsx";
 
 // Contextos
 import { UserContextProvider } from "./context/UserContext.jsx";
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: 'pomo',
         element: <PagePomo />
+      },
+      {
+        path: 'dashboard',
+        element: <PageDash />
       }
     ],
   },
