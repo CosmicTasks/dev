@@ -94,11 +94,6 @@
   font-weight: 400;
   width: 100%;
 }
-
-#senha, #confirmar_senha {
-  padding-right: 2.5em;
-}
-
 .input:focus {
   outline: none;
   border: 1px solid var(--c3);

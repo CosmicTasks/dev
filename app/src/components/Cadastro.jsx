@@ -4,10 +4,10 @@ import { useState } from "react";
 import Alert from "./app/alert/Alert";
 
 const Cadastro = () => {
-  const [nome, setNome] = useState();
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-  const [confirmarSenha, setConfirmarSenha] = useState();
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
   const [iterador, setIterador] = useState(0);
   const [erro, setErro] = useState(null);
   const [sucesso, setSucesso] = useState(false);
@@ -56,18 +56,33 @@ const Cadastro = () => {
   };
 
   const validarSenha = (senha, tipo) => {
-    // Remover espaços em branco da senha
+    // Verifica se a senha é nula
+    if (!senha) {
+      return false;
+    }
+
+    // Remover espaços em branco no início e no final da senha
     senha = senha.trim();
 
-    // Expressão regular para validar a senha
-    const regexSenha =
-      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&*\(\)_+\-=\[\]\{\};':"\\|,.<>\/?])(?=.{8,})/;
+    // Testa se a senha tem pelo menos 8 caracteres
+    if (senha.length < 8) {
+      return false;
+    }
 
-    // Testa se a senha é válida
-    if (regexSenha.test(senha)) {
-      tipo === "senha" ? setSenha(senha) : setConfirmarSenha(senha);
+    // Testa se a senha tem pelo menos um número e uma letra
+    const regexSenhaNumero = /[0-9]/;
+    const regexSenhaLetra = /[a-zA-Z]/;
+
+    if (regexSenhaNumero.test(senha) && regexSenhaLetra.test(senha)) {
+      if (tipo === "senha") {
+        setSenha(senha);
+      } else {
+        setConfirmarSenha(senha);
+      }
       return true;
     } else {
+      setErro("A senha deve conter pelo menos um número e uma letra.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
@@ -159,6 +174,7 @@ const Cadastro = () => {
               id="nome"
               className={style.input}
               placeholder="Insira seu nome"
+              value={nome}
               onChange={(e) => setNome(e.target.value)}
               required
               autoFocus
@@ -177,6 +193,7 @@ const Cadastro = () => {
               id="email"
               className={style.input}
               placeholder="Insira seu e-mail"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -185,15 +202,16 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 2 ? false : true}
           >
-            <label htmlFor={style.senha} className={style.label}>
+            <label htmlFor='senha' className={style.label}>
               Senha
             </label>
             <input
               type='password'
               name="senha"
-              id={style.senha}
+              id='senha'
               className={style.input}
               placeholder="Insira sua senha"
+              value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
               minLength={8}
@@ -203,13 +221,13 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 3 ? false : true}
           >
-            <label htmlFor={style.confirmar_senha} className={style.label}>
+            <label htmlFor='confirmar_senha' className={style.label}>
               Confirmar senha
             </label>
             <input
               type='password'
               name="confirmar-senha"
-              id={style.confirmar_senha}
+              id='confirmar_senha'
               className={style.input}
               placeholder="Confirme a senha"
               onChange={(e) => setConfirmarSenha(e.target.value)}
