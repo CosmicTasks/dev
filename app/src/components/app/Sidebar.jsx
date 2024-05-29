@@ -1,6 +1,5 @@
-import React from "react";
-import style from "./Sidebar.module.css";
-import ViteLogo from "/vite.svg";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   UilCheckCircle,
   UilStopwatch,
@@ -11,14 +10,19 @@ import {
   UilEnvelope,
   UilSetting,
 } from "@iconscout/react-unicons";
-import { NavLink } from "react-router-dom";
-import { useUserContext } from "../../hooks/useUserContext";
+import Modalconfig from "./modal/ModalConfig"; // Certifique-se de que o caminho está correto
+import ViteLogo from "/vite.svg";
+import style from "./Sidebar.module.css";
 
 const Sidebar = () => {
-
+  const [modalOpen, setModalOpen] = useState(false); // Estado para controlar se o modal está aberto ou fechado
   const userJSON = JSON.parse(localStorage.getItem("user"));
-
   const img = userJSON.img ? userJSON.img : ViteLogo;
+
+  // Função para abrir ou fechar o modal
+  const toggleModal = () => {
+    setModalOpen(!modalOpen); // Inverte o estado atual do modal
+  };
 
   return (
     <div className={style.sidebar}>
@@ -29,10 +33,7 @@ const Sidebar = () => {
         <div className={style.item}>
           <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
-              <UilCheckCircle
-                size="24"
-                className={isActive ? style.active : ""}
-              />
+              <UilCheckCircle size="24" className={isActive ? style.active : ""} />
             )}
           </NavLink>
         </div>
@@ -68,10 +69,20 @@ const Sidebar = () => {
         <div className={style.item}>
           <UilEnvelope size="24" color="var(--r1)" />
         </div>
-        <div className={style.item}>
+        {/* Adiciona um manipulador de eventos onClick ao ícone de configurações */}
+        <div className={style.item} onClick={toggleModal}>
           <UilSetting size="24" color="var(--r1)" />
         </div>
       </div>
+      {/* Renderiza o modal se o estado modalOpen for true */}
+      {modalOpen && (
+        <Modalconfig
+          onClose={toggleModal} // Passa a função toggleModal para fechar o modal
+          loggedIn={true} // ou false conforme sua lógica de autenticação
+          onLogout={() => console.log("Logout")} // Função de logout
+          onChangeAvatar={() => console.log("Change Avatar")} // Função para mudar o avatar
+        />
+      )}
     </div>
   );
 };
