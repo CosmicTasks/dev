@@ -4,10 +4,10 @@ import { useState } from "react";
 import Alert from "./app/alert/Alert";
 
 const Cadastro = () => {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
   const [iterador, setIterador] = useState(0);
   const [erro, setErro] = useState(null);
   const [sucesso, setSucesso] = useState(false);
@@ -94,7 +94,10 @@ const Cadastro = () => {
     validarSenha(confirmarSenha, "confirmar");
 
     if (senha != confirmarSenha) {
-      return setTimeout(() => setErro("Senha e Confirmar Senha devem ser iguais."), 5000);
+      return setTimeout(
+        () => setErro("Senha e Confirmar Senha devem ser iguais."),
+        5000
+      );
     }
 
     const index = Math.floor(Math.random() * images.length);
@@ -108,16 +111,13 @@ const Cadastro = () => {
         img,
         configuracoes: { permiteEmail: true },
       };
-      const response = await fetch(
-        "http://localhost:4000/api/cadastro",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(info),
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
       const data = await response.json();
       if (response.ok) {
         const user = JSON.stringify(data);
@@ -126,7 +126,13 @@ const Cadastro = () => {
         setTimeout(() => setSucesso(true), 2000);
         window.location.replace("/app");
       } else {
-        setTimeout(() => setErro(data.error || response.statusText || response.status.toString), 5000);
+        setTimeout(
+          () =>
+            setErro(
+              data.error || response.statusText || response.status.toString
+            ),
+          5000
+        );
         setErro(null);
       }
     } catch (error) {
@@ -151,6 +157,16 @@ const Cadastro = () => {
 
   return (
     <div className={style.cadastro}>
+      {erro && (
+        <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
+      )}
+      {sucesso && (
+        <Alert
+          tipo={"sucesso"}
+          conteudo={"Cadastro realizado com sucesso!"}
+          onClick={() => setSucesso(false)}
+        />
+      )}
       <header className={style.header}>
         <Link to={"/"} className={style.brand}>
           <img src="./logo-icon.png" alt="CosmicTasks" className={style.logo} />
@@ -202,13 +218,13 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 2 ? false : true}
           >
-            <label htmlFor='senha' className={style.label}>
+            <label htmlFor="senha" className={style.label}>
               Senha
             </label>
             <input
-              type='password'
+              type="password"
               name="senha"
-              id='senha'
+              id="senha"
               className={style.input}
               placeholder="Insira sua senha"
               value={senha}
@@ -221,13 +237,13 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 3 ? false : true}
           >
-            <label htmlFor='confirmar_senha' className={style.label}>
+            <label htmlFor="confirmar_senha" className={style.label}>
               Confirmar senha
             </label>
             <input
-              type='password'
+              type="password"
               name="confirmar-senha"
-              id='confirmar_senha'
+              id="confirmar_senha"
               className={style.input}
               placeholder="Confirme a senha"
               onChange={(e) => setConfirmarSenha(e.target.value)}
@@ -256,14 +272,6 @@ const Cadastro = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />}
-        {sucesso && (
-          <Alert
-            tipo={"sucesso"}
-            conteudo={"Cadastro realizado com sucesso!"}
-            onClick={() => setSucesso(false)}
-          />
-        )}
       </div>
     </div>
   );

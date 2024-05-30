@@ -23,9 +23,11 @@ const Alert = ({ tipo, conteudo }) => {
   }, [tipo]);
 
   return (
-    <div className={classList.join(" ")}>
-      {icone}
-      <span className={style.title}>{conteudo}</span>
+    <div className={style.wrapper}>
+      <div className={classList.join(" ")}>
+        {icone}
+        <span className={style.title}>{conteudo}</span>
+      </div>
     </div>
   );
 };

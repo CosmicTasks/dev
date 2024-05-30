@@ -6,7 +6,7 @@ const userLogin = async (req, res) => {
     const { email, senha } = req.body;
     const user = await User.findOne({ email: email});
     if (!user) {
-      return res.status(404).json({ error: "Usuário não encontrado." });
+      return res.status(404).json({ error: "Usuário ou senha incorretos." });
     }
     if (user.senha !== senha) {
       return res.status(401).json({ error: "Usuário ou senha incorretos." });

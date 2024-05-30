@@ -44,6 +44,16 @@ const Login = () => {
   return (
     <div className={style.login}>
       <div className={style.container}>
+      {erro && (
+          <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
+        )}
+        {sucesso && (
+          <Alert
+            tipo={"sucesso"}
+            conteudo={"Login realizado com sucesso!"}
+            onClick={() => setSucesso(false)}
+          />
+        )}
         <div className={style.header}>
           <img src="./logo-icon.png" alt="CosmicTasks" className={style.logo} />
           <h1 className={style.chamada}>Entrar no CosmicTasks</h1>
@@ -96,16 +106,7 @@ const Login = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && (
-          <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
-        )}
-        {sucesso && (
-          <Alert
-            tipo={"sucesso"}
-            conteudo={"Login realizado com sucesso!"}
-            onClick={() => setSucesso(false)}
-          />
-        )}
+
       </div>
     </div>
   );
