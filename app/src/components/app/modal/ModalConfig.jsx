@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from "./ModalConfig.module.css";
 
 function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
   const [theme, setTheme] = useState("light");
@@ -9,7 +9,7 @@ function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
   };
 
   return (
-    <div className="modal">
+    <div className={styles.modal}>
       <div className={`modal-content ${theme}`}>
         <span className="close" onClick={onClose}>&times;</span>
         <h2>Configurações</h2>

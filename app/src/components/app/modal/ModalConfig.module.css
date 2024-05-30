@@ -1,53 +1,61 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .modal-content.dark {
-    background: #333;
-    color: #fff;
-  }
-  
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px 0;
-    width: 100%;
-  }
-  
-  button.primary {
-    background: #007bff;
-    color: #fff;
-  }
-  
-  button.secondary {
-    background: #ddd;
-    color: #333;
-  }
+  border-radius: 8px;
+  background: var(--c1);
+  border: 1px solid var(--c9);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px; /* Adicionando padding para melhorar o espaçamento interno */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wrapper h2 {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.wrapper p {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px; /* Adicionando margem superior para separar os botões */
+}
+
+.btn {
+  padding: 8px 16px; /* Aumentando o padding para melhorar a aparência dos botões */
+  border-radius: 4px; /* Adicionando borda arredondada aos botões */
+  color: var(--c12);
+  background-color: var(--c2);
+  font-size: 14px; /* Aumentando o tamanho da fonte dos botões */
+  cursor: pointer; /* Mudando o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease; /* Adicionando uma transição suave para a mudança de cor de fundo */
+}
+
+.btn:hover {
+  background-color: var(--c3);
+}
+
+.excluir {
+  background-color: var(--vermelho);
+  color: var(--c1);
+}
+
+.excluir:hover {
+  background-color: var(--vermelho);
+}

@@ -11,13 +11,14 @@ import {
   UilSetting,
 } from "@iconscout/react-unicons";
 import Modalconfig from "./modal/ModalConfig"; // Certifique-se de que o caminho está correto
-import ViteLogo from "/vite.svg";
+
 import style from "./Sidebar.module.css";
+
 
 const Sidebar = () => {
   const [modalOpen, setModalOpen] = useState(false); // Estado para controlar se o modal está aberto ou fechado
   const userJSON = JSON.parse(localStorage.getItem("user"));
-  const img = userJSON.img ? userJSON.img : ViteLogo;
+  
 
   // Função para abrir ou fechar o modal
   const toggleModal = () => {
@@ -28,7 +29,7 @@ const Sidebar = () => {
     <div className={style.sidebar}>
       <div className={style.mainItems}>
         <div className={style.item}>
-          <img className={style.img} src={img} alt="Perfil do usuário" />
+          
         </div>
         <div className={style.item}>
           <NavLink to="tasks/hoje" className={style.link}>
