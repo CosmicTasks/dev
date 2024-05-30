@@ -14,11 +14,9 @@ import Modalconfig from "./modal/ModalConfig"; // Certifique-se de que o caminho
 
 import style from "./Sidebar.module.css";
 
-
 const Sidebar = () => {
   const [modalOpen, setModalOpen] = useState(false); // Estado para controlar se o modal está aberto ou fechado
   const userJSON = JSON.parse(localStorage.getItem("user"));
-  
 
   // Função para abrir ou fechar o modal
   const toggleModal = () => {
@@ -28,20 +26,24 @@ const Sidebar = () => {
   return (
     <div className={style.sidebar}>
       <div className={style.mainItems}>
-        <div className={style.item}>
-          
-        </div>
+        <div className={style.item}></div>
         <div className={style.item}>
           <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
-              <UilCheckCircle size="24" className={isActive ? style.active : ""} />
+              <UilCheckCircle
+                size="24"
+                className={isActive ? style.active : ""}
+              />
             )}
           </NavLink>
         </div>
         <div className={style.item}>
           <NavLink to="pomo" className={style.link}>
             {({ isActive }) => (
-              <UilStopwatch size="24" className={isActive ? style.active : ""} />
+              <UilStopwatch
+                size="24"
+                className={isActive ? style.active : ""}
+              />
             )}
           </NavLink>
         </div>
