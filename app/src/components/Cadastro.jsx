@@ -1,5 +1,5 @@
 import style from "./Cadastro.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "./app/alert/Alert";
 
@@ -9,8 +9,10 @@ const Cadastro = () => {
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [iterador, setIterador] = useState(0);
-  const [erro, setErro] = useState(null);
-  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState('');
+  const [sucesso, setSucesso] = useState('');
+
+  const navigate = useNavigate();
 
   const images = [
     "/foto1.svg",
@@ -31,6 +33,8 @@ const Cadastro = () => {
       setEmail(email);
       return true;
     } else {
+      setErro("Email inválido.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
@@ -51,6 +55,8 @@ const Cadastro = () => {
       setNome(nome);
       return true;
     } else {
+      setErro("Nome inválido.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
@@ -66,6 +72,7 @@ const Cadastro = () => {
 
     // Testa se a senha tem pelo menos 8 caracteres
     if (senha.length < 8) {
+      setErro("A senha deve ter pelo menos 8 caracteres.");
       return false;
     }
 
@@ -91,13 +98,10 @@ const Cadastro = () => {
     e.preventDefault();
     setErro(null);
 
-    validarSenha(confirmarSenha, "confirmar");
-
     if (senha != confirmarSenha) {
-      return setTimeout(
-        () => setErro("Senha e Confirmar Senha devem ser iguais."),
-        5000
-      );
+      setErro("Senha e confirmação de senha não coincidem.");
+      setTimeout(() => setErro(null), 5000);
+      return;
     }
 
     const index = Math.floor(Math.random() * images.length);
@@ -121,19 +125,13 @@ const Cadastro = () => {
       const data = await response.json();
       if (response.ok) {
         const user = JSON.stringify(data);
-        console.log("Usuário criado", user);
         localStorage.setItem("user", user);
-        setTimeout(() => setSucesso(true), 2000);
-        window.location.replace("/app");
+        setSucesso("Cadastro realizado com sucesso.");
+        setTimeout(() => setSucesso(null), 2000);
+        setTimeout(() => navigate("/app"), 2000);
       } else {
-        setTimeout(
-          () =>
-            setErro(
-              data.error || response.statusText || response.status.toString
-            ),
-          5000
-        );
-        setErro(null);
+        setErro(data.error);
+        setTimeout(() => setErro(null), 5000);
       }
     } catch (error) {
       console.log(error);
@@ -158,13 +156,12 @@ const Cadastro = () => {
   return (
     <div className={style.cadastro}>
       {erro && (
-        <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
+        <Alert tipo={"erro"} conteudo={erro} />
       )}
       {sucesso && (
         <Alert
           tipo={"sucesso"}
-          conteudo={"Cadastro realizado com sucesso!"}
-          onClick={() => setSucesso(false)}
+          conteudo={sucesso}
         />
       )}
       <header className={style.header}>
@@ -176,7 +173,7 @@ const Cadastro = () => {
         </span>
       </header>
       <div className={style.wrapper}>
-        <form onSubmit={handleSubmit} className={style.form}>
+        <form method="POST" onSubmit={handleSubmit} className={style.form}>
           <p className={style.text}>
             Bem-vindo ao CosmicTasks! <br /> Vamos começar a jornada.
           </p>
@@ -230,7 +227,6 @@ const Cadastro = () => {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
-              minLength={8}
             />
           </div>
           <div
@@ -248,7 +244,6 @@ const Cadastro = () => {
               placeholder="Confirme a senha"
               onChange={(e) => setConfirmarSenha(e.target.value)}
               required
-              minLength={8}
             />
           </div>
           <button
