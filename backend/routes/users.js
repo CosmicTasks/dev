@@ -6,22 +6,23 @@ const {
   deleteUser,
   updateUser,
 } = require("../controllers/userController");
+const veriftToken = require('../middlewares/verifyToken');
 
 const router = express.Router();
 
-// GET todos os usuarios
-router.get("/", getUsers);
+// GET todos os usuarios e protegidos
+router.get("/", veriftToken, getUsers);
 
 // GET um usuario
-router.get("/:id", getUser);
+router.get("/:id", veriftToken, getUser);
 
 // POST um novo usuario
-router.post("/", createUser);
+router.post("/", veriftToken, createUser);
 
 // DELETE um usuario
-router.delete("/:id", deleteUser);
+router.delete("/:id", veriftToken, deleteUser);
 
 // UPDATE um usuario
-router.patch("/:id", updateUser);
+router.patch("/:id", veriftToken, updateUser);
 
 module.exports = router;

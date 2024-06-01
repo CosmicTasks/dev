@@ -1,47 +1,55 @@
 require("dotenv").config();
-const uri = "mongodb://localhost:27017";
-const port = 4000;
-
-// Inicializar app express
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-// Criar app express
+// Variáveis de ambiente
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/cosmic";
+const port = process.env.PORT || 4000;
+
+// Inicializar app express
 const app = express();
+
+// Configuração de CORS
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
 }));
 
-// Middleware
+// Middlewares
 app.use(express.json());
 app.use((req, res, next) => {
-  console.log(req.path, req.method);
+  console.log(`${req.method} ${req.path}`);
   next();
 });
 
-// rotas
+// Importar rotas
 const usersRoutes = require("./routes/users");
 const loginRoutes = require("./routes/login");
 const cadastroRoutes = require("./routes/cadastro");
 const listasRoutes = require("./routes/listas");
 const tasksRoutes = require("./routes/tasks");
 
+// Usar rotas
 app.use("/api/users", usersRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/cadastro", cadastroRoutes);
 app.use("/api/listas", listasRoutes);
 app.use("/api/tasks", tasksRoutes);
 
-// connect to db
-mongoose
-  .connect(uri, { dbName: "cosmic" })
+// Conectar ao banco de dados
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: "cosmic",
+})
   .then(() => {
-    // Ouvir requisições
+    console.log("Conectado ao MongoDB");
+
+    // Iniciar o servidor
     app.listen(port, () => {
-      console.log(`ouvindo na porta ${port}!`);
+      console.log(`Servidor ouvindo na porta ${port}`);
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.error("Erro ao conectar ao MongoDB:", error.message);
   });

@@ -14,30 +14,43 @@ function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  const handleLogoutClick = () => {
+    console.log("Logout button clicked");
+    onLogout();
+  };
+
   return (
     <div className={styles.modal}>
-      {modalAvatar && <ModalChangeAvatar setModalAvatar={setModalAvatar}/>}
+      {modalAvatar && <ModalChangeAvatar setModalAvatar={setModalAvatar} />}
       <div className={`${theme} ${styles.modalContent}`}>
+        <button className={styles.close} onClick={onClose}>
+          <IoClose size={25} color="#FFF" />
+        </button>
         <button className={styles.check}>
           <IoCheckmark size={25} color="#FFF" />
         </button>
-        <h2>Personalize seu Perfil</h2>
-        <button className={styles.userPic} onClick={ () => setModalAvatar(true)}>
-          <CiUser color="#8f3ae4" size={60}/>
+        <h1>Personalize seu perfil</h1>
+        <button className={styles.userPic} onClick={() => setModalAvatar(true)}>
+          <CiUser color="#8f3ae4" size={60} />
         </button>
+        <p>User</p>
 
-        <button className={theme === "light" ? styles.toggleThemeDark : styles.toggleThemeLight
-        }
-        onClick={handleThemeChange}>
+        <button
+          className={
+            theme === "light" ? styles.toggleThemeDark : styles.toggleThemeLight
+          }
+          onClick={handleThemeChange}
+        >
           {theme === "light" ? (
             <IoMoon color="#FFF" size={50} />
           ) : (
             <IoIosSunny color="#FFF" size={50} />
           )}
         </button>
+
         {loggedIn ? (
           <>
-            <button className={styles.logout} onClick={onLogout}>
+            <button className={styles.logout} onClick={handleLogoutClick}>
               <MdLogout size={35} color="#FFF" />
             </button>
           </>
