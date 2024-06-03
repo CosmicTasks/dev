@@ -167,28 +167,22 @@ input {
   background-color: lightsteelblue;
 }
 
-.btnSalvar {
+.Salvar {
   background: var(--r7);
   border: none;
   border-radius: 8px;
-  width: 35px;
-  height: 30px;
   float: right;
-  margin-left: 50px;
+
 }
 
-.btnFechar {
+.Fechar {
  
     background: var(--r12);
     border: none;
     border-radius: 8px;
-    width: 35px;
-    height: 30px;
+    
     float: left;
-    margin-right: 50px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+   
   
   
 }
@@ -233,4 +227,6 @@ font-weight: 500;
     margin-right: auto;
     display: flex;
     background-color: var(--r1);
+    border-radius: 8px;
+    margin-top: 35px;
 }

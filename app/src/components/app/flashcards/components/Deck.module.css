@@ -101,7 +101,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 80px;
+ 
 }
 
 .qtdCards {
@@ -426,3 +426,20 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.newDeck {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+   
+    width: 224px;
+    height: 105px;
+   
+   
+  
+    border-radius: 8px;
+    border: 1px solid var(--c7);
+  
+    
+    }
+  
