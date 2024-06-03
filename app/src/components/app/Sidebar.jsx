@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   UilCheckCircle,
   UilStopwatch,
@@ -22,6 +22,8 @@ const Sidebar = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen); // Inverte o estado atual do modal
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className={style.sidebar}>
@@ -82,7 +84,11 @@ const Sidebar = () => {
         <Modalconfig
           onClose={toggleModal} // Passa a função toggleModal para fechar o modal
           loggedIn={true} // ou false conforme sua lógica de autenticação
-          onLogout={() => console.log("Logout")} // Função de logout
+          onLogout={() => {
+            // Função de logout
+            localStorage.removeItem("user");
+            navigate("/login");
+          }}
           onChangeAvatar={() => console.log("Change Avatar")} // Função para mudar o avatar
         />
       )}
