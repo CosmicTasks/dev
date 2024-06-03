@@ -1,6 +1,11 @@
-.alert {
+.wrapper {
   position: absolute;
-  top: 2em;
+  width: 100%;
+  padding: 2em;
+  max-width: 700px;
+}
+
+.alert {
   width: 100%;
   display: flex;
   align-items: center;

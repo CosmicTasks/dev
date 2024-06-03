@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./Login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "./app/alert/Alert";
 
 const Login = () => {
@@ -8,6 +8,8 @@ const Login = () => {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState(null);
   const [sucesso, setSucesso] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const Login = () => {
         setSucesso(true);
         setTimeout(() => {
           setSucesso(null);
-          window.location.replace("/app");
+          navigate("/app");
         }, 2000);
       } else {
         setErro(data.error);
@@ -44,6 +46,15 @@ const Login = () => {
   return (
     <div className={style.login}>
       <div className={style.container}>
+        {erro && (
+          <Alert tipo={"erro"} conteudo={erro}/>
+        )}
+        {sucesso && (
+          <Alert
+            tipo={"sucesso"}
+            conteudo={"Login realizado com sucesso!"}
+          />
+        )}
         <div className={style.header}>
           <img src="./logo-icon.png" alt="CosmicTasks" className={style.logo} />
           <h1 className={style.chamada}>Entrar no CosmicTasks</h1>
@@ -96,16 +107,6 @@ const Login = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && (
-          <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />
-        )}
-        {sucesso && (
-          <Alert
-            tipo={"sucesso"}
-            conteudo={"Login realizado com sucesso!"}
-            onClick={() => setSucesso(false)}
-          />
-        )}
       </div>
     </div>
   );
