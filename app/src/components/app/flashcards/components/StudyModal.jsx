@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import style from './StudyModal.module.css'
 import {UilTimes} from '@iconscout/react-unicons'
 import {UilCheck} from '@iconscout/react-unicons'
+import { UilStepForward } from '@iconscout/react-unicons'
 
 const customStyles = {
   content: {
@@ -35,6 +36,8 @@ const StudyFlashcardsModal = ({
 }) => {
   const currentCard = flashcards[currentCardIndex];
 
+  
+
   return (
     <Modal isOpen={true} onRequestClose={onClose} style={customStyles} >
 
@@ -42,14 +45,14 @@ const StudyFlashcardsModal = ({
         <div className={style.editCardButtons}>
        
 
-       <button className={style.Fechar} onClick={closeStudyModal}>
+       <button className={style.Fechar} onClick={onClose}>
        <UilTimes color="#fff"></UilTimes>
        </button>
          
          
       
 
-       <button className={style.Salvar}>
+       <button className={style.Salvar} onClick={onClose}>
        <UilCheck color="#fff" className='icon'></UilCheck>
        </button>
           
@@ -61,17 +64,18 @@ const StudyFlashcardsModal = ({
         </div>
 
         <div className={style.flashcardContent}>
-            <h2 className={style.question}>{currentCard.question}</h2>
-            {showAnswer && <p className={style.answer}>{currentCard.answer}</p>}
+            <h2 className={style.pergunta}>{currentCard.question}</h2>
+            {showAnswer && <p className={style.resposta}>{currentCard.answer}</p>}
           </div>
         </div>
+       
         <div className={style.controls}>
-          <button className={style.showAnswerBtn} onClick={handleShowAnswer}>
+          <button className={style.mostrarRespostaBtn} onClick={handleShowAnswer}>
             Mostrar Resposta
           </button>
-          <button className={style.nextCardBtn} onClick={handleNextCard}>
-            Próximo Cartão
-          </button>
+
+          <UilStepForward className={style.skip} onClick={handleNextCard}></UilStepForward>
+         
         </div>
 
       

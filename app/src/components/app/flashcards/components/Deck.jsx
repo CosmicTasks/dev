@@ -69,30 +69,25 @@ const Deck = () => {
     setShowAnswer(true);
   };
 
+    // Funções para filtrar os flashcards
+    const filterFlashcards = () => {
+      if (!selectedDeck) return [];
+  
+      switch (activeTab) {
+        case 'hoje':
+          return selectedDeck.flashcards.filter(flashcard => flashcard.dueDate === new Date().toISOString().split('T')[0]);
+        case 'atuais':
+          return selectedDeck.flashcards.filter(flashcard => flashcard.status === 'current');
+        case 'concluidas':
+          return selectedDeck.flashcards.filter(flashcard => flashcard.status === 'completed');
+        default:
+          return selectedDeck.flashcards;
+      }
+    };
+
   return (
     <div className={style.caixasBody}>
-      <div className={style.caixa}>
-        <h1 className={style.tituloCaixa}>Vocabulário Francês</h1>
-        <span className={style.descCaixa}>2 cartões, 2 para hoje</span>
-        <ul className={style.listaCaixas}>
-          <li>
-            <UilBox size="16" color="var(--r7)" />
-          </li>
-          <li>
-            <UilBox size="16" color="var(--c6)" />
-          </li>
-          <li>
-            <UilBox size="16" color="var(--c6)" />
-          </li>
-          <li>
-            <UilBox size="16" color="var(--c6)" />
-          </li>
-          <li>
-            <UilBox size="16" color="var(--c6)" />
-          </li>
-        </ul>
-      </div>
-
+      
       {decks.map((deck) => (
         <div className={style.deck} key={deck.id}>
           <div className={style.caixa}>
@@ -139,6 +134,10 @@ const Deck = () => {
         </div>
       </div>
 
+      <div className={style.wrapper}>
+
+      </div>
+
       {selectedDeck && (
         <div className={style.cardInfo}>
           <div className={style.cardHeader}>
@@ -178,30 +177,12 @@ const Deck = () => {
               Estudar cartões
             </button>
           </div>
-          <div className={style.wrapperTabs}>
-            <div className={style.nav}>
-              <button className={`${style.tab} ${style.active}`}>Hoje</button>
-              <button className={style.tab}>Atuais</button>
-              <button className={style.tab}>Concluídas</button>
-            </div>
-            <div className={style.tarefas}>
-              {decks.map((deck) => (
-                <div className={style.deck} key={deck.id}>
-                  <h2 onClick={() => selectDeck(deck.id)}></h2>
-                  {deck.flashcards.map((flashcard) => (
-                    <div key={flashcard.id}>
-                      {flashcard.deckId === deck.id && (
-                        <div className={style.tarefa}>
-                          <p className={style.tarefaTitle}>{flashcard.question}</p>
-                          <UilEdit size="14" color="var(--r12)" />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
+
+        
+
+          
+          
+          
 
           {isStudyModalOpen && selectedDeck && (
             <StudyFlashcardsModal

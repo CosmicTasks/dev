@@ -255,9 +255,17 @@
   align-items: center;
   width: 36%;
   min-width: 320px;
-  padding: 16px;
+ 
   height: 500px;
   display: inline-block;
+
+}
+
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  background-color: #5f5e5e;
+  width: 1px;
 }
 
 .cardHeader {
