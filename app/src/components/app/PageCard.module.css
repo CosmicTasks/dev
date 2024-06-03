@@ -257,3 +257,418 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.deckTitle {
+  width: 90%;
+ 
+    color: var(--r12);
+    font-family: 'Raleway',sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+  
+  
+}
+
+.add-cards-button {
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #3751ad;
+  width: 30%;
+}
+
+.editDeck {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.editDeckName{
+  width: 90%;
+}
+
+.remove-deck-button {
+  cursor: pointer;
+}
+
+.view-deck-button {
+  cursor: pointer;
+}
+
+.deck-buttons {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wrapperNiveis {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nivel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.nivel span {
+  color: var(--c12);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+.secHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+.cardSecTitle {
+  color: var(--c12);
+  font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 80px;
+}
+
+.qtdCards {
+  font-family: Lato;
+  font-weight: 700;
+}
+
+.addCard {
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--r1);
+  background-color: var(--r12);
+  font-family: 'Raleway',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: #F2E5FF;
+  margin-right: 15px;
+}
+
+.wrapperEstudar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.qtdEstudar {
+  color: var(--r12);
+  font-family: Lato;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.btnEstudar {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: var(--r7);
+  color: var(--r1);
+  font-family: 'Raleway',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+}
+
+.saveDeck {
+  background-color: var(--r7);
+  color: var(--r1);
+  border: none;
+  border-radius: 8px;
+}
+
+.selectedDeck {
+    background-color: #07001B;
+}
+
+.caixasBody {
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-shadow: 1px 0px 0px 0px var(--c3);
+}
+
+.caixa {
+  display: flex;
+  width: 224px;
+  height: fit-content;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+
+  border-radius: 8px;
+  border: 1px solid var(--c7);
+
+  &.active {
+    border-top: 1px solid var(--r7);
+    border-right: 2px solid var(--r7);
+    border-bottom: 2px solid var(--r7);
+    border-left: 1px solid var(--r7);
+  }
+}
+
+.tituloCaixa {
+  color: var(--r12);
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.descCaixa {
+  color: var(--c10);
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.listaCaixas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.noCardSelected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  width: 36%;
+  min-width: 320px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.infoText {
+  color: var(--c7);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 36%;
+  min-width: 320px;
+  padding: 16px;
+  height: 500px;
+  display: inline-block;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.cardTitle {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.wrapperNiveis {
+  display: flex;
+  justify-content: center;
+}
+
+.nivel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.nivel span {
+  color: var(--c12);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.secHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+.cardSecTitle {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.qtdCards {
+  font-family: Lato;
+  font-weight: 700;
+}
+
+.addCard {
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--r1);
+  background-color: var(--r12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.wrapperEstudar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.qtdEstudar {
+  color: var(--r12);
+  font-family: Lato;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.btnEstudar {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: var(--r7);
+  color: var(--r1);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.wrapperTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px;
+  background-color: var(--r1);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  background-color: var(--r12);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.tab {
+  color: var(--r1);
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.tab.active {
+  background-color: var(--r1);
+  color: var(--r12);
+}
+
+.tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  width: 100%;
+  border: 1px solid var(--r12);
+}
+
+.tarefaTitle {
+  color: var(--r12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -4,6 +4,7 @@
     --r3:#B469FF;
     --r12:#07001B;
     --r7:#511ABE;
+    --c1:#F3EDFA;
   
   }
   
@@ -22,6 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
   
   .edit-card-center {
@@ -44,7 +46,7 @@
     border: 1px solid black;
   }
   
-  .edit-card-side-choice {
+  .editCardSideChoice {
   
     color: var(--r12);
     font-family: 'Raleway',sans-serif;
@@ -122,8 +124,8 @@
     justify-content: center;
   }
   
-  .edit-card-input {
-    width: 200px;
+  .editCardInput {
+ min-width: 340px;
     text-align: center;
     margin-bottom: 2em;
     background: var(--r1);
@@ -216,4 +218,18 @@
     color: white;
   margin-top: 90px;
   float: right;
+  }
+  
+  .deckTitle {
+  
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 500px;
+  }
+  
+  .input {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
   }
