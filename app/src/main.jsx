@@ -18,11 +18,15 @@ library.add(
   faPuzzlePiece,
   faPenToSquare
 );
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import "./index.css";
 import LandingPage from "./components/pages/LandingPage.jsx";
-import Login from './components/Login.jsx';
-import Cadastro from './components/Cadastro.jsx';
+import Login from "./components/Login.jsx";
+import Cadastro from "./components/Cadastro.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
@@ -35,7 +39,12 @@ import { ListaContextProvider } from "./context/ListaContext.jsx";
 import { TaskContextProvider } from "./context/TaskContext.jsx";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import 'dayjs/locale/pt-br';
+import "dayjs/locale/pt-br";
+
+const Private = ({ children }) => {
+  const auth = localStorage.getItem("user");
+  return auth ? children : <Navigate to="/login" />;
+};
 
 const router = createBrowserRouter([
   {
@@ -46,16 +55,18 @@ const router = createBrowserRouter([
   {
     path: "app",
     element: (
-      <ListaContextProvider>
-        <TaskContextProvider>
-          <LocalizationProvider
-          dateAdapter={AdapterDayjs}
-          adapterLocale="pt-br"
-          >
-            <App />
-          </LocalizationProvider>
-        </TaskContextProvider>
-      </ListaContextProvider>
+      <Private>
+        <ListaContextProvider>
+          <TaskContextProvider>
+            <LocalizationProvider
+              dateAdapter={AdapterDayjs}
+              adapterLocale="pt-br"
+            >
+              <App />
+            </LocalizationProvider>
+          </TaskContextProvider>
+        </ListaContextProvider>
+      </Private>
     ),
     children: [
       {
@@ -89,7 +100,7 @@ const router = createBrowserRouter([
           {
             path: ":idLista",
             element: <PageTasks tipo={"lista"} />,
-          }
+          },
         ],
       },
       {
@@ -101,9 +112,9 @@ const router = createBrowserRouter([
         element: <Markdown />,
       },
       {
-        path: 'pomo',
-        element: <PagePomo />
-      }
+        path: "pomo",
+        element: <PagePomo />,
+      },
     ],
   },
   {
