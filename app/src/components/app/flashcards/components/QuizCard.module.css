@@ -1,0 +1,77 @@
+.quizCard {
+    background: var(--c1);
+    display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  margin: 1em;
+  border-radius: 24px;
+  justify-content: space-between;
+  align-items: center;
+margin-left: 200px;
+
+
+}
+
+.quizCard:target{
+  
+}
+
+.modal {
+  width: 300px;
+}
+
+.wrapper {
+  display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+
+}
+
+.quizCardContent {
+  width: 326px;
+  background: var(--c2);
+  height: 260px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--c12);
+  font-family: 'Haleway',sans-serif;
+
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.flipButton {
+
+background-color: var(--r7);
+border-radius: 8px;
+border: none;
+height: 30px;
+margin-top: 30px;
+width: 250px;
+color: var(--r1);
+
+}
+
+.flipButton:active {
+  border: none;
+}
+
+.closeIcon {
+float: left;
+}
