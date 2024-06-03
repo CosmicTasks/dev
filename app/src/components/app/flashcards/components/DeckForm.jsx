@@ -20,29 +20,14 @@ const DeckForm = ({ deck, onSave }) => {
     <form onSubmit={handleSubmit}>
       <div className={style.smallCard}>
         <div className={style.editCardButtons}>
-       
-
        <button className={style.Fechar}>
        <UilTimes color="#fff"></UilTimes>
        </button>
          
-         
-      
-
        <button className={style.Salvar}>
        <UilCheck color="#fff" className='icon'></UilCheck>
        </button>
-          
-          
-      
-             
-
-
         </div>
-
-     
-        
-        
       </div>
       <p className={style.deckTitle}>Novo Deck</p>
       <input className={style.input} value={name} onChange={(e) => setName(e.target.value)} />

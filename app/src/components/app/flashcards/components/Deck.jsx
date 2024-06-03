@@ -95,23 +95,7 @@ const Deck = () => {
               {deck.name}
             </h2>
             <span className={style.descCaixa}> cartões, 2 para hoje</span>
-            <ul className={style.listaCaixas}>
-              <li>
-                <UilBox size="16" color="var(--r7)" />
-              </li>
-              <li>
-                <UilBox size="16" color="var(--c6)" />
-              </li>
-              <li>
-                <UilBox size="16" color="var(--c6)" />
-              </li>
-              <li>
-                <UilBox size="16" color="var(--c6)" />
-              </li>
-              <li>
-                <UilBox size="16" color="var(--c6)" />
-              </li>
-            </ul>
+            
           </div>
           {deck.flashcards.map((flashcard) => (
             <div key={flashcard.id}>
@@ -143,28 +127,7 @@ const Deck = () => {
           <div className={style.cardHeader}>
             <h2>{selectedDeck.name}</h2>
           </div>
-          <div className={style.wrapperNiveis}>
-            <div className={style.nivel}>
-              <span>2</span>
-              <UilBox size="18" color="var(--r7)" />
-            </div>
-            <div className={style.nivel}>
-              <span>0</span>
-              <UilBox size="18" color="var(--c6)" />
-            </div>
-            <div className={style.nivel}>
-              <span>0</span>
-              <UilBox size="18" color="var(--c6)" />
-            </div>
-            <div className={style.nivel}>
-              <span>0</span>
-              <UilBox size="18" color="var(--c6)" />
-            </div>
-            <div className={style.nivel}>
-              <span>0</span>
-              <UilBox size="18" color="var(--c6)" />
-            </div>
-          </div>
+         
           <div className={style.secHeader}>
             <h2 className={style.cardSecTitle}>Total de cartões: {selectedDeck.flashcards.length}</h2>
             <button className={style.addCard} onClick={() => openModal(selectedDeck)}>
@@ -172,7 +135,7 @@ const Deck = () => {
             </button>
           </div>
           <div className={style.wrapperEstudar}>
-            <h1 className={style.qtdEstudar}>0/2</h1>
+         
             <button className={style.btnEstudar} onClick={handleStudyClick}>
               Estudar cartões
             </button>

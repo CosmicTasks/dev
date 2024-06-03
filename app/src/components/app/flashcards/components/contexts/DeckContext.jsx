@@ -5,7 +5,7 @@ const DeckContext = createContext();
 const DeckProvider = ({ children }) => {
   const [decks, setDecks] = useState([
     { id: 1, name: 'Deck 1', flashcards: [] },
-    // Adicione mais decks se necessário
+
   ]);
   const [selectedDeck, setSelectedDeck] = useState(null);
   const [flashcardToEdit, setFlashcardToEdit] = useState(null);

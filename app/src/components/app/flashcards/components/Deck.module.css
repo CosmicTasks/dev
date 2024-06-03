@@ -249,7 +249,7 @@
 }
 
 .cardInfo {
-  display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -319,7 +319,7 @@
 .cardSecTitle {
   color: var(--c12);
   font-family: Raleway;
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -441,7 +441,7 @@
   align-items: center;
    
     width: 224px;
-    height: 105px;
+    height: 72px;
    
    
   

@@ -26,9 +26,6 @@
     text-align: center;
   }
   
- 
- 
-  
 
   .editCardSideChoice {
   
@@ -42,17 +39,11 @@
   
   }
   
- 
-  
 
- 
-  
- 
-  
-  
   .pergunta {
     text-align: center;
-    font-size: 25px;
+    font-size: 22px;
+    font-weight: 400;
   }
 
   .resposta {
@@ -60,6 +51,8 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    font-weight: 600;
+    margin-top: 70px;
   }
   .editCardInput {
  min-width: 340px;
@@ -94,11 +87,14 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+
   }
   
   .skip {
     float: right;
     align-items: center;
+
+  
   }
   
   .deckTitle {
@@ -125,7 +121,7 @@
   
   .Fechar {
    
-      background: var(--r12);
+      background: var(--vermelho);
       border: none;
       border-radius: 8px;
       

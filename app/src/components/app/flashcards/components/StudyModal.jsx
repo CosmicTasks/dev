@@ -4,6 +4,8 @@ import style from './StudyModal.module.css'
 import {UilTimes} from '@iconscout/react-unicons'
 import {UilCheck} from '@iconscout/react-unicons'
 import { UilStepForward } from '@iconscout/react-unicons'
+import { UilStepBackwardAlt } from '@iconscout/react-unicons'
+import { UilSkipForwardAlt } from '@iconscout/react-unicons'
 
 const customStyles = {
   content: {
@@ -13,12 +15,12 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width: '400px', // Largura do modal
-    height: '300px', // Altura do modal
+    width: '500px', // Largura do modal
+    height: 'fitcontent', // Altura do modal
     padding: '20px', // Padding interno
     backgroundColor: '#f0f0f0', // Cor de fundo do modal
-    borderRadius: '10px', // Bordas arredondadas
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Sombra
+    borderRadius: '10px', // 
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // 
   },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semitransparente
@@ -49,18 +51,10 @@ const StudyFlashcardsModal = ({
        <UilTimes color="#fff"></UilTimes>
        </button>
          
-         
-      
-
        <button className={style.Salvar} onClick={onClose}>
        <UilCheck color="#fff" className='icon'></UilCheck>
        </button>
           
-          
-      
-             
-
-
         </div>
 
         <div className={style.flashcardContent}>
@@ -70,16 +64,16 @@ const StudyFlashcardsModal = ({
         </div>
        
         <div className={style.controls}>
+
+       < UilStepBackwardAlt className={style.skip} onClick={handleNextCard} size='30px' color='var(--r7)'></UilStepBackwardAlt>
           <button className={style.mostrarRespostaBtn} onClick={handleShowAnswer}>
             Mostrar Resposta
           </button>
 
-          <UilStepForward className={style.skip} onClick={handleNextCard}></UilStepForward>
+          <UilSkipForwardAlt className={style.skip} onClick={handleNextCard} size='30px' color='var(--r7)'></UilSkipForwardAlt>
          
         </div>
 
-      
-     
     </Modal>
   );
 };

@@ -35,21 +35,12 @@ const FlashcardForm = ({ flashcard, onSave }) => {
          <UilTimes color="#F2E5FF"></UilTimes>
          </button>
 
-      
-
          <button onClick={handleSave} 
          className={style.Salvar}
-         
         >
            <UilCheck color="#F2E5FF" className='icon'></UilCheck>
-          
         </button>
-             
-
         </div>
-
-       
-       
       </div>
       <p className={style.deckTitle}>Novo cartão</p>
       <div>
@@ -63,8 +54,6 @@ const FlashcardForm = ({ flashcard, onSave }) => {
         <input className={style.editCardInput} value={answer} onChange={(e) => setAnswer(e.target.value)} />
       </div>
       
-        
-     
     </form>
   );
 };
