@@ -1,7 +1,7 @@
 .modal {
-  border-radius: 8px;
+  border-radius: 0.5em;
   background: var(--c1);
-  border: 1px solid var(--c9);
+  border: 1px solid var(--c12);
   height: fit-content;
   width: fit-content;
   position: absolute;
@@ -13,18 +13,22 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px;
+  gap: 0.5em;
+  padding: 0.5em;
 }
 
 .newTask {
   display: flex;
-  gap: 4px;
-  padding: 8px;
+  gap: 0.25em;
+  padding: 0.5em;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.5em;
   background: var(--c1);
-  border: 1px solid var(--c9);
+  border: 1px solid var(--c12);
+}
+
+.newTask > svg {
+  fill: var(--c12);
 }
 
 .inputName {
@@ -32,11 +36,10 @@
   height: 100%;
   background: none;
   border: none;
-  color: var(--c9);
+  color: var(--c12);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 1em;
   font-style: normal;
-  font-weight: 500;
   line-height: normal;
 }
 
@@ -49,7 +52,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .selectLista {
@@ -59,21 +62,24 @@
 
 .btns {
   display: flex;
-  gap: 8px;
+  gap: 0.5em;
   align-items: center;
 }
 
 .btnCalender, .btnTime {
   display: flex;
   place-items: center;
-  padding: 8px;
+  padding: 0.5em;
   background-color: var(--c1);
-  border: 1px solid var(--c9);
-  border-radius: 8px;
+  border: 1px solid var(--c12);
+  border-radius: 0.5em;
 }
 
 .btnCalender:hover, .btnTime:hover {
-  background-color: var(--c2);
+  background-color: var(--r7);
+  svg {
+    fill: var(--c1);
+  }
 }
 
 .btnCalender.active, .btnTime.active {
@@ -83,6 +89,10 @@
   }
 }
 
-.datePicker {
-  position: relative;
+.container {
+  width: 100%;
+}
+
+.date {
+  width: 100%;
 }
