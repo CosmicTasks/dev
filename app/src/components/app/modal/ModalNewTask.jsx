@@ -113,9 +113,9 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 ...styles,
                 backgroundColor: "var(--c1)",
                 color: "var(--c12)",
-                border: "var(--c7) 1px solid",
+                border: "var(--c12) 1px solid",
                 boxShadow: "none",
-                borderRadius: "8px",
+                borderRadius: "0.5em",
                 height: "100%",
                 fontSize: "1em",
                 cursor: "pointer",
@@ -124,9 +124,9 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 ...styles,
                 backgroundColor: "var(--c1)",
                 color: "var(--c12)",
-                border: "var(--c7) 1px solid",
+                border: "var(--c12) 1px solid",
                 boxShadow: "none",
-                borderRadius: "8px",
+                borderRadius: "0.5em",
                 fontSize: "1em",
               }),
               option: (styles, { isFocused }) => ({
@@ -156,7 +156,7 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
               name="data"
               onClick={handleClickData}
             >
-              <UilCalender size="16" color="var(--c12)" />
+              <UilCalender size="1em" color="var(--c12)" />
             </button>
           </div>
         </div>
