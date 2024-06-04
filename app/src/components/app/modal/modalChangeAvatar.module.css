@@ -1,6 +1,6 @@
 .button {
     outline: none;
-    outline: none;
+    background-color: #8f3ae4;
 }
 
 .modal {
@@ -55,6 +55,16 @@
     color: white;
 }
 
+.check {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #8f3ae4;
+    padding: 5px 15px 10px 15px;
+    border-radius: 10px;
+    color: #fff;
+  }
+
 .avatars {
     display: flex;
     gap: 1em;
@@ -66,4 +76,17 @@
     border: 1px solid #8f3ae4;
     border-radius: 100%;
     padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* define a largura padrão */
+    height: 100px; /* define a altura padrão */
+    overflow: hidden; /* garante que a imagem não ultrapasse os limites do contêiner */
+}
+
+.avatarIcon img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover; /* ajusta a imagem dentro do contêiner */
+    border-radius: 50%; /* arredonda as bordas para deixar como avatar */
 }
