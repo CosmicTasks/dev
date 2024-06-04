@@ -26,12 +26,12 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
       value: lista._id,
       label: lista.emoji ? (
         <>
-          <em-emoji id={lista.emoji} size="12" style={{ width: "16px" }} />
+          <em-emoji id={lista.emoji} size="1em" style={{ width: "1em" }} />
           {` ${lista.nome}`}
         </>
       ) : (
         <>
-          <UilSquareShape size="16" color={lista.cor} />
+          <UilSquareShape size="1em" color={lista.cor} />
           {` ${lista.nome}`}
         </>
       ),
@@ -85,10 +85,10 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
     <div className={style.modal}>
       <div className={style.wrapper}>
         <form className={style.newTask} onSubmit={handleSubmit}>
-          <UilCircle size="16" color="var(--c7)" />
+          <UilCircle size="1em" />
           <input
             type="text"
-            placeholder="escreva o nome da tarefa"
+            placeholder="Nome da tarefa"
             className={style.inputName}
             maxLength={50}
             onChange={(e) => {
@@ -117,7 +117,7 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 boxShadow: "none",
                 borderRadius: "8px",
                 height: "100%",
-                fontSize: "12px",
+                fontSize: "1em",
                 cursor: "pointer",
               }),
               menu: (styles) => ({
@@ -127,19 +127,19 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 border: "var(--c7) 1px solid",
                 boxShadow: "none",
                 borderRadius: "8px",
-                fontSize: "12px",
+                fontSize: "1em",
               }),
               option: (styles, { isFocused }) => ({
                 ...styles,
                 backgroundColor: isFocused ? "var(--c1)" : "var(--c1)",
                 color: "var(--c12)",
-                fontSize: "12px",
+                fontSize: "1em",
                 cursor: "pointer",
               }),
               singleValue: (styles) => ({
                 ...styles,
                 color: "var(--c12)",
-                fontSize: "12px",
+                fontSize: "1em",
                 alignItems: "center",
                 display: "flex",
               }),
@@ -162,11 +162,14 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
         {hasData && (
           <div className={style.container}>
             <DateTimeField
-              label="Data e hora de vencimento"
               format="L HH:mm"
+              value={vencimento}
+              className={style.date}
               onChange={(date) => {
                 setVencimento(date);
+                console.log(date);
               }}
+
             />
           </div>
         )}
