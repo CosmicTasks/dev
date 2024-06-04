@@ -4,13 +4,13 @@
     display: flex;
   }
   100% {
-    width: 240px;
+    width: 15em;
   }
 }
 
 @keyframes close {
   0% {
-    width: 240px;
+    width: 15em;
   }
   100% {
     width: 0;
@@ -21,79 +21,111 @@
 .secSidebar {
   display: flex;
   flex-direction: column;
-  min-width: 240px;
+  min-width: 15em;
   height: 100vh;
-  padding: 16px 8px;
+  padding: 1em 0.5em;
   box-shadow: 1px 0px 0px 0px var(--c3);
   user-select: none;
-  gap: 12px;
+  gap: 0.75em;
   overflow: scroll;
   scrollbar-width: none;
   overflow-x: hidden;
+}
 
-  &.open {
-    animation: open 0.5s forwards;
-  }
-  &.close {
-    animation: close 0.5s forwards;
-  }
+.secSidebar.open {
+  animation: open 0.5s forwards;
+}
+
+.secSidebar.close {
+  animation: close 0.5s forwards;
 }
 
 .mainItems,
 .secItems {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .item {
   display: flex;
-  gap: 8px;
-  padding: 8px;
+  gap: 0.5em;
+  padding: 0.5em;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.5em;
   background-color: transparent;
   width: 100%;
   position: relative;
+  color: var(--c12);
+}
 
-  .listName {
-    color: var(--c11);
-    font-family: Raleway;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
+.item.add {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--r7);
+}
 
-  &:hover {
-    .badge {
-      display: flex;
-    }
-  }
+.item.add:hover {
+  background-color: var(--r7);
+  color: var(--c1);
 
-  &.active {
-    background-color: var(--r1);
-  }
-
-  .badge {
-    color: var(--c7);
-    font-family: Raleway;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    display: none;
-    align-items: center;
-    gap: 4px;
-    right: 8px;
-    top: auto;
-    bottom: auto;
+  svg {
+    fill: var(--c1);
   }
 }
 
+.item.add > svg {
+  fill: var(--r7);
+}
+
+.item > svg {
+  fill: var(--c12);
+}
+
+.item .listName {
+  font-family: Raleway;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.item:hover .badge {
+  display: flex;
+}
+
+.item.active {
+  background-color: var(--r7);
+  color: var(--c1);
+}
+
+.item.active > svg {
+  fill: var(--c1);
+}
+
+.item .badge {
+  color: var(--c7);
+  font-family: Raleway;
+  font-size: 0.5em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  display: none;
+  align-items: center;
+  gap: 0.25em;
+  right: 0.5em;
+  top: auto;
+  bottom: auto;
+}
+
 .item:hover {
-  background-color: var(--r1);
+  background-color: var(--r7);
+  color: var(--c1);
+  svg {
+    fill: var(--c1);
+  }
 }
 
 .divider {
@@ -109,23 +141,23 @@
 .categorias {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .headerItems {
   color: var(--c8);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 0.5em;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 0.5em;
+}
 
-  .add {
-    cursor: pointer;
-  }
+.headerItems .add {
+  cursor: pointer;
 }
 
 .accordion {

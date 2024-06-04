@@ -1,19 +1,13 @@
-import { useState, useContext } from "react";
+import { useState} from "react";
 import PropTypes from "prop-types";
 import style from "./SecSidebar.module.css";
 import {
   UilPlus,
   UilSun,
   UilInbox,
-  UilCalendarAlt,
-  UilPuzzlePiece,
-  UilAngleUp,
-  UilAngleDown,
-  UilTagAlt,
   UilCheckCircle,
   UilExclamationCircle,
   UilTrashAlt,
-  UilSquareShape,
 } from "@iconscout/react-unicons";
 import ModalNewList from "./modal/ModalNewList";
 import ModalNewTask from "./modal/ModalNewTask";
@@ -22,14 +16,10 @@ import data from "@emoji-mart/data";
 import { init } from "emoji-mart";
 init({ data });
 import { useListaContext } from "../../hooks/useListaContext";
-import { useUserContext } from "../../hooks/useUserContext";
-import { useTaskContext } from "../../hooks/useTaskContext";
 import { NavLink } from "react-router-dom";
 
-const SecSidebar = ({ isOpen, tipo }) => {
+const SecSidebar = ({ isOpen }) => {
   const { listas } = useListaContext();
-  const { user } = useUserContext();
-  const { dispatch } = useTaskContext();
 
   const [showModalNewList, setShowModalNewList] = useState(false);
   const [showModalNewTask, setShowModalNewTask] = useState(false);
@@ -47,8 +37,8 @@ const SecSidebar = ({ isOpen, tipo }) => {
   return (
     <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
       <div className={style.mainItems}>
-        <button type="button" className={style.item} onClick={handleAddTask}>
-          <UilPlus size="18" color="var(--r9)" />
+        <button type="button" className={`${style.item} ${style.add}`} onClick={handleAddTask}>
+          <UilPlus size="1em" />
           <span className={style.listName}>Adicionar tarefa</span>
         </button>
         <NavLink
@@ -57,7 +47,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilSun size="18" color="var(--c10)" />
+          <UilSun size="1em" />
           <span className={style.listName}>Hoje</span>
         </NavLink>
         <NavLink
@@ -66,7 +56,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilInbox size="18" color="var(--c10)" />
+          <UilInbox size="1em" />
           <span className={style.listName}>Entrada</span>
         </NavLink>
         <NavLink
@@ -75,7 +65,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilCheckCircle size="18" color="var(--c10)" />
+          <UilCheckCircle size="1em"/>
           <span className={style.listName}>Concluídas</span>
         </NavLink>
         <NavLink
@@ -84,7 +74,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilExclamationCircle size="18" color="var(--c10)" />
+          <UilExclamationCircle size="1em"/>
           <span className={style.listName}>Atrasadas</span>
         </NavLink>
         <NavLink
@@ -93,7 +83,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilTrashAlt size="18" color="var(--c10)" />
+          <UilTrashAlt size="1em" />
           <span className={style.listName}>Excluídas</span>
         </NavLink>
       </div>
@@ -104,7 +94,7 @@ const SecSidebar = ({ isOpen, tipo }) => {
             <div className={style.headerItems}>
               <div className={style.accordion}>Listas</div>
               <UilPlus
-                size="12"
+                size="1em"
                 className={style.add}
                 onClick={handleAddLista}
               />
@@ -116,8 +106,8 @@ const SecSidebar = ({ isOpen, tipo }) => {
           <hr className={style.divider} />
         </>
       ) : (
-        <button type="button" className={style.item} onClick={handleAddLista}>
-          <UilPlus size="18" color="var(--r9)" />
+        <button type="button" className={`${style.item} ${style.add}`} onClick={handleAddLista}>
+          <UilPlus size="1em" />
           <span className={style.listName}>Adicionar lista</span>
         </button>
       )}
