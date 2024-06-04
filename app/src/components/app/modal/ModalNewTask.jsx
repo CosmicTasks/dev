@@ -142,6 +142,7 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 fontSize: "1em",
                 alignItems: "center",
                 display: "flex",
+                gap: "0.5em",
               }),
               dropdownIndicator: (styles) => ({
                 ...styles,
