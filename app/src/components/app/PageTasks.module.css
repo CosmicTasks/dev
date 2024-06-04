@@ -1,27 +1,28 @@
 .tasksBody {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px;
+  gap: 0.5em;
+  padding: 1em;
   width: 100%;
   box-shadow: 1px 0px 0px 0px var(--c3);
 }
 
 .tasksHeader {
   display: flex;
-  padding: 16px 0;
+  padding: 0.5em 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 16px;
+  gap: 1em;
 }
 
 .switchSidebarContainer {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1em;
 
   & > svg {
+    fill: var(--c12);
     cursor: pointer;
   }
 }
@@ -29,22 +30,23 @@
 .listTitle {
   color: var(--c11);
   font-family: Raleway;
-  font-size: 20px;
+  font-size: 1.5em;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .gridSettings {
   display: flex;
-  gap: 16px;
+  gap: 1em;
   align-items: center;
 
   & > * {
+    fill: var(--c12);
     cursor: pointer;
   }
 }
@@ -52,7 +54,7 @@
 .taskWrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5em;
   width: 100%;
 }
 
@@ -60,10 +62,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
-  gap: 16px;
-  border-radius: 8px;
-  border: 1px solid var(--c7);
+  padding: 0.5em;
+  gap: 1em;
+  border-radius: 0.5em;
+  border: 1px solid var(--c12);
 
   &:hover {
     background-color: var(--r1);
@@ -73,7 +75,7 @@
 .taskCheck {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5em;
 }
 
 .taskNome {
