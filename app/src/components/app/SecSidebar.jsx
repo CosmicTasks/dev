@@ -38,7 +38,7 @@ const SecSidebar = ({ isOpen }) => {
     <div className={`${style.secSidebar} ${isOpen ? style.open : style.close}`}>
       <div className={style.mainItems}>
         <button type="button" className={`${style.item} ${style.add}`} onClick={handleAddTask}>
-          <UilPlus size="1em" />
+          <UilPlus size="1rem" />
           <span className={style.listName}>Adicionar tarefa</span>
         </button>
         <NavLink
@@ -47,7 +47,7 @@ const SecSidebar = ({ isOpen }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilSun size="1em" />
+          <UilSun size="1rem" />
           <span className={style.listName}>Hoje</span>
         </NavLink>
         <NavLink
@@ -56,7 +56,7 @@ const SecSidebar = ({ isOpen }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilInbox size="1em" />
+          <UilInbox size="1rem" />
           <span className={style.listName}>Entrada</span>
         </NavLink>
         <NavLink
@@ -65,7 +65,7 @@ const SecSidebar = ({ isOpen }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilCheckCircle size="1em"/>
+          <UilCheckCircle size="1rem"/>
           <span className={style.listName}>Concluídas</span>
         </NavLink>
         <NavLink
@@ -74,7 +74,7 @@ const SecSidebar = ({ isOpen }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilExclamationCircle size="1em"/>
+          <UilExclamationCircle size="1rem"/>
           <span className={style.listName}>Atrasadas</span>
         </NavLink>
         <NavLink
@@ -83,7 +83,7 @@ const SecSidebar = ({ isOpen }) => {
             isActive ? `${style.active} ${style.item}` : `${style.item}`
           }
         >
-          <UilTrashAlt size="1em" />
+          <UilTrashAlt size="1rem" />
           <span className={style.listName}>Excluídas</span>
         </NavLink>
       </div>
@@ -94,7 +94,7 @@ const SecSidebar = ({ isOpen }) => {
             <div className={style.headerItems}>
               <div className={style.accordion}>Listas</div>
               <UilPlus
-                size="1em"
+                size="1rem"
                 className={style.add}
                 onClick={handleAddLista}
               />
@@ -107,7 +107,7 @@ const SecSidebar = ({ isOpen }) => {
         </>
       ) : (
         <button type="button" className={`${style.item} ${style.add}`} onClick={handleAddLista}>
-          <UilPlus size="1em" />
+          <UilPlus size="1rem" />
           <span className={style.listName}>Adicionar lista</span>
         </button>
       )}
