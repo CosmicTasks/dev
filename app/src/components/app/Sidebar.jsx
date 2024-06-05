@@ -30,7 +30,7 @@ const Sidebar = () => {
           <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
               <UilCheckCircle
-                size="1.5em"
+                size="1.5rem"
                 className={isActive ? style.active : ""}
               />
             )}
@@ -39,37 +39,37 @@ const Sidebar = () => {
         <div className={style.item}>
           <NavLink to="pomo" className={style.link}>
             {({ isActive }) => (
-              <UilStopwatch size="1.5em" className={isActive ? style.active : ""} />
+              <UilStopwatch size="1.5rem" className={isActive ? style.active : ""} />
             )}
           </NavLink>
         </div>
         <div className={style.item}>
           <NavLink to="cards" className={style.link}>
             {({ isActive }) => (
-              <UilBox size="1.5em" className={isActive ? style.active : ""} />
+              <UilBox size="1.5rem" className={isActive ? style.active : ""} />
             )}
           </NavLink>
         </div>
         <div className={style.item}>
           <NavLink to="notes" className={style.link}>
             {({ isActive }) => (
-              <UilFileAlt size="1.5em" className={isActive ? style.active : ""} />
+              <UilFileAlt size="1.5rem" className={isActive ? style.active : ""} />
             )}
           </NavLink>
         </div>
         <div className={style.item}>
-          <UilChartPie size="1.5em" color="var(--r1)" />
+          <UilChartPie size="1.5rem" color="var(--r1)" />
         </div>
         <div className={style.item}>
-          <UilSearch size="1.5em" color="var(--r1)" />
+          <UilSearch size="1.5rem" color="var(--r1)" />
         </div>
       </div>
       <div className={style.secondaryItems}>
         <div className={style.item}>
-          <UilEnvelope size="1.5em" color="var(--r1)" />
+          <UilEnvelope size="1.5rem" color="var(--r1)" />
         </div>
         <div className={style.item}>
-          <UilSetting size="1.5em" color="var(--r1)" />
+          <UilSetting size="1.5rem" color="var(--r1)" />
         </div>
       </div>
     </div>
