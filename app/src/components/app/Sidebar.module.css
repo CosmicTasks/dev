@@ -41,3 +41,13 @@
 .link svg.active {
   fill: var(--a4);
 }
+
+/* Sidebar.module.css */
+.settingButton {
+  background-color: transparent;
+  border: none;
+  color: var(--r1);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}

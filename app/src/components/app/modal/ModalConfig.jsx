@@ -1,17 +1,58 @@
 import React, { useState } from "react";
+import styles from "./ModalConfig.module.css";
+import { CiUser } from "react-icons/ci";
+import { IoMoon, IoClose, IoCheckmark } from "react-icons/io5";
+import { IoIosSunny } from "react-icons/io";
+import { MdLogout } from "react-icons/md";
+import ModalChangeAvatar from "./ModalChangeAvatar";
 
-function Modal({ onClose, loggedIn, onLogout, onChangeAvatar }) {
-  const [avatar, setAvatar] = useState(""); // Estado para o avatar, caso queira  permitir que o usuário mude
+function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
+  const [theme, setTheme] = useState("light");
+  const [modalAvatar, setModalAvatar] = useState(false);
+
+  const handleThemeChange = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  const handleLogoutClick = () => {
+    console.log("Logout button clicked");
+    onLogout();
+  };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <h2>Configurações</h2>
+    <div className={styles.modal}>
+      {modalAvatar && <ModalChangeAvatar setModalAvatar={setModalAvatar} />}
+      <div className={`${theme} ${styles.modalContent}`}>
+        <button className={styles.close} onClick={onClose}>
+          <IoClose size={25} color="#FFF" />
+        </button>
+        <button className={styles.check}>
+          <IoCheckmark size={25} color="#FFF" />
+        </button>
+        <h1>Personalize seu perfil</h1>
+        <button className={styles.userPic} onClick={() => setModalAvatar(true)}>
+          <CiUser color="#8f3ae4" size={60} />
+        </button>
+        <p>User</p>
+
+        <button
+          className={
+            theme === "light" ? styles.toggleThemeDark : styles.toggleThemeLight
+          }
+          onClick={handleThemeChange}
+        >
+          {theme === "light" ? (
+            <IoMoon color="#FFF" size={50} />
+          ) : (
+            <IoIosSunny color="#FFF" size={50} />
+          )}
+        </button>
+
         {loggedIn ? (
           <>
-            <button onClick={onLogout}>Deslogar</button>
-            <button onClick={onChangeAvatar}>Mudar Avatar</button>
+            <button className={styles.logout} onClick={handleLogoutClick}>
+              <MdLogout size={35} color="#FFF" />
+            </button>
           </>
         ) : (
           <p>Faça login para acessar as configurações.</p>
@@ -21,42 +62,4 @@ function Modal({ onClose, loggedIn, onLogout, onChangeAvatar }) {
   );
 }
 
-function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  // Função para deslogar o usuário
-  function handleLogout() {
-    //  lógica para deslogar o usuário aqui
-    alert("Usuário deslogado com sucesso!");
-    setLoggedIn(false);
-  }
-
-  // Função para mudar o avatar do usuário
-  function handleChangeAvatar() {
-    //  lógica para mudar o avatar aqui
-    // Por exemplo, você pode abrir um seletor de arquivo para o usuário escolher uma imagem
-    alert("Implemente a lógica para mudar o avatar aqui!");
-  }
-
-  // Função para abrir/fechar o modal
-  function toggleModal() {
-    setModalOpen(!modalOpen);
-  }
-
-  return (
-    <div>
-      <button onClick={toggleModal}>Abrir Modal</button>
-      {modalOpen && (
-        <Modal
-          onClose={toggleModal}
-          loggedIn={loggedIn}
-          onLogout={handleLogout}
-          onChangeAvatar={handleChangeAvatar}
-        />
-      )}
-    </div>
-  );
-}
-
-export default App;
+export default Modalconfig;
