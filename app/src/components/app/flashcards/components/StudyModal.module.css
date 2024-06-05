@@ -1,0 +1,145 @@
+:root{
+
+    --r1:#F2E5FF;
+    --r3:#B469FF;
+    --r12:#07001B;
+    --r7:#511ABE;
+    --c1:#F3EDFA;
+  
+  }
+  
+  .smallcard {
+    background:var(--c1);
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    width: 300px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    border-radius: 8px;
+    box-shadow: 2px 1px 1px rgb(209, 209, 209);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+
+  .editCardSideChoice {
+  
+    color: var(--r12);
+    font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.44px;
+  text-align: left;
+  margin-left: 0;
+  
+  }
+  
+
+  .pergunta {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .resposta {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 70px;
+  }
+  .editCardInput {
+ min-width: 340px;
+    text-align: center;
+    margin-bottom: 2em;
+    background: var(--r1);
+    border-radius: 8px;
+   
+  }
+  
+  .result-icon {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 20%;
+    background-size: cover;
+  }
+  
+  input {
+    font-family: "Roboto", sans-serif;
+    margin: auto;
+    width: 250px;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    
+  }
+  
+  
+
+  .icon {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+
+  }
+  
+  .skip {
+    float: right;
+    align-items: center;
+
+  
+  }
+  
+  .deckTitle {
+  
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 500px;
+  }
+  
+  .input {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+  }
+
+  .Salvar {
+    background: var(--r7);
+    border: none;
+    border-radius: 8px;
+    float: right;
+  
+  }
+  
+  .Fechar {
+   
+      background: var(--vermelho);
+      border: none;
+      border-radius: 8px;
+      
+      float: left;
+     
+    
+    
+  }
+
+  .controls {
+    margin-top: 100px;
+    
+    display: flex;
+
+  }
+
+.mostrarRespostaBtn {
+    margin-left: auto;
+    margin-right: auto;
+   
+}

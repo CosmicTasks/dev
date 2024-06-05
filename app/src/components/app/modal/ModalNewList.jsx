@@ -117,10 +117,10 @@ const ModalNewList = ({setShowModalNewList}) => {
         <form className={style.newList} onSubmit={handleSubmit}>
           {tabEmoji === true ? (
             <>
-              <em-emoji id={emoji} size="16" />
+              <em-emoji id={emoji} size="1rem" />
             </>
           ) : (
-            <UilSquareShape size="16" color={cor} />
+            <UilSquareShape size="1rem" color={cor} />
           )}
           <input
             type="text"
@@ -156,8 +156,8 @@ const ModalNewList = ({setShowModalNewList}) => {
             <Picker
               data={data}
               onEmojiSelect={handleEmojiClick}
-              emojiSize={18}
-              emojiButtonSize={28}
+              emojiSize={24}
+              emojiButtonSize={32}
               icons="outline"
               maxFrequentRows={0}
               theme="light"
@@ -172,7 +172,7 @@ const ModalNewList = ({setShowModalNewList}) => {
                   <UilSquareShape
                     onClick={handleCorClick}
                     key={index}
-                    size="18"
+                    size="1rem"
                     color={color}
                   />
                 ))}

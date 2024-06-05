@@ -44,10 +44,16 @@ function App() {
   }, [listaDispatch, userDispatch]);
 
   return (
+    <div className="App">
+
+
     <div className={style.app}>
       <Sidebar />
       <Outlet />
     </div>
+    
+    </div>
+  
   );
 }
 

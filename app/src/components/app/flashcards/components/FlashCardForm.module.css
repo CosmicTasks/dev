@@ -1,0 +1,256 @@
+:root{
+
+    --r1:#F2E5FF;
+    --r3:#B469FF;
+    --r12:#07001B;
+    --r7:#511ABE;
+    --c1:#F3EDFA;
+  
+  }
+  
+  .small-card {
+    background:var(--c1);
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    width: 300px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    border-radius: 8px;
+    box-shadow: 2px 1px 1px rgb(209, 209, 209);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .edit-card-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edit-card-separator {
+    height: 1px;
+    width: 40%;
+    background-color: black;
+    display: flex;
+  }
+  
+  .swap-button {
+    cursor: pointer;
+    font-size: 24px;
+    border: 1px solid black;
+  }
+  
+  .editCardSideChoice {
+  
+    color: var(--r12);
+    font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.44px;
+  text-align: left;
+  margin-left: 0;
+  
+  }
+  
+  .small-card-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .edit-button {
+    width: 1.5em;
+    height: 1.5em;
+  
+    border-radius: 100%;
+    padding: 0.5em;
+    cursor: pointer;
+    margin: 0.5em;
+  }
+  
+  .delete-button {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgb(193, 205, 216);
+    border-radius: 100%;
+    padding: 0.5em;
+    cursor: pointer;
+    margin: 0.5em;
+  }
+  
+  .quiz-card {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 400px;
+    background-color: rgb(233, 233, 233);
+    margin: 1em;
+    border-radius: 24px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .quiz-card-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+    margin-right: 2em;
+    margin-bottom: -4em;
+  }
+  
+  .quiz-card-content {
+    font-size: 36px;
+  }
+  
+  .flip-card-button {
+    height: 2em;
+    width: 2em;
+    cursor: pointer;
+  }
+  
+  .edit-card-buttons {
+    display: flex;
+    margin-bottom: 0.5em;
+    font-family: "Roboto", sans-serif;
+   
+    justify-content: center;
+  }
+  
+  .editCardInput {
+ min-width: 340px;
+    text-align: center;
+    margin-bottom: 2em;
+    background: var(--r1);
+    border-radius: 8px;
+   
+  }
+  
+  .result-icon {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 20%;
+    background-size: cover;
+  }
+  
+  input {
+    font-family: "Roboto", sans-serif;
+    margin: auto;
+    width: 250px;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    
+  }
+  
+  
+  .buttonCards {
+    font-family: "Roboto", sans-serif;
+    font-weight: bolder;
+    margin: auto;
+    width: 230px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .buttonCards:hover {
+    background-color: lightsteelblue;
+  }
+  
+  .btnSalvar {
+    background: var(--r7);
+    border: none;
+    border-radius: 8px;
+    width: 35px;
+    height: 30px;
+    float: right;
+    margin-left: 50px;
+  }
+  
+  .btnFechar {
+   
+      background: var(--r12);
+      border: none;
+      border-radius: 8px;
+      width: 35px;
+      height: 30px;
+      float: left;
+      margin-right: 50px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    
+    
+  }
+  
+  .newCard {
+    font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.44px;
+  text-align: center;
+  color: var(--r12);
+  
+  }
+  
+  .icon {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+  
+  .deleteButton {
+    background-color: #DF1515;
+    border-radius:8px ;
+    border: none;
+    width: 112px;
+    height: 30px;
+    color: white;
+  margin-top: 90px;
+  float: right;
+  }
+  
+  .deckTitle {
+  
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 500px;
+  }
+  
+  .input {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+  }
+
+  .Salvar {
+    background: var(--r7);
+    border: none;
+    border-radius: 8px;
+    float: right;
+  
+  }
+  
+  .Fechar {
+   
+      background: var(--r12);
+      border: none;
+      border-radius: 8px;
+      
+      float: left;
+     
+    
+    
+  }

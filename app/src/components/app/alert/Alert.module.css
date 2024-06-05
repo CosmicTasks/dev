@@ -1,0 +1,27 @@
+.wrapper {
+  position: absolute;
+  width: 100%;
+  padding: 2em;
+  max-width: 700px;
+}
+
+.alert {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.alert.erro {
+  background-color: var(--vermelho);
+  color: var(--c1);
+}
+
+.alert.sucesso {
+  background-color: var(--verde-floresta);
+  color: var(--c1);
+}

@@ -1,7 +1,7 @@
 .modal {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--c1);
-  border: 1px solid var(--c9);
+  border: 1px solid var(--c12);
   height: fit-content;
   width: fit-content;
   position: absolute;
@@ -13,18 +13,18 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 
 .newList {
   display: flex;
-  gap: 4px;
-  padding: 8px;
+  gap: 0.25rem;
+  padding: 0.5rem;
   align-items: center;
-  border-radius: 8px;
-  background: var(--c2);
-  border: 1px solid var(--c9);
+  border-radius: 0.5rem;
+  background: var(--c1);
+  border: 1px solid var(--c12);
 }
 
 .inputName {
@@ -32,11 +32,10 @@
   height: 100%;
   background: none;
   border: none;
-  color: var(--c9);
+  color: var(--c12);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 500;
   line-height: normal;
 }
 
@@ -46,46 +45,45 @@
 
 .btns {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .btn {
-  display: flex;
-  padding: 4px 8px;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  gap: 0.25rem;
   width: 100%;
   color: var(--c12);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  background-color: var(--c2);
+  background-color: var(--c1);
+  border: 1px solid var(--c12);
+  border-radius: 0.5rem;
 }
 
 .btn:hover {
-  background-color: var(--c3);
+  background-color: var(--r7);
+  color: var(--c1);
+  border: none;
 }
 
 .btn.active {
   background-color: var(--r7);
-  color: var(--r1);
+  color: var(--c1);
+  border: none;
 }
 
 .items {
   width: 100%;
-  padding: 4px 0px;
+  padding: 0.25rem 0px;
   display: flex;
   justify-content: space-evenly;
 
   svg {
     cursor: pointer;
   }
-}
-
-.container {
-  width: 280px;
 }

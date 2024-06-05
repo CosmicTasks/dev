@@ -1,0 +1,151 @@
+.cadastro {
+  min-height: 100vh;
+  background-color: var(--r11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  color: var(--c1);
+}
+
+.brand {
+  width: auto;
+  height: auto;
+}
+
+.logo {
+  display: block;
+  width: 4em;
+  height: auto;
+}
+
+.login {
+  font-size: 1em;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.login a {
+  font-weight: 600;
+  color: var(--a4);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+  align-items: center;
+  width: 700px;
+  max-width: 100%;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  border-radius: 1em;
+  max-width: 400px;
+  width: 100%;
+
+  /* From https://css.glass */
+  background: rgba(32, 0, 95, 0.01);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text {
+  color: var(--c3);
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  color: var(--c3);
+}
+
+.input {
+  background-color: var(--r11) !important;
+  border: 1px solid var(--c6);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: var(--c1);
+  font-size: 1em;
+  font-weight: 400;
+  width: 100%;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid var(--c3);
+}
+
+.input::placeholder {
+  color: var(--c6);
+  font-weight: normal;
+}
+
+.eye {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  cursor: pointer;
+}
+
+.continuar {
+  background-color: transparent;
+  color: var(--c3);
+  border: 1px solid var(--c3);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.cadastrar {
+  background-color: var(--a4);
+  color: var(--a12);
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.cadastrar:hover {
+  background-color: var(--a3);
+}
+
+.footer {
+  width: fit-content;
+  text-wrap: wrap;
+  text-align: center;
+  font-size: 1em;
+  color: var(--c5);
+}
+
+@media (max-width: 400px) {
+  .form {
+    padding: 1em;
+  }
+}

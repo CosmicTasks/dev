@@ -1,3 +1,170 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+
+:root {
+  
+  --r12:#07001B;
+  --r1:#F2E5FF;
+  --r7:#511ABE;
+  --c6:#8B888F;
+  --c1:#F3EDFA
+}
+
+.deckTitle {
+  width: 90%;
+ 
+    color: var(--r12);
+    font-family: 'Raleway',sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+  
+  
+}
+
+.add-cards-button {
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #3751ad;
+  width: 30%;
+}
+
+.editDeck {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.editDeckName{
+  width: 90%;
+}
+
+.remove-deck-button {
+  cursor: pointer;
+}
+
+.view-deck-button {
+  cursor: pointer;
+}
+
+.deck-buttons {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wrapperNiveis {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nivel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.nivel span {
+  color: var(--c12);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+.secHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+.cardSecTitle {
+  color: var(--c12);
+  font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+ 
+}
+
+.qtdCards {
+  font-family: Lato;
+  font-weight: 700;
+}
+
+.addCard {
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--r1);
+  background-color: var(--r12);
+  font-family: 'Raleway',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: #F2E5FF;
+  margin-right: 15px;
+}
+
+.wrapperEstudar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.qtdEstudar {
+  color: var(--r12);
+  font-family: Lato;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.btnEstudar {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: var(--r7);
+  color: var(--r1);
+  font-family: 'Raleway',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+}
+
+.saveDeck {
+  background-color: var(--r7);
+  color: var(--r1);
+  border: none;
+  border-radius: 8px;
+}
+
+.selectedDeck {
+    background-color: #07001B;
+}
+
 .caixasBody {
   padding: 16px;
   display: flex;
@@ -82,13 +249,23 @@
 }
 
 .cardInfo {
-  display: flex;
+
   flex-direction: column;
-  gap: 8px;
+
   align-items: center;
   width: 36%;
   min-width: 320px;
-  padding: 16px;
+ 
+  height: 500px;
+  display: inline-block;
+
+}
+
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  background-color: #5f5e5e;
+  width: 1px;
 }
 
 .cardHeader {
@@ -142,7 +319,7 @@
 .cardSecTitle {
   color: var(--c12);
   font-family: Raleway;
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -257,3 +434,20 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.newDeck {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+   
+    width: 224px;
+    height: 72px;
+   
+   
+  
+    border-radius: 8px;
+    border: 1px solid var(--c7);
+  
+    
+    }
+  

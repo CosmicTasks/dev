@@ -1,27 +1,28 @@
 .tasksBody {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px;
+  gap: 0.5rem;
+  padding: 1rem;
   width: 100%;
   box-shadow: 1px 0px 0px 0px var(--c3);
 }
 
 .tasksHeader {
   display: flex;
-  padding: 16px 0;
+  padding: 0.5em 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .switchSidebarContainer {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 
   & > svg {
+    fill: var(--c12);
     cursor: pointer;
   }
 }
@@ -29,22 +30,23 @@
 .listTitle {
   color: var(--c11);
   font-family: Raleway;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .gridSettings {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   align-items: center;
 
   & > * {
+    fill: var(--c12);
     cursor: pointer;
   }
 }
@@ -52,7 +54,7 @@
 .taskWrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   width: 100%;
 }
 
@@ -60,10 +62,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
-  gap: 16px;
-  border-radius: 8px;
-  border: 1px solid var(--c7);
+  padding: 0.5rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--c12);
 
   &:hover {
     background-color: var(--r1);
@@ -73,13 +75,13 @@
 .taskCheck {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .taskNome {
   color: var(--c12);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -88,14 +90,14 @@
 .taskOptions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .taskOptionsLista {
   color: var(--c10);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -105,7 +107,7 @@
   color: var(--azul-royal);
   font-variant-numeric: lining-nums proportional-nums;
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
