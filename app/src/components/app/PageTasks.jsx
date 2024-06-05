@@ -132,13 +132,13 @@ const PageTasks = ({ tipo }) => {
           <div className={style.switchSidebarContainer}>
             {sidebar ? (
               <UilLeftArrowToLeft
-                size="1em"
+                size="1rem"
                 className={style.switchSidebar}
                 onClick={() => setSidebar(false)}
               />
             ) : (
               <UilArrowToRight
-                size="1em"
+                size="1rem"
                 className={style.switchSidebar}
                 onClick={() => setSidebar(true)}
               />
@@ -148,8 +148,8 @@ const PageTasks = ({ tipo }) => {
             </h1>
           </div>
           <div className={style.gridSettings}>
-            <UilSlidersV size="1em"/>
-            <UilGrid size="1em"/>
+            <UilSlidersV size="1rem"/>
+            <UilGrid size="1rem"/>
           </div>
         </div>
         <div className={style.taskWrapper}>
