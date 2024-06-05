@@ -1,0 +1,69 @@
+.modal {
+  border-radius: 8px;
+  background: var(--c1);
+  border: 1px solid var(--c9);
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+
+.wrapper h2 {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.wrapper p {
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.btns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  color: var(--c12);
+  background-color: var(--c2);
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-color: var(--c3);
+}
+
+.excluir {
+  background-color: var(--vermelho);
+  color: var(--c1);
+}
+
+.excluir:hover {
+  background-color: var(--vermelho);
+}

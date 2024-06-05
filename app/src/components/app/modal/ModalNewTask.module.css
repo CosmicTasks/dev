@@ -1,0 +1,98 @@
+.modal {
+  border-radius: 0.5rem;
+  background: var(--c1);
+  border: 1px solid var(--c12);
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.newTask {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  background: var(--c1);
+  border: 1px solid var(--c12);
+}
+
+.newTask > svg {
+  fill: var(--c12);
+}
+
+.inputName {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  color: var(--c12);
+  font-family: Raleway;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.inputName:focus {
+  outline: none;
+}
+
+.select {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selectLista {
+  width: 100%;
+  background-color: var(--c1);
+}
+
+.btns {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btnCalender, .btnTime {
+  display: flex;
+  place-items: center;
+  padding: 0.5rem;
+  background-color: var(--c1);
+  border: 1px solid var(--c12);
+  border-radius: 0.5rem;
+}
+
+.btnCalender:hover, .btnTime:hover {
+  background-color: var(--r7);
+  svg {
+    fill: var(--c1);
+  }
+}
+
+.btnCalender.active, .btnTime.active {
+  background-color: var(--r7);
+  svg {
+    fill: var(--c1);
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+.date {
+  width: 100%;
+}

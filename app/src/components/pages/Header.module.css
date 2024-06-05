@@ -3,12 +3,12 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1em 5%;
 }
 
 .brand {
   img {
-    max-height: 45px;
+    height: 2.5em;
   }
 }
 
@@ -20,10 +20,10 @@
   a {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.5rem 1rem;
+    gap: 0.5em;
+    padding: 0.5em 1em;
     color: var(--r12);
-    font-size: 16px;
+    font-size: 1em;
 
     &:hover {
       color: var(--r7);
@@ -33,13 +33,13 @@
 
 .buttons {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.5em;
 
   a {
-    padding: 0.5rem 1rem;
-    font-size: 14px;
+    padding: 0.5em 1em;
+    font-size: 1em;
     font-weight: 500;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
     letter-spacing: 0.42px;
 
     &.login {
@@ -68,11 +68,12 @@
 }
 
 @media screen and (max-width: 937px) {
+
   .navLinks {
     order: 2;
     width: 100%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1em;
     border-top: 1px solid var(--r7);
     border-bottom: 1px solid var(--r7);
   }

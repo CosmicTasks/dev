@@ -16,7 +16,9 @@
   --c1: #f3edfa;
   --c2: #dfdae5;
   --c3: #c6c2cc;
-  --c6: #8B888F;
+  --c4: #b3aeb8;
+  --c5: #9f9ba3;
+  --c6: #8b888f;
   --c7: #77747a;
   --c8: #636166;
   --c9: #4f4e52;
@@ -26,14 +28,26 @@
   --r1: #f2e5ff;
   --r2: #e0c1ff;
   --r3: #b469ff;
+  --r4: #a24ff6;
+  --r5: #bf3ae4;
+  --r6: #7125cd;
   --r7: #511abe;
+  --r8: #4310a9;
   --r9: #2b027e;
   --r10: #20005f;
   --r11: #0e0038;
   --r12: #07001b;
+  --a1: #fcffdb;
   --a2: #fcffc1;
   --a3: #f7ff5d;
   --a4: #e7f042;
+  --a5: #d7d725;
+  --a6: #b5b513;
+  --a7: #9f9f07;
+  --a8: #848400;
+  --a9: #696200;
+  --a10: #423d00;
+  --a11: #1f1d00;
   --a12: #151300;
 
   --azul-royal: #1c72ff;
@@ -68,31 +82,29 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 16px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
+@media screen and (min-width: 320px) {
+  body {
+    font-size: 14px;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 16px;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  body {
+    font-size: 20px;
   }
 }
