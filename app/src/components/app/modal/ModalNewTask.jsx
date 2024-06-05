@@ -26,12 +26,12 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
       value: lista._id,
       label: lista.emoji ? (
         <>
-          <em-emoji id={lista.emoji} size="1em" style={{ width: "1em" }} />
+          <em-emoji id={lista.emoji} size="0.9rem" style={{ width: "1rem" }} />
           {` ${lista.nome}`}
         </>
       ) : (
         <>
-          <UilSquareShape size="1em" color={lista.cor} />
+          <UilSquareShape size="1rem" color={lista.cor} />
           {` ${lista.nome}`}
         </>
       ),
@@ -85,7 +85,7 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
     <div className={style.modal}>
       <div className={style.wrapper}>
         <form className={style.newTask} onSubmit={handleSubmit}>
-          <UilCircle size="1em" />
+          <UilCircle size="1rem" />
           <input
             type="text"
             placeholder="Nome da tarefa"
@@ -115,9 +115,9 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 color: "var(--c12)",
                 border: "var(--c12) 1px solid",
                 boxShadow: "none",
-                borderRadius: "0.5em",
+                borderRadius: "0.5rem",
                 height: "100%",
-                fontSize: "1em",
+                fontSize: "1rem",
                 cursor: "pointer",
               }),
               menu: (styles) => ({
@@ -126,23 +126,23 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
                 color: "var(--c12)",
                 border: "var(--c12) 1px solid",
                 boxShadow: "none",
-                borderRadius: "0.5em",
-                fontSize: "1em",
+                borderRadius: "0.5rem",
+                fontSize: "1rem",
               }),
               option: (styles, { isFocused }) => ({
                 ...styles,
                 backgroundColor: isFocused ? "var(--c1)" : "var(--c1)",
                 color: "var(--c12)",
-                fontSize: "1em",
+                fontSize: "1rem",
                 cursor: "pointer",
               }),
               singleValue: (styles) => ({
                 ...styles,
                 color: "var(--c12)",
-                fontSize: "1em",
+                fontSize: "1rem",
                 alignItems: "center",
                 display: "flex",
-                gap: "0.5em",
+                gap: "0.5rem",
               }),
               dropdownIndicator: (styles) => ({
                 ...styles,
@@ -156,7 +156,7 @@ const ModalNewTask = ({ setShowModalNewTask }) => {
               name="data"
               onClick={handleClickData}
             >
-              <UilCalender size="1em" color="var(--c12)" />
+              <UilCalender size="1rem" color="var(--c12)" />
             </button>
           </div>
         </div>
