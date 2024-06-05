@@ -1,5 +1,3 @@
-/* */
-
 button {
   outline: none;
   border: none;
@@ -18,8 +16,8 @@ button {
   border: 1px solid var(--c9);
   position: fixed;
   transform: translate(-50%, -50%);
-  background-color: rgb(0, 0,0 0.268);
-  padding: 20px; 
+  background-color: rgba(0, 0, 0, 0.268);
+  padding: 20px; /* Adicionando padding para melhorar o espaçamento interno */
   z-index: 100;
 }
 
@@ -29,6 +27,11 @@ button {
   font-size: 1.75rem;
   font-weight: 500;
   margin: 0;
+}
+
+.modal {
+  font-family: Raleway;
+  font-size: 1.25rem;
 }
 
 .modalContent {
@@ -110,7 +113,6 @@ button {
   gap: 16px;
 }
 
-
 .wrapper h1 {
   color: var(--c12);
   font-family: Raleway;
@@ -158,19 +160,18 @@ button {
 
 @keyframes toggleThemeLight {
   from {
-    transform: translate(0);
+    transform: translateX(0);
   }
   to {
-    transform: translate(-100px);
+    transform: translateX(-100px);
   }
 }
 
 @keyframes toggleThemeDark {
   from {
-    transform: translate(0);
+    transform: translateX(0);
   }
   to {
-    transform: translate(100px);
+    transform: translateX(100px);
   }
 }
-
