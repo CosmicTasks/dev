@@ -30,7 +30,7 @@ const Sidebar = () => {
       <div className={style.mainItems}>
         <div className={style.item}></div>
         <div className={style.item}>
-          <NavLink to="tasks" className={style.link}>
+          <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
               <UilCheckCircle
                 size="1.5rem"
@@ -61,7 +61,11 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div className={style.item}>
-          <UilChartPie size="1.5rem" color="var(--r1)" />
+          <NavLink to="dashboard" className={style.link}>
+            {({ isActive }) => (
+            <UilChartPie size="1.5rem" className={isActive ? style.active : ""} />
+            )}
+          </NavLink>
         </div>
         <div className={style.item}>
           <UilSearch size="1.5rem" color="var(--r1)" />
