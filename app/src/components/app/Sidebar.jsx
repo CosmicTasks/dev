@@ -30,7 +30,7 @@ const Sidebar = () => {
       <div className={style.mainItems}>
         <div className={style.item}></div>
         <div className={style.item}>
-          <NavLink to="tasks/hoje" className={style.link}>
+          <NavLink to="tasks" className={style.link}>
             {({ isActive }) => (
               <UilCheckCircle
                 size="1.5rem"
@@ -71,7 +71,7 @@ const Sidebar = () => {
         <div className={style.item}>
           <UilEnvelope size="1.5rem" color="var(--r1)" />
         </div>
-        <div className={style.item}>
+        <div className={style.item} onClick={toggleModal}>
           <UilSetting size="1.5rem" color="var(--r1)" />
         </div>
       </div>
