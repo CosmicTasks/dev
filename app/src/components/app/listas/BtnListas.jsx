@@ -25,16 +25,16 @@ const BtnListas = ({ lista, style }) => {
         }
       >
         {lista.emoji ? (
-          <em-emoji id={lista.emoji} size="12" style={{ width: "16px" }} />
+          <em-emoji id={lista.emoji} size="0.9rem" style={{ width: "1rem" }} />
         ) : (
-          <UilSquareShape size="16" color={lista.cor} />
+          <UilSquareShape size="1rem" color={lista.cor} />
         )}
         <span className={style.listName}>{lista.nome}</span>
         <span className={style.badge}>
-          <UilPen size="12" color="var(--c10)" />
+          <UilPen size="1rem" color="var(--c12)" />
           <UilTrash
-            size="12"
-            color="var(--c10)"
+            size="1rem"
+            color="var(--c12)"
             onClick={handleOpenModalExcluir}
           />
         </span>

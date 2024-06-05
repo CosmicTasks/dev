@@ -4,13 +4,13 @@
     display: flex;
   }
   100% {
-    width: 15em;
+    width: 15rem;
   }
 }
 
 @keyframes close {
   0% {
-    width: 15em;
+    width: 15rem;
   }
   100% {
     width: 0;
@@ -21,12 +21,12 @@
 .secSidebar {
   display: flex;
   flex-direction: column;
-  min-width: 15em;
+  min-width: 15rem;
   height: 100vh;
-  padding: 1em 0.5em;
+  padding: 1rem 0.5rem;
   box-shadow: 1px 0px 0px 0px var(--c3);
   user-select: none;
-  gap: 0.75em;
+  gap: 0.75rem;
   overflow: scroll;
   scrollbar-width: none;
   overflow-x: hidden;
@@ -44,15 +44,15 @@
 .secItems {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .item {
   display: flex;
-  gap: 0.5em;
-  padding: 0.5em;
+  gap: 0.5rem;
+  padding: 0.5rem;
   align-items: center;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   background-color: transparent;
   width: 100%;
   position: relative;
@@ -85,7 +85,7 @@
 
 .item .listName {
   font-family: Raleway;
-  font-size: 1em;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -107,15 +107,15 @@
 .item .badge {
   color: var(--c7);
   font-family: Raleway;
-  font-size: 0.5em;
+  font-size: 0.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   position: absolute;
   display: none;
   align-items: center;
-  gap: 0.25em;
-  right: 0.5em;
+  gap: 0.25rem;
+  right: 0.5rem;
   top: auto;
   bottom: auto;
 }
@@ -141,19 +141,19 @@
 .categorias {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .headerItems {
   color: var(--c8);
   font-family: Raleway;
-  font-size: 0.5em;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   display: flex;
   justify-content: space-between;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .headerItems .add {
