@@ -1,16 +1,18 @@
 import style from "./Cadastro.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "./app/alert/Alert";
 
 const Cadastro = () => {
-  const [nome, setNome] = useState();
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-  const [confirmarSenha, setConfirmarSenha] = useState();
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
   const [iterador, setIterador] = useState(0);
-  const [erro, setErro] = useState(null);
-  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState('');
+  const [sucesso, setSucesso] = useState('');
+
+  const navigate = useNavigate();
 
   const images = [
     "/foto1.svg",
@@ -31,6 +33,8 @@ const Cadastro = () => {
       setEmail(email);
       return true;
     } else {
+      setErro("Email inválido.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
@@ -51,23 +55,41 @@ const Cadastro = () => {
       setNome(nome);
       return true;
     } else {
+      setErro("Nome inválido.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
 
   const validarSenha = (senha, tipo) => {
-    // Remover espaços em branco da senha
+    // Verifica se a senha é nula
+    if (!senha) {
+      return false;
+    }
+
+    // Remover espaços em branco no início e no final da senha
     senha = senha.trim();
 
-    // Expressão regular para validar a senha
-    const regexSenha =
-      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&*\(\)_+\-=\[\]\{\};':"\\|,.<>\/?])(?=.{8,})/;
+    // Testa se a senha tem pelo menos 8 caracteres
+    if (senha.length < 8) {
+      setErro("A senha deve ter pelo menos 8 caracteres.");
+      return false;
+    }
 
-    // Testa se a senha é válida
-    if (regexSenha.test(senha)) {
-      tipo === "senha" ? setSenha(senha) : setConfirmarSenha(senha);
+    // Testa se a senha tem pelo menos um número e uma letra
+    const regexSenhaNumero = /[0-9]/;
+    const regexSenhaLetra = /[a-zA-Z]/;
+
+    if (regexSenhaNumero.test(senha) && regexSenhaLetra.test(senha)) {
+      if (tipo === "senha") {
+        setSenha(senha);
+      } else {
+        setConfirmarSenha(senha);
+      }
       return true;
     } else {
+      setErro("A senha deve conter pelo menos um número e uma letra.");
+      setTimeout(() => setErro(null), 5000);
       return false;
     }
   };
@@ -76,10 +98,10 @@ const Cadastro = () => {
     e.preventDefault();
     setErro(null);
 
-    validarSenha(confirmarSenha, "confirmar");
-
     if (senha != confirmarSenha) {
-      return setTimeout(() => setErro("Senha e Confirmar Senha devem ser iguais."), 5000);
+      setErro("Senha e confirmação de senha não coincidem.");
+      setTimeout(() => setErro(null), 5000);
+      return;
     }
 
     const index = Math.floor(Math.random() * images.length);
@@ -93,26 +115,23 @@ const Cadastro = () => {
         img,
         configuracoes: { permiteEmail: true },
       };
-      const response = await fetch(
-        "http://localhost:4000/api/cadastro",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(info),
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
       const data = await response.json();
       if (response.ok) {
         const user = JSON.stringify(data);
-        console.log("Usuário criado", user);
         localStorage.setItem("user", user);
-        setTimeout(() => setSucesso(true), 2000);
-        window.location.replace("/app");
+        setSucesso("Cadastro realizado com sucesso.");
+        setTimeout(() => setSucesso(null), 2000);
+        setTimeout(() => navigate("/app"), 2000);
       } else {
-        setTimeout(() => setErro(data.error || response.statusText || response.status.toString), 5000);
-        setErro(null);
+        setErro(data.error);
+        setTimeout(() => setErro(null), 5000);
       }
     } catch (error) {
       console.log(error);
@@ -136,6 +155,15 @@ const Cadastro = () => {
 
   return (
     <div className={style.cadastro}>
+      {erro && (
+        <Alert tipo={"erro"} conteudo={erro} />
+      )}
+      {sucesso && (
+        <Alert
+          tipo={"sucesso"}
+          conteudo={sucesso}
+        />
+      )}
       <header className={style.header}>
         <Link to={"/"} className={style.brand}>
           <img src="./logo-icon.png" alt="CosmicTasks" className={style.logo} />
@@ -145,7 +173,7 @@ const Cadastro = () => {
         </span>
       </header>
       <div className={style.wrapper}>
-        <form onSubmit={handleSubmit} className={style.form}>
+        <form method="POST" onSubmit={handleSubmit} className={style.form}>
           <p className={style.text}>
             Bem-vindo ao CosmicTasks! <br /> Vamos começar a jornada.
           </p>
@@ -159,6 +187,7 @@ const Cadastro = () => {
               id="nome"
               className={style.input}
               placeholder="Insira seu nome"
+              value={nome}
               onChange={(e) => setNome(e.target.value)}
               required
               autoFocus
@@ -177,6 +206,7 @@ const Cadastro = () => {
               id="email"
               className={style.input}
               placeholder="Insira seu e-mail"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -185,36 +215,35 @@ const Cadastro = () => {
             className={style.inputGroup}
             hidden={iterador >= 2 ? false : true}
           >
-            <label htmlFor={style.senha} className={style.label}>
+            <label htmlFor="senha" className={style.label}>
               Senha
             </label>
             <input
-              type='password'
+              type="password"
               name="senha"
-              id={style.senha}
+              id="senha"
               className={style.input}
               placeholder="Insira sua senha"
+              value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
-              minLength={8}
             />
           </div>
           <div
             className={style.inputGroup}
             hidden={iterador >= 3 ? false : true}
           >
-            <label htmlFor={style.confirmar_senha} className={style.label}>
+            <label htmlFor="confirmar_senha" className={style.label}>
               Confirmar senha
             </label>
             <input
-              type='password'
+              type="password"
               name="confirmar-senha"
-              id={style.confirmar_senha}
+              id="confirmar_senha"
               className={style.input}
               placeholder="Confirme a senha"
               onChange={(e) => setConfirmarSenha(e.target.value)}
               required
-              minLength={8}
             />
           </div>
           <button
@@ -238,14 +267,6 @@ const Cadastro = () => {
             &copy; 2024 CosmicTasks. <br /> Todos os direitos reservados.
           </span>
         </footer>
-        {erro && <Alert tipo={"erro"} conteudo={erro} onClick={() => setErro(null)} />}
-        {sucesso && (
-          <Alert
-            tipo={"sucesso"}
-            conteudo={"Cadastro realizado com sucesso!"}
-            onClick={() => setSucesso(false)}
-          />
-        )}
       </div>
     </div>
   );

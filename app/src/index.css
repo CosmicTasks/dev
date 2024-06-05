@@ -18,7 +18,7 @@
   --c3: #c6c2cc;
   --c4: #b3aeb8;
   --c5: #9f9ba3;
-  --c6: #8B888F;
+  --c6: #8b888f;
   --c7: #77747a;
   --c8: #636166;
   --c9: #4f4e52;
@@ -85,19 +85,26 @@ body {
   font-size: 16px;
 }
 
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
+@media screen and (min-width: 320px) {
+  body {
+    font-size: 14px;
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 16px;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    font-size: 18px;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media screen and (min-width: 1800px) {
+  body {
+    font-size: 20px;
   }
 }

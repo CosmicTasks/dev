@@ -1,5 +1,3 @@
-/* #F3EDFA, #C6C2CC, #F2E5FF, #07001B, #E0C1FF, #8F3AE4, #511ABE */
-
 button {
   outline: none;
   border: none;
@@ -134,17 +132,17 @@ button {
 .btns {
   display: flex;
   gap: 8px;
-  margin-top: 16px; /* Adicionando margem superior para separar os botões */
+  margin-top: 16px; 
 }
 
 .btn {
-  padding: 8px 16px; /* Aumentando o padding para melhorar a aparência dos botões */
-  border-radius: 4px; /* Adicionando borda arredondada aos botões */
+  padding: 8px 16px; 
+  border-radius: 4px; 
   color: var(--c12);
   background-color: var(--c2);
-  font-size: 14px; /* Aumentando o tamanho da fonte dos botões */
-  cursor: pointer; /* Mudando o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease; /* Adicionando uma transição suave para a mudança de cor de fundo */
+  font-size: 14px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
 .btn:hover {

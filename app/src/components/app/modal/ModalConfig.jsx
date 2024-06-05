@@ -14,6 +14,11 @@ function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  const handleLogoutClick = () => {
+    console.log("Logout button clicked");
+    onLogout();
+  };
+
   return (
     <div className={styles.modal}>
       {modalAvatar && <ModalChangeAvatar setModalAvatar={setModalAvatar} />}
@@ -45,7 +50,7 @@ function Modalconfig({ onClose, loggedIn, onLogout, onChangeAvatar }) {
 
         {loggedIn ? (
           <>
-            <button className={styles.logout} onClick={onLogout}>
+            <button className={styles.logout} onClick={handleLogoutClick}>
               <MdLogout size={35} color="#FFF" />
             </button>
           </>
