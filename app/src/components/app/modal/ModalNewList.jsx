@@ -117,10 +117,10 @@ const ModalNewList = ({setShowModalNewList}) => {
         <form className={style.newList} onSubmit={handleSubmit}>
           {tabEmoji === true ? (
             <>
-              <em-emoji id={emoji} size="1em" />
+              <em-emoji id={emoji} size="1rem" />
             </>
           ) : (
-            <UilSquareShape size="1em" color={cor} />
+            <UilSquareShape size="1rem" color={cor} />
           )}
           <input
             type="text"
@@ -172,7 +172,7 @@ const ModalNewList = ({setShowModalNewList}) => {
                   <UilSquareShape
                     onClick={handleCorClick}
                     key={index}
-                    size="1em"
+                    size="1rem"
                     color={color}
                   />
                 ))}

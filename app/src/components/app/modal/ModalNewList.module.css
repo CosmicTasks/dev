@@ -1,5 +1,5 @@
 .modal {
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   background: var(--c1);
   border: 1px solid var(--c12);
   height: fit-content;
@@ -13,16 +13,16 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding: 0.5em;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 
 .newList {
   display: flex;
-  gap: 0.25em;
-  padding: 0.5em;
+  gap: 0.25rem;
+  padding: 0.5rem;
   align-items: center;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   background: var(--c1);
   border: 1px solid var(--c12);
 }
@@ -34,7 +34,7 @@
   border: none;
   color: var(--c12);
   font-family: Raleway;
-  font-size: 1em;
+  font-size: 1rem;
   font-style: normal;
   line-height: normal;
 }
@@ -45,24 +45,24 @@
 
 .btns {
   display: flex;
-  gap: 0.5em;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .btn {
-  padding: 0.5em 0.5em;
+  padding: 0.5rem 0.5rem;
   text-align: center;
-  gap: 0.25em;
+  gap: 0.25rem;
   width: 100%;
   color: var(--c12);
   font-family: Raleway;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   background-color: var(--c1);
   border: 1px solid var(--c12);
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 }
 
 .btn:hover {
@@ -79,7 +79,7 @@
 
 .items {
   width: 100%;
-  padding: 0.25em 0px;
+  padding: 0.25rem 0px;
   display: flex;
   justify-content: space-evenly;
 
