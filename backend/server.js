@@ -38,8 +38,6 @@ app.use("/api/tasks", tasksRoutes);
 
 // Conectar ao banco de dados
 mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   dbName: "cosmic",
 })
   .then(() => {
