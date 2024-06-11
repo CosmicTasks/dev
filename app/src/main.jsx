@@ -32,7 +32,7 @@ import PageTasks from "./components/app/PageTasks.jsx";
 import PageCards from "./components/app/PageCards.jsx";
 import Markdown from "./components/app/markdown/Markdown.jsx";
 import PagePomo from "./components/app/pomo/PagePomo.jsx";
-import PageDash  from "./components/app/dashboard/PageDash.jsx";
+import PageDash from "./components/app/dashboard/PageDash.jsx";
 
 // Contextos
 import { UserContextProvider } from "./context/UserContext.jsx";
@@ -57,16 +57,18 @@ const router = createBrowserRouter([
     path: "app",
     element: (
       <Private>
-        <ListaContextProvider>
-          <TaskContextProvider>
-            <LocalizationProvider
-              dateAdapter={AdapterDayjs}
-              adapterLocale="pt-br"
-            >
-              <App />
-            </LocalizationProvider>
-          </TaskContextProvider>
-        </ListaContextProvider>
+        <UserContextProvider>
+          <ListaContextProvider>
+            <TaskContextProvider>
+              <LocalizationProvider
+                dateAdapter={AdapterDayjs}
+                adapterLocale="pt-br"
+              >
+                <App />
+              </LocalizationProvider>
+            </TaskContextProvider>
+          </ListaContextProvider>
+        </UserContextProvider>
       </Private>
     ),
     children: [
@@ -113,13 +115,13 @@ const router = createBrowserRouter([
         element: <Markdown />,
       },
       {
-        path: 'pomo',
-        element: <PagePomo />
+        path: "pomo",
+        element: <PagePomo />,
       },
       {
-        path: 'dashboard',
-        element: <PageDash />
-      }
+        path: "dashboard",
+        element: <PageDash />,
+      },
     ],
   },
   {
@@ -134,8 +136,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserContextProvider>
-      <RouterProvider router={router} />
-    </UserContextProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
