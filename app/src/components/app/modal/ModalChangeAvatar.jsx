@@ -19,11 +19,21 @@ function ModalChangeAvatar({ onClose, onChangeAvatar, setModalAvatar }) {
         </button>
         <h1>Escolha seu avatar cosmico</h1>
         <div className={styles.avatars}>
-                <button className={styles.avatarIcon}><img src="./foto1.svg"></img></button>
-                <button className={styles.avatarIcon}><img src="./foto2.svg"></img></button>
-                <button className={styles.avatarIcon}><img src="./foto3.svg"></img></button>
-                <button className={styles.avatarIcon}><img src="./foto4.svg"></img></button>
-                <button className={styles.avatarIcon}><img src="./foto5.svg"></img></button>
+          <button className={styles.avatarIcon}>
+            <img src="./foto1.svg"></img>
+          </button>
+          <button className={styles.avatarIcon}>
+            <img src="./foto2.svg"></img>
+          </button>
+          <button className={styles.avatarIcon}>
+            <img src="./foto3.svg"></img>
+          </button>
+          <button className={styles.avatarIcon}>
+            <img src="./foto4.svg"></img>
+          </button>
+          <button className={styles.avatarIcon}>
+            <img src="./foto5.svg"></img>
+          </button>
         </div>
       </div>
     </div>
