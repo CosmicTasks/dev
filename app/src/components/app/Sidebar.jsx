@@ -10,13 +10,15 @@ import {
   UilEnvelope,
   UilSetting,
 } from "@iconscout/react-unicons";
+import { useUserContext } from "../../hooks/useUserContext";
 import Modalconfig from "./modal/ModalConfig"; // Certifique-se de que o caminho está correto
 
 import style from "./Sidebar.module.css";
 
 const Sidebar = () => {
   const [modalOpen, setModalOpen] = useState(false); // Estado para controlar se o modal está aberto ou fechado
-  const userJSON = JSON.parse(localStorage.getItem("user"));
+  const { user } = useUserContext();
+  console.log(user)
 
   // Função para abrir ou fechar o modal
   const toggleModal = () => {
@@ -28,7 +30,16 @@ const Sidebar = () => {
   return (
     <div className={style.sidebar}>
       <div className={style.mainItems}>
-        <div className={style.item}></div>
+        <div className={style.item}>
+          <img
+            src={
+              user.img ||
+              "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
+            }
+            alt="User"
+            className={style.img}
+          />
+        </div>
         <div className={style.item}>
           <NavLink to="tasks/hoje" className={style.link}>
             {({ isActive }) => (
@@ -42,7 +53,10 @@ const Sidebar = () => {
         <div className={style.item}>
           <NavLink to="pomo" className={style.link}>
             {({ isActive }) => (
-              <UilStopwatch size="1.5rem" className={isActive ? style.active : ""} />
+              <UilStopwatch
+                size="1.5rem"
+                className={isActive ? style.active : ""}
+              />
             )}
           </NavLink>
         </div>
@@ -56,14 +70,20 @@ const Sidebar = () => {
         <div className={style.item}>
           <NavLink to="notes" className={style.link}>
             {({ isActive }) => (
-              <UilFileAlt size="1.5rem" className={isActive ? style.active : ""} />
+              <UilFileAlt
+                size="1.5rem"
+                className={isActive ? style.active : ""}
+              />
             )}
           </NavLink>
         </div>
         <div className={style.item}>
           <NavLink to="dashboard" className={style.link}>
             {({ isActive }) => (
-            <UilChartPie size="1.5rem" className={isActive ? style.active : ""} />
+              <UilChartPie
+                size="1.5rem"
+                className={isActive ? style.active : ""}
+              />
             )}
           </NavLink>
         </div>
