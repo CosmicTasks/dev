@@ -18,7 +18,7 @@ app.use(cors({
 // Middlewares
 app.use(express.json());
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  console.log(`${req.method} ${req.path} ${req.originalUrl}`);
   next();
 });
 
