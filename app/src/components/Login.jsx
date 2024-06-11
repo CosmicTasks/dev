@@ -46,14 +46,9 @@ const Login = () => {
   return (
     <div className={style.login}>
       <div className={style.container}>
-        {erro && (
-          <Alert tipo={"erro"} conteudo={erro}/>
-        )}
+        {erro && <Alert tipo={"erro"} conteudo={erro} />}
         {sucesso && (
-          <Alert
-            tipo={"sucesso"}
-            conteudo={"Login realizado com sucesso!"}
-          />
+          <Alert tipo={"sucesso"} conteudo={"Login realizado com sucesso!"} />
         )}
         <div className={style.header}>
           <img src="./logo-icon.png" alt="CosmicTasks" className={style.logo} />
