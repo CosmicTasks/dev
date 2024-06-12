@@ -11,13 +11,14 @@ function App() {
   const { dispatch: userDispatch } = useUserContext();
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-  const userJSON = JSON.parse(localStorage.getItem("user"));
+    const userJSON = JSON.parse(localStorage.getItem("user"));
 
     if (userJSON) {
       setLoggedIn(true);
@@ -40,7 +41,7 @@ function App() {
           }
         );
         const data = await response.json();
-        console.log('pedindo listas')
+        console.log("pedindo listas");
         if (response.ok) {
           listaDispatch({ type: "SET_LISTAS", payload: data });
         } else {
@@ -64,8 +65,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className={style.app}>
+      <div className={`${style.app} ${
+        theme === "light" ? style.light : style.dark
+      }`}>
         <Sidebar />
         <Outlet />
         {showModal && (
@@ -73,10 +75,10 @@ function App() {
             loggedIn={loggedIn}
             onLogout={handleLogout}
             onClose={() => setShowModal(false)}
+            setTheme={setTheme}
           />
         )}
       </div>
-    </div>
   );
 }
 
