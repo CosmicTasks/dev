@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UilSquareShape, UilPen, UilTrash } from "@iconscout/react-unicons";
 import ModalExcluir from "../modal/ModalExcluir";
 import { NavLink } from "react-router-dom";
@@ -27,7 +27,7 @@ const BtnListas = ({ lista, style }) => {
         {lista.emoji ? (
           <em-emoji id={lista.emoji} size="0.9rem" style={{ width: "1rem" }} />
         ) : (
-          <UilSquareShape size="1rem" color={lista.cor} />
+          <UilSquareShape size="1rem" style={{ fill: lista.cor }} />
         )}
         <span className={style.listName}>{lista.nome}</span>
         <span className={style.badge}>

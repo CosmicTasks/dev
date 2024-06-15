@@ -71,8 +71,9 @@
   border-radius: 0.5em;
   padding: 0.5em;
   color: var(--c10);
+  font-family: 'Raleway', sans-serif;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 600;
   width: 100%;
 }
 
@@ -83,7 +84,6 @@
 
 .input::placeholder {
   color: var(--c5);
-  font-weight: normal;
 }
 
 .button {

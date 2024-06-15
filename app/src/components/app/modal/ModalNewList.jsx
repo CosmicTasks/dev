@@ -172,7 +172,7 @@ const ModalNewList = ({setShowModalNewList}) => {
                   <UilSquareShape
                     onClick={handleCorClick}
                     key={index}
-                    size="1rem"
+                    size="1.75rem"
                     color={color}
                   />
                 ))}

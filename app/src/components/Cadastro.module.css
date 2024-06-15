@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: 2rem;
   color: var(--c1);
 }
 
@@ -23,12 +23,12 @@
 
 .logo {
   display: block;
-  width: 4em;
+  width: 4rem;
   height: auto;
 }
 
 .login {
-  font-size: 1em;
+  font-size: 1rem;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
@@ -41,8 +41,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  padding: 2em;
+  gap: 2rem;
+  padding: 2rem;
   align-items: center;
   width: 700px;
   max-width: 100%;
@@ -52,15 +52,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  padding: 2em;
-  border-radius: 1em;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
   max-width: 400px;
   width: 100%;
 
   /* From https://css.glass */
   background: rgba(32, 0, 95, 0.01);
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -79,7 +79,7 @@
 }
 
 .label {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
   color: var(--c3);
@@ -88,11 +88,12 @@
 .input {
   background-color: var(--r11) !important;
   border: 1px solid var(--c6);
-  border-radius: 0.5em;
-  padding: 0.5em;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   color: var(--c1);
-  font-size: 1em;
-  font-weight: 400;
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
   width: 100%;
 }
 .input:focus {
@@ -102,13 +103,12 @@
 
 .input::placeholder {
   color: var(--c6);
-  font-weight: normal;
 }
 
 .eye {
   position: absolute;
-  bottom: 0.5em;
-  right: 0.5em;
+  bottom: 0.5rem;
+  right: 0.5rem;
   cursor: pointer;
 }
 
@@ -116,9 +116,9 @@
   background-color: transparent;
   color: var(--c3);
   border: 1px solid var(--c3);
-  border-radius: 0.5em;
-  padding: 0.5em;
-  font-size: 1em;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -126,9 +126,9 @@
   background-color: var(--a4);
   color: var(--a12);
   border: none;
-  border-radius: 0.5em;
-  padding: 0.5em;
-  font-size: 1em;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -140,12 +140,12 @@
   width: fit-content;
   text-wrap: wrap;
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   color: var(--c5);
 }
 
 @media (max-width: 400px) {
   .form {
-    padding: 1em;
+    padding: 1rem;
   }
 }

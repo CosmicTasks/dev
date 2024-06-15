@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ModalChangeAvatar.module.css";
+import styles from "./modalChangeAvatar.module.css";
 import { IoClose, IoCheckmark } from "react-icons/io5";
 import { useUserContext } from "../../../hooks/useUserContext";
 
