@@ -1,5 +1,5 @@
 .modal {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--c1);
   border: 1px solid var(--c9);
   height: fit-content;
@@ -13,14 +13,14 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 8px;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .wrapper h2 {
   color: var(--c12);
   font-family: Raleway;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -30,7 +30,7 @@
 .wrapper p {
   color: var(--c12);
   font-family: Raleway;
-  font-size: 12px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -39,20 +39,22 @@
 
 .btns {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .btn {
   display: flex;
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 0.25rem;
   width: 100%;
   color: var(--c12);
   background-color: var(--c2);
-  font-size: 12px;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn:hover {
@@ -66,4 +68,17 @@
 
 .excluir:hover {
   background-color: var(--vermelho);
+}
+
+body[data-theme="dark"] .modal {
+  background: var(--r12);
+  border: 1px solid var(--c1);
+}
+
+body[data-theme="dark"] .wrapper h2 {
+  color: var(--c1);
+}
+
+body[data-theme="dark"] .wrapper p {
+  color: var(--c1);
 }
