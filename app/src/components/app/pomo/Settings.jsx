@@ -9,7 +9,7 @@ function Settings(){
     const settingsInfo = useContext(SettingsContext);
     return (
         <div  style={{textAlign:"left"}}>
-            <label>Tempo de concentração: {settingsInfo.workMinutes}:00</label>
+            <label className={style.label}>Tempo de concentração: {settingsInfo.workMinutes}:00</label>
             <ReactSlider  
             className={style.slider}
             thumbClassName={style.thumb}
@@ -19,7 +19,7 @@ function Settings(){
             min={1}
             max={120}
             />
-            <label>Tempo de descanso: {settingsInfo.breakMinutes}:00</label>
+            <label className={style.label}>Tempo de descanso: {settingsInfo.breakMinutes}:00</label>
             <ReactSlider  
             className={style.sliderGreen}
             thumbClassName={style.thumb}
@@ -31,7 +31,7 @@ function Settings(){
             />
 
             <div style={{textAlign:'center', marginTop:'20px'}}>
-            <BackButton onClick={() => settingsInfo.setShowSettings(false)} />
+            <BackButton onClick={() => settingsInfo.setShowSettings(false)} className={style.voltar} />
             </div>
            
         </div>
