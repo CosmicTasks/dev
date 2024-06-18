@@ -33,6 +33,7 @@ const PageTasks = ({ tipo }) => {
       },
       body: JSON.stringify({
         status: "Concluída",
+        dataConclusao: new Date(),
       }),
     });
     if (response.ok) {
