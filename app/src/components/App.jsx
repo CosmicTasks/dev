@@ -12,8 +12,13 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const body = document.querySelector("body");
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    body.setAttribute("data-theme", theme);
+  }, [body, theme]);
 
   const navigate = useNavigate();
 
