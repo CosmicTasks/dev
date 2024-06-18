@@ -31,7 +31,7 @@ const buscarTasks = async (req, res) => {
       const tarefas = await Task.find({
         usuario: id,
         vencimento: { $gte: today, $lt: tomorrow }, // Busca tarefas cujo vencimento seja maior ou igual à data de hoje e menor que a data de amanhã
-        $nor: [{status: "Excluída"}, {status: "Concluída"}], // Não exibe tarefas excluídas e concluídas
+        $nor: [{ status: "Excluída" }, { status: "Concluída" }], // Não exibe tarefas excluídas e concluídas
       }).sort({ vencimento: 1 }); // Ordena as tarefas por data de vencimento
 
       res.status(200).json(tarefas);
@@ -44,7 +44,7 @@ const buscarTasks = async (req, res) => {
     try {
       const tarefas = await Task.find({
         usuario: id,
-        $nor: [{status: "Excluída"}, {status: "Concluída"}], // Não exibe tarefas excluídas
+        $nor: [{ status: "Excluída" }, { status: "Concluída" }], // Não exibe tarefas excluídas
       }).sort({ vencimento: 1 }); // Ordena as tarefas por data de vencimento
 
       res.status(200).json(tarefas);
@@ -58,7 +58,7 @@ const buscarTasks = async (req, res) => {
       const tarefas = await Task.find({
         usuario: id,
         lista: idLista,
-        $nor: [{status: "Excluída"}, {status: "Concluída"}] , // Não exibe tarefas excluídas e concluídas
+        $nor: [{ status: "Excluída" }, { status: "Concluída" }], // Não exibe tarefas excluídas e concluídas
       }).sort({ vencimento: 1 }); // Ordena as tarefas por data de vencimento
       res.status(200).json(tarefas);
     } catch (error) {
@@ -157,10 +157,85 @@ const deletarTask = async (req, res) => {
   }
 };
 
+const buscarTasksConcluidas = async (req, res) => {
+  const { id } = req.params;
+  const { tipo } = req.query;
+
+  const semana = async (id, res) => {
+    try {
+      const today = new Date();
+      const lastWeek = new Date(today);
+      lastWeek.setDate(lastWeek.getDate() - 7);
+      const quantidadeTarefas = [];
+
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(today);
+        day.setDate(day.getDate() - i);
+        const nextDay = new Date(today);
+        nextDay.setDate(nextDay.getDate() - i + 1);
+
+        const tarefas = await Task.find({
+          usuario: id,
+          dataConclusao: { $gte: day, $lt: nextDay },
+          status: "Concluída",
+        });
+
+        quantidadeTarefas.push(tarefas.length);
+
+        if (i === 6) {
+          res.status(200).json(quantidadeTarefas);
+        }
+      }
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  };
+
+  const mes = async (id, res) => {
+    try {
+      const today = new Date();
+      const lastMonth = new Date(today);
+      lastMonth.setMonth(lastMonth.getMonth() - 1);
+      const quantidadeTarefas = [];
+
+      for (let i = 0; i < 30; i++) {
+        const day = new Date(today);
+        day.setDate(day.getDate() - i);
+        const nextDay = new Date(today);
+        nextDay.setDate(nextDay.getDate() - i + 1);
+
+        const tarefas = await Task.find({
+          usuario: id,
+          dataConclusao: { $gte: day, $lt: nextDay },
+          status: "Concluída",
+        });
+
+        quantidadeTarefas.push(tarefas.length);
+
+        if (i === 29) {
+          res.status(200).json(quantidadeTarefas);
+        }
+      }
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
+
+  switch (tipo) {
+    case "semana":
+      return semana(id, res);
+    case "mes":
+      return mes(id, res);
+    default:
+      return semana(id, res);
+  }
+};
+
 module.exports = {
   criarTask,
   buscarTasks,
   buscarTask,
   atualizarTask,
   deletarTask,
+  buscarTasksConcluidas,
 };
