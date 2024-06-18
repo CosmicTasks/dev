@@ -27,6 +27,9 @@ const taskSchema = new mongoose.Schema({
     enum: ["A fazer", "Em andamento", "Concluída", "Atrasada", "Excluída"],
     default: "A fazer",
   },
+  dataConclusao: {
+    type: Date,
+  },
   prioridade: {
     type: Number,
     default: 5,
