@@ -69,11 +69,13 @@ const updateUser = async (req, res) => {
     ...req.body,
   });
 
+  const userUpdated = await User.findById(id);
+
   if (!user) {
     return res.status(404).json({ error: "Usuario não encontrado" });
   }
 
-  res.status(200).json(user);
+  res.status(200).json(userUpdated);
 };
 
 module.exports = { getUsers, getUser, createUser, deleteUser, updateUser };
