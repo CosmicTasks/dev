@@ -23,6 +23,6 @@ router.post("/", veriftToken, createUser);
 router.delete("/:id", veriftToken, deleteUser);
 
 // UPDATE um usuario
-router.patch("/:id", veriftToken, updateUser);
+router.patch("/:id", updateUser);
 
 module.exports = router;
