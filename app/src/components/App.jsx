@@ -61,6 +61,8 @@ function App() {
   const handleLogout = () => {
     console.log("Executing logout...");
     localStorage.removeItem("user");
+    localStorage.removeItem("theme");
+    localStorage.removeItem("anotacao");
     setLoggedIn(false);
     navigate("/login"); // Redirecionar para a página de login
   };
