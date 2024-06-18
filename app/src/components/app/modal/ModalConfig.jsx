@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ModalConfig.module.css";
 import { CiUser } from "react-icons/ci";
 import { IoMoon, IoClose, IoCheckmark } from "react-icons/io5";
@@ -9,12 +9,26 @@ import { useUserContext } from "../../../hooks/useUserContext";
 
 function Modalconfig({ onClose, loggedIn, onLogout }) {
   const { user } = useUserContext();
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [modalAvatar, setModalAvatar] = useState(false);
+
+  const body = document.querySelector("body");
 
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme) {
+      setTheme(localTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    body.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const handleLogoutClick = () => {
     console.log("Logout button clicked");
@@ -23,15 +37,15 @@ function Modalconfig({ onClose, loggedIn, onLogout }) {
 
   return (
     <div className={styles.modal}>
-      {modalAvatar && <ModalChangeAvatar setModalAvatar={setModalAvatar} />}
+      {modalAvatar && <ModalChangeAvatar  setModalAvatar={setModalAvatar} />}
       <div className={styles.modalContent}>
         <div className={styles.top}>
           <button className={styles.close} onClick={onClose}>
-            <IoClose size={25} color="#FFF" />
+            <IoClose size={25} color={theme === 'light' ? "#fff" : "var(--r12)" } />
           </button>
           <h1>Personalize seu perfil</h1>
           <button className={styles.check}>
-            <IoCheckmark size={25} color="#FFF" />
+            <IoCheckmark size={25} color="#fff" />
           </button>
         </div>
         <div className={styles.userInfo}>
