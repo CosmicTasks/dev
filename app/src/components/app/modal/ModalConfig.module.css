@@ -195,3 +195,31 @@ button {
   }
 }
 
+body[data-theme="dark"] {
+  .modal {
+    background-color: var(--r12);
+  }
+
+  .modal h1 {
+    color: var(--r1);
+  }
+
+  .modalContent {
+    background-color: var(--r12);
+  }
+
+  .top {
+    background-color: var(--r12);
+  }
+
+  .close {
+    background-color: var(--r1);
+    svg {
+      fill: var(--r12);
+    }
+  }
+  
+  .userInfo {
+    color: var(--r1);
+  }
+}
