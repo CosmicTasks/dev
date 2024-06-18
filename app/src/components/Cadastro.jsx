@@ -20,9 +20,6 @@ const Cadastro = () => {
     "/foto3.svg",
     "/foto4.svg",
     "/foto5.svg",
-    "/foto6.svg",
-    "/foto7.svg",
-    "/foto8.svg",
   ];
 
   const validarEmail = (email) => {
