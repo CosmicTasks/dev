@@ -1,22 +1,53 @@
 .slider {
-    height: 40px;
-    border: 2px solid var(--r7);
-    border-radius: 20px;
+  height: 40px;
+  border: 2px solid var(--r7);
+  border-radius: 20px;
+  width: 100%;
 }
 
 .thumb {
-    background-color: var(--r7);
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+  background-color: var(--r7);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
 }
 
 .sliderGreen {
-    border: 2px solid var(--r9);
-    height: 40px;
-    border-radius: 20px;
-    .thumb {
-        background-color: var(--r9);
-    }
+  border: 2px solid var(--r9);
+  height: 40px;
+  border-radius: 20px;
+  .thumb {
+    background-color: var(--r9);
+  }
+  width: 100%;
+}
+
+.voltar {
+  border-radius: 0.5rem;
+  background-color: var(--r7);
+  color: var(--c1);
+  padding: 0.5rem 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+body[data-theme="dark"] .slider {
+  border: 2px solid var(--c1);
+}
+
+body[data-theme="dark"] .thumb {
+  background-color: var(--a4);
+}
+
+body[data-theme="dark"] .sliderGreen {
+  border: 2px solid var(--c1);
+}
+
+body[data-theme="dark"] .label {
+  color: var(--c1);
 }
