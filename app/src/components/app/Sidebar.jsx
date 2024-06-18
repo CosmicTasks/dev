@@ -87,14 +87,8 @@ const Sidebar = () => {
             )}
           </NavLink>
         </div>
-        <div className={style.item}>
-          <UilSearch size="1.5rem" color="var(--r1)" />
-        </div>
       </div>
       <div className={style.secondaryItems}>
-        <div className={style.item}>
-          <UilEnvelope size="1.5rem" color="var(--r1)" />
-        </div>
         <div className={style.item} onClick={toggleModal}>
           <UilSetting size="1.5rem" color="var(--r1)" />
         </div>
