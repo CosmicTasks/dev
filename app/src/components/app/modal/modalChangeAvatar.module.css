@@ -90,11 +90,45 @@
 }
 
 .avatarIcon.active {
-  border: 2px solid #8f3ae4;
+  background-color: #8f3ae4;
 }
 
 .avatarIcon img {
   width: 4rem;
   height: 4rem;
+  border-radius: 100%;
+}
+
+body[data-theme="dark"] .modal {
+  background: var(--r12);
+}
+
+body[data-theme="dark"] .modalContent {
+  background: var(--r12);
+}
+
+body[data-theme="dark"] .top h1 {
+  color: var(--r1);
+}
+
+body[data-theme="dark"] .close {
+  background-color: var(--r1);
+  svg {
+    fill: var(--r12);
+  }
+}
+
+body[data-theme="dark"] .avatarIcon {
+  background-color: #e0c1ff;
+  border: 1px solid #8f3ae4;
+  border-radius: 100%;
+  padding: 1rem;
+}
+
+body[data-theme="dark"] .avatarIcon.active {
+  background-color: #8f3ae4;
+}
+
+body[data-theme="dark"] .avatarIcon img {
   border-radius: 100%;
 }
