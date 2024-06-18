@@ -163,3 +163,41 @@
 .accordion {
   cursor: pointer;
 }
+
+body[data-theme="dark"] .secSidebar {
+  background-color: var(--r11);
+  box-shadow: 1px 0px 0px 0px var(--c1);
+}
+
+body[data-theme="dark"] .item {
+  color: var(--c1);
+}
+
+body[data-theme="dark"] .item > svg {
+  fill: var(--c1);
+}
+
+body[data-theme="dark"] .item.active {
+  background-color: var(--r12);
+}
+
+body[data-theme="dark"] .item.active > svg {
+  fill: var(--c1);
+}
+
+body[data-theme="dark"] .item:hover {
+  background-color: var(--r12);
+  color: var(--c1);
+}
+
+body[data-theme="dark"] .item:hover > svg {
+  fill: var(--c1);
+}
+
+body[data-theme="dark"] .divider {
+  color: var(--c1);
+}
+
+body[data-theme="dark"] .headerItems {
+  color: var(--c4);
+}
