@@ -2,3 +2,7 @@
   display: flex;
   background-color: var(--c1);
 }
+
+body[data-theme="dark"] .app {
+  background-color: var(--r11);
+}
