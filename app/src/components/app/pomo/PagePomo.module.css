@@ -5,14 +5,25 @@
 
 .pagePomo {
   display: flex;
+  width: 100%;
 }
 
 .pomoBody {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 0px 0px 0px var(--c3);
+}
+
+.pomoBody > div {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  height: 25rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
@@ -20,13 +31,38 @@
   color: var(--c5);
   border: 0;
   display: inline-block;
-  width: 60px;
+  width: 5rem;
   cursor: pointer;
 }
 
-label {
+.label {
   display: block;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  text-transform:capitalize ;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  text-transform: capitalize;
+}
+
+.divAnotacoes {
+  width: 50%;
+  display: flex;
+  color: var(--c12);
+}
+
+.anotacao {
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border: none;
+  cursor: text;
+  color: inherit;
+  padding: 1rem;
+  outline: none;
+}
+
+body[data-theme="dark"] .button {
+  color: var(--c1);
+}
+
+body[data-theme="dark"] .anotacao {
+  color: var(--c1);
 }
