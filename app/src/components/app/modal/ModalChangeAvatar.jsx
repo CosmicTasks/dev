@@ -7,8 +7,12 @@ function ModalChangeAvatar({ setModalAvatar }) {
   const { user, dispatch } = useUserContext();
   const [avatar, setAvatar] = useState(user.img);
 
-  const handleAvatarChange = (avatar) => {
+  const handleAvatarChange = (e, avatar) => {
     setAvatar(avatar);
+    e.currentTarget.parentNode.childNodes.forEach((element) => {
+      element.classList.remove(styles.active);
+    });
+    e.currentTarget.classList.add(styles.active);
   };
 
   const handleSaveAvatar = async () => {
@@ -50,53 +54,53 @@ function ModalChangeAvatar({ setModalAvatar }) {
         <div className={styles.avatars}>
           <button
             className={
-              user.pic === "/foto1.svg"
+              user.img === "/foto1.svg"
                 ? `${styles.avatarIcon} ${styles.active}`
                 : styles.avatarIcon
             }
-            onClick={() => handleAvatarChange("/foto1.svg")}
+            onClick={(e) => handleAvatarChange(e,"/foto1.svg")}
           >
             <img src="/foto1.svg"></img>
           </button>
           <button
             className={
-              user.pic === "/foto2.svg"
+              user.img === "/foto2.svg"
                 ? `${styles.avatarIcon} ${styles.active}`
                 : styles.avatarIcon
             }
-            onClick={() => handleAvatarChange("/foto2.svg")}
+            onClick={(e) => handleAvatarChange(e,"/foto2.svg")}
           >
-            <img src="./foto2.svg"></img>
+            <img src="/foto2.svg"></img>
           </button>
           <button
             className={
-              user.pic === "/foto3.svg"
+              user.img === "/foto3.svg"
                 ? `${styles.avatarIcon} ${styles.active}`
                 : styles.avatarIcon
             }
-            onClick={() => handleAvatarChange("/foto3.svg")}
+            onClick={(e) => handleAvatarChange(e,"/foto3.svg")}
           >
-            <img src="./foto3.svg"></img>
+            <img src="/foto3.svg"></img>
           </button>
           <button
             className={
-              user.pic === "/foto4.svg"
+              user.img === "/foto4.svg"
                 ? `${styles.avatarIcon} ${styles.active}`
                 : styles.avatarIcon
             }
-            onClick={() => handleAvatarChange("/foto4.svg")}
+            onClick={(e) => handleAvatarChange(e,"/foto4.svg")}
           >
-            <img src="./foto4.svg"></img>
+            <img src="/foto4.svg"></img>
           </button>
           <button
             className={
-              user.pic === "/foto5.svg"
+              user.img === "/foto5.svg"
                 ? `${styles.avatarIcon} ${styles.active}`
                 : styles.avatarIcon
             }
-            onClick={() => handleAvatarChange("/foto5.svg")}
+            onClick={(e) => handleAvatarChange(e, "/foto5.svg")}
           >
-            <img src="./foto5.svg"></img>
+            <img src="/foto5.svg"></img>
           </button>
         </div>
       </div>
