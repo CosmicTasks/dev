@@ -148,10 +148,6 @@ const PageTasks = ({ tipo }) => {
               {tipoNome ? tipoNome : lista ? lista.nome : "Tarefas"}
             </h1>
           </div>
-          <div className={style.gridSettings}>
-            <UilSlidersV size="1rem"/>
-            <UilGrid size="1rem"/>
-          </div>
         </div>
         <div className={style.taskWrapper}>
           {tasks &&
