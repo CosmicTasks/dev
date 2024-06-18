@@ -5,6 +5,7 @@ const {
   buscarTask,
   atualizarTask,
   deletarTask,
+  buscarTasksConcluidas,
 } = require('../controllers/taskController.js');
 
 const router = express.Router();
@@ -14,5 +15,6 @@ router.get('/:id', buscarTasks);
 router.get('/:id', buscarTask);
 router.put('/:id', atualizarTask);
 router.delete('/:id', deletarTask);
+router.get('/dash/:id', buscarTasksConcluidas);
 
 module.exports = router;
