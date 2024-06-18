@@ -1,31 +1,35 @@
-import PropTypes from 'prop-types';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import PlayButton from './PlayButton';
-import PauseButton from './PauseButton';
-import SettingsButton from './SettingsButton';
-import { useContext, useState, useEffect, useRef } from 'react';
-import SettingsContext from './SettingsContext';
+import PropTypes from "prop-types";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import PlayButton from "./PlayButton";
+import PauseButton from "./PauseButton";
+import SettingsButton from "./SettingsButton";
+import { useContext, useState, useEffect, useRef } from "react";
+import SettingsContext from "./SettingsContext";
 
-const Timer = ({estilo}) => {
-  const settingsInfo = useContext(SettingsContext)
+const Timer = ({ estilo }) => {
+  const settingsInfo = useContext(SettingsContext);
 
   const [isPaused, setIsPaused] = useState(true);
-  const [mode, setMode] = useState('trabalho');
+  const [mode, setMode] = useState("trabalho");
   const [secondsLeft, setSecondsLeft] = useState(0);
 
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
 
+  const theme = localStorage.getItem("theme");
+
   function switchMode() {
-    const nextMode = modeRef.current === 'work' ? 'break' : 'work';
-    const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
+    const nextMode = modeRef.current === "work" ? "break" : "work";
+    const nextSeconds =
+      (nextMode === "work"
+        ? settingsInfo.workMinutes
+        : settingsInfo.breakMinutes) * 60;
     setMode(nextMode);
     modeRef.current = nextMode;
     setSecondsLeft(nextSeconds);
     secondsLeftRef.current = nextSeconds;
-
   }
 
   function tick() {
@@ -37,10 +41,10 @@ const Timer = ({estilo}) => {
     setSecondsLeft(settingsInfo.workMinutes * 60);
   }
 
-  useEffect (() => {
+  useEffect(() => {
     initTimer();
 
-    const interval =  setInterval(() => {
+    const interval = setInterval(() => {
       if (isPausedRef.current) {
         return;
       }
@@ -50,41 +54,69 @@ const Timer = ({estilo}) => {
       }
 
       tick();
-
     }, 1000);
 
     return () => clearInterval(interval);
-  },  [settingsInfo]);
+  }, [settingsInfo]);
 
-  const totalSeconds = mode === 'work' ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
-  const percentage = Math.round(secondsLeft / totalSeconds * 100) ;
+  const totalSeconds =
+    mode === "work"
+      ? settingsInfo.workMinutes * 60
+      : settingsInfo.breakMinutes * 60;
+  const percentage = Math.round((secondsLeft / totalSeconds) * 100);
 
   const minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
-  if (seconds < 10) seconds = '0' + seconds;
-
+  if (seconds < 10) seconds = "0" + seconds;
 
   return (
     <div>
-      <CircularProgressbar value={percentage} text={minutes + ':' + seconds} styles={buildStyles({
-        textColor: "var(--r7)",
-        pathColor: mode === 'work' ? "var(--r10)" : "var(--r7)",
-        trailColor: "var(--c5)",
-      })} />
-      <div style={{marginTop: '20px'}}>
-        {isPaused ? 
-        <PlayButton onClick={() => {setIsPaused(false); isPausedRef.current = false;}} className={estilo.button} /> :
-        <PauseButton onClick={() => {setIsPaused(true); isPausedRef.current = true;}} className={estilo.button} />}
-        
-        
-        <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} className={estilo.button} />
+      <CircularProgressbar
+        value={percentage}
+        text={minutes + ":" + seconds}
+        styles={buildStyles({
+          textColor: theme === "light" ? "var(--r7)" : "var(--r1)",
+          pathColor:
+            mode === "work"
+              ? theme === "light"
+                ? "var(--r10)"
+                : "var(--r7)"
+              : theme === "light"
+              ? "var(--r7)"
+              : "var(--a7)",
+          trailColor: theme === "light" ? "var(--c5)" : "var(--c1)",
+        })}
+      />
+      <div style={{ marginTop: "20px" }}>
+        {isPaused ? (
+          <PlayButton
+            onClick={() => {
+              setIsPaused(false);
+              isPausedRef.current = false;
+            }}
+            className={estilo.button}
+          />
+        ) : (
+          <PauseButton
+            onClick={() => {
+              setIsPaused(true);
+              isPausedRef.current = true;
+            }}
+            className={estilo.button}
+          />
+        )}
+
+        <SettingsButton
+          onClick={() => settingsInfo.setShowSettings(true)}
+          className={estilo.button}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
 Timer.propTypes = {
-  estilo: PropTypes.object.isRequired
-}
+  estilo: PropTypes.object.isRequired,
+};
 
-export default Timer
+export default Timer;
