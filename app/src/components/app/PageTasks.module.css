@@ -112,3 +112,46 @@
   font-weight: 400;
   line-height: normal;
 }
+
+body[data-theme="dark"] .taskBody {
+  box-shadow: 1px 0px 0px 0px var(--c1);
+}
+
+body[data-theme="dark"] .switchSidebarContainer > svg {
+  fill: var(--r1);
+}
+
+body[data-theme="dark"] .listTitle {
+  color: var(--r1);
+}
+
+body[data-theme="dark"] .gridSettings > * {
+  fill: var(--r1);
+}
+
+body[data-theme="dark"] .task {
+  border: 1px solid var(--r1);
+}
+
+body[data-theme="dark"] .task:hover {
+  background-color: var(--r12);
+}
+
+body[data-theme="dark"] .taskCheck {
+  svg {
+    fill: var(--r1);
+  }
+  color: var(--r1);
+}
+
+body[data-theme="dark"] .taskNome {
+  color: var(--r1);
+}
+
+body[data-theme="dark"] .taskOptionsLista {
+  color: var(--r1);
+}
+
+body[data-theme="dark"] .taskOptionsData {
+  color: var(--azul-piscina);
+}
